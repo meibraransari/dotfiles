@@ -1,14 +1,14 @@
-# Shell dotfiles
+# Ibrar Ansari Dotfiles
 
-These are my shell configuration dotfiles mostly for backup purposes.
+These are my shell configuration dotfiles which provide me power of automation using keyboard shortcuts and reduce time on terminal related to relevant tasks.
 
-## Setup
+## Setup instruction
 
 The project requires you to set up a directory named `dotfiles` under `~/bin`.
 
 	mkdir ~/bin
 	cd ~/bin
-	git clone git://github.com/bmuschko/dotfiles.git
+	git clone https://github.com/meibraransari/dotfiles.git
 
 In your home directory create the file `.bashrc` with the following content:
 
