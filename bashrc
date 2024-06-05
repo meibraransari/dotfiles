@@ -12,3 +12,4 @@
 . ~/bin/dotfiles/git/completion
 . ~/bin/dotfiles/proxmox/proxmox
 . ~/bin/dotfiles/linux/bashcompletion
+. ~/bin/dotfiles/kubernetes/kubernetes

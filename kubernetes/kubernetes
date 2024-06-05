@@ -1,0 +1,227 @@
+###################
+### Kubernetes ####
+###################
+
+function kc_load () {
+mkdir -p $HOME/.kube
+sudo cp -a /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+}
+
+#------------------------------ Usage ----------------------------------#
+function kchlp ()
+{
+cat << 'EOF'
+Type kc [TAB][TAB] for auto completion....
+k       ='kubectl'
+kc      ='kubectl'
+kcg     ='kubectl get'
+kcd     ='kubectl describe'
+kcl     ='kubectl logs'
+kcci    ='kubectl cluster-info'
+kcgn    ='kubectl get node -o wide'
+kcgs    ='kubectl get service -o wide'
+kcgr    ='kubectl get rs -o wide | more'
+kcgd    ='kubectl get deployment -o wide'
+kcgp    ='kubectl get pod -o wide'
+kcga    ='kubectl get all -o wide | more'
+kcgaa   ='kubectl get all --all-namespaces -o wide | more'
+kcgns   ='kubectl get namespaces  -o wide | more'
+kcsec   ='kubectl get secrets'
+kcgcm   ='kubectl get configmaps'
+kcgev   ='kubectl get events --all-namespaces'
+kcdp    ='kubectl describe pod'
+kcds    ='kubectl describe service'
+kcdd    ='kubectl describe deployment'
+kcdr    ='kubectl describe rs | more'
+kcaf    ='kubectl apply -f'
+kcdf    ='kubectl delete -f'
+kclf    ='kubectl logs --tail=200  -f'
+kcar    ='kubectl api-resources | more' # list resources name and kind
+kcav    ='{ kubectl explain $1 | head -n 2; } # Find API version'
+kcge    ='kubectl get $1 $2 -o yaml | more; } # Examine object'
+kces    ='kubectl edit $1 $2; } # Edit object'
+
+EOF
+}
+
+#------------------------------ Alias ----------------------------------#
+# need to add
+# kubectl config view
+# kubectl get secret
+# https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+# kubectl
+export KUBE_EDITOR='vim'
+alias k='kubectl'
+alias kc='kubectl'
+alias kcg='kubectl get'
+alias kcd='kubectl describe'
+alias kcl='kubectl logs'
+alias kcci='kubectl cluster-info'
+alias kcar='kubectl api-resources | more' # list resources name and kind
+function kcav() { kubectl explain $1 | head -n 2; } # Find API version
+function kcsl() { kubectl get $1 --show-labels; } # Show labels
+#alias kcav='kubectl explain | head -n 2' # Find API version
+
+# Get
+alias kcga='kubectl get all -o wide | more'
+alias kcgns='kubectl get namespaces  -o wide | more'
+alias kcgaa='kubectl get all --all-namespaces -o wide | more'
+alias kcgn='kubectl get nodes -o wide | more'
+alias kcgp='kubectl get pod -o wide | more'
+alias kcgs='kubectl get service -o wide'
+alias kcgr='kubectl get rs -o wide | more'
+alias kcgd='kubectl get deployment -o wide | more'
+alias kcgcm='kubectl get configmaps'
+alias kcsec='kubectl get secrets'
+alias kcgev='kubectl get events --all-namespaces'
+
+# Describe
+alias kcdp='kubectl describe pod | more'
+alias kcds='kubectl describe service | more'
+alias kcdd='kubectl describe deployment | more'
+alias kcdr='kubectl describe rs | more'
+
+# Apply
+alias kcaf='kubectl apply -f'
+alias kcdf='kubectl delete -f'
+# Log
+alias kclf='kubectl logs --tail=200  -f'
+
+# Edit Service
+function kcge() { kubectl get $1 $2 -o yaml | more; } # Examine object
+function kces() { kubectl edit $1 $2; } # Edit object
+#function kces() { kubectl edit svc/@1; } # Edit Service
+
+#------------------------------ Small Function ----------------------------------#
+function kcfp() { kubectl get pod -o wide| grep $@; }
+function kcfs() { kubectl get service -o wide| grep $@; } 
+function kcfd() { kubectl get deployment -o wide | grep $@; }
+function kcxsh() { kubectl exec -ti $@ sh; }
+function kcxbash() { kubectl exec -ti $@ bash; }
+function hl() { helm list $@; }
+function hh() { helm history $(helm list -q $@); }
+function gcm() { kubectl get configmap $@ -o yaml; }
+function kclfl() { kubectl logs --tail=$@  -f; }
+function kcph() { kubectl exec -ti $@ -- sh -c 'apk -q update; apk add -q curl jq; curl localhost:8080/__health | jq'; }
+
+#------------------------------ Big Function ----------------------------------#
+function kcpf() { 
+	result=$(kubectl get pod | grep -m1 $@)
+        exitCode=$?
+        if [ ! "$exitCode" -eq 0 ]; then
+	 	echo "Could not find pod matching [$@]."
+	 	return 1;	
+	fi
+        podName=$(echo $result | awk '{print $1}')
+	echo "Forwarding port 8080 of $podName to local port 8080"
+	kubectl port-forward $podName 8080:8080
+}
+function kclfa() {
+	result=($(kubectl get pod | grep $@))
+	exitCode=$?
+        if [ ! "$exitCode" -eq 0 ]; then
+                echo "Could not find pod matching [$@]."
+                return 1;       
+        fi
+	read -n 1 -p "Press any key for logs of ${result[0]} and ${result[5]}"
+	(kubectl logs --tail=10 -f ${result[0]} & kubectl logs --tail=10 -f ${result[5]} &) | tee
+}
+function kclff(){
+	result=($(kubectl get pod | grep $1))
+        exitCode=$?
+        if [ ! "$exitCode" -eq 0 ]; then
+                echo "Could not find pod matching [$@]."
+                return 1;
+        fi
+	echo "Showing logs for ${result[0]}"
+	kubectl logs --tail=200 -f ${result[0]}
+}
+function kcops(){
+	kubectl proxy &
+	docker run -it --net=host hjacobs/kube-ops-view &
+	xdg-open http://localhost:8080 &
+} 
+
+function kcstop() {
+	echo "Stopping $1"
+	desired_replicas=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].spec.replicas}');
+	kubectl scale --replicas=0 deployments/$1;
+	current_replicas=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].status.availableReplicas}')
+	while [ ! -z "$current_replicas" ]; do
+                sleep 1;
+                current_replicas=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].status.availableReplicas}')
+        done;
+	echo "Stopped [$desired_replicas] instances of $1."
+	return $desiredReplicas
+}
+function kcstart() {
+	echo "Scaling deployment $1 up to $2 replicas...";
+        kubectl scale --replicas=$2 deployments/$1;
+        if [ "$3" == "skipCheck" ]; then
+                echo "Skipping healthchecks"
+                return
+        fi
+        default_sleep=10
+        initial_sleep=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].spec.template.spec.containers[0].readinessProbe.initialDelaySeconds}')
+        initial_sleep=${initial_sleep:-10}
+        echo "Waiting $initial_sleep seconds for the first readiness probe check..."
+        sleep $initial_sleep
+        period_sleep=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].spec.template.spec.containers[0].readinessProbe.periodSeconds}')
+        period_sleep=${period_sleep:-10}
+        while [ "$current_replicas" != "$2" ]; do
+                echo "Waiting $period_sleep seconds until checking the node count"
+                sleep $period_sleep
+                current_replicas=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].status.availableReplicas}')
+                current_replicas=${current_replicas:-0}
+                echo "Current nr of replicas: $current_replicas"
+        done;
+        echo "$1 restarted"
+}
+function kcres() {
+	echo "Scaling $1"
+	desired_replicas=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].spec.replicas}');
+	echo "Desired nf or replicas: $desired_replicas";
+        echo "Scaling deployment $1 down to 0 replicas...";
+        kubectl scale --replicas=0 deployments/$1;
+	current_replicas=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].status.availableReplicas}')
+	while [ ! -z "$current_replicas" ]; do
+		sleep 1;
+	        current_replicas=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].status.availableReplicas}')
+	done;
+	echo "Scaling deployment $1 up to $desired_replicas replicas...";
+	kubectl scale --replicas=$desired_replicas deployments/$1;
+	if [ "$2" == "skipCheck" ]; then
+		echo "Skipping healthchecks"
+		return
+	fi
+
+	default_sleep=10
+	initial_sleep=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].spec.template.spec.containers[0].readinessProbe.initialDelaySeconds}')
+	initial_sleep=${initial_sleep:-10}
+	echo "Waiting $initial_sleep seconds for the first readiness probe check..."
+        sleep $initial_sleep
+  	period_sleep=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].spec.template.spec.containers[0].readinessProbe.periodSeconds}')
+	period_sleep=${period_sleep:-10}
+	while [ "$current_replicas" != "$desired_replicas" ]; do
+		echo "Waiting $period_sleep seconds until checking the node count"
+		sleep $period_sleep
+		current_replicas=$(kubectl get deployments --selector=app=$1 -o jsonpath='{$.items[0].status.availableReplicas}')
+                current_replicas=${current_replicas:-0}
+                echo "Current nr of replicas: $current_replicas"
+        done;
+	echo "$1 restarted"
+}
+function kcgnt() { for machine in $(kcgn | tail -n +2 | awk '{ print $1 }' ); do echo -n "${machine}: "; echo $(kc describe node $machine | grep -i "node-role\|role="); done | sort -k 2; }
+function kcstat() {
+	for node in  $(kubectl get nodes | tail -n +2 | awk '{print $1}'); do 
+		echo $node
+		echo -e "$(kubectl describe node $node | grep -A 4 "Allocated resources")\n";
+	done
+}
+function kcready() {
+        for node in  $(kubectl get nodes | tail -n +2 | awk '{print $1}'); do
+                echo $node
+                echo -e "$(kubectl describe node $node | grep  "Ready")\n";
+        done
+}
