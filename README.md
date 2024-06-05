@@ -1,4 +1,4 @@
-# Ibrar Ansari Dotfiles
+# Dotfiles (Ibrar Ansari)
 
 These are my configuration dotfiles which provide me the power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
