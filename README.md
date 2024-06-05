@@ -1,6 +1,6 @@
 # Ibrar Ansari Dotfiles
 
-These are my shell configuration dotfiles which provide me power of automation using keyboard shortcuts and reduce time on terminal related to relevant tasks.
+These are my configuration dotfiles which provide me power of automation using keyboard shortcuts and reduce time on terminal related to relevant tasks.
 
 ## Setup instruction
 
