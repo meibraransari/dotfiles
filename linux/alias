@@ -29,11 +29,11 @@ alias versions="python --version && ruby -v && rails -v && node --version && mon
 alias rm='rm -i'  
 alias lsn='stat -c "%A %a %U %G %s %n" *'
 alias ls='ls -hp'
-alias ll='ls -alshp'
-alias lll='pwd && ls -alshtrin --time-style=long-iso'
-alias la='ls -la'
-alias l='ls -CF'
-alias cll="clear; ls -lAh"
+alias ll='ls -alshp --color=auto'
+alias lll='pwd && ls -alshtrin --color=auto --time-style=long-iso'
+alias la='ls -la --color=auto'
+alias l='ls -CF --color=auto'
+alias cll="clear; ls -lAh --color=auto"
 alias ..='cd ../'                           # Go back 1  level
 alias .2='cd ../../'                        # Go back 2  levels
 alias .3='cd ../../../'                     # Go back 3  levels
