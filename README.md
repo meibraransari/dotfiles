@@ -26,6 +26,11 @@ In your home directory create the file `.bash_profile` with the following conten
 	fi
 	EOF
 
+Load profile with the below command:
+
+	source ~/.bash_profile
+
+ 
 ## Features
 
 ### Power 💪🏽 of keyboard shortcuts
