@@ -9,9 +9,13 @@ The project requires you to set up a directory named `dotfiles` under `~/bin`.
 	mkdir ~/bin && 	cd ~/bin
 	git clone https://github.com/meibraransari/dotfiles.git
 
-In your home directory create the file `.bashrc` with the following content:
+In your home directory create/update the file `.bashrc` with the following content:
 
+```
+    cat << EOF >> ~/.bashrc
     . ~/bin/dotfiles/bashrc
+    EOF
+```
 
 In your home directory create the file `.bash_profile` with the following content:
 
