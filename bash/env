@@ -1,0 +1,15 @@
+export EDITOR="mate -w"
+
+# Development
+export JAVA_ROOT=/System/Library/Frameworks/JavaVM.framework/Versions
+export DEV_HOME=~/dev
+export DEV_PROJECTS=$DEV_HOME/projects
+export DEV_TOOLS=$DEV_HOME/tools
+export GROOVY_HOME=$DEV_TOOLS/groovy
+export GRAILS_HOME=$DEV_TOOLS/grails
+export GRADLE_HOME=$DEV_TOOLS/gradle
+
+export PATH=$PATH:~/bin
+export PATH=$PATH:$GROOVY_HOME/bin
+export PATH=$PATH:$GRAILS_HOME/bin
+export PATH=$PATH:$GRADLE_HOME/bin
