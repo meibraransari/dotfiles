@@ -10,7 +10,6 @@
 . ~/bin/dotfiles/linux/sshserver
 . ~/bin/dotfiles/linux/systeminfo
 . ~/bin/dotfiles/linux/trash
-. ~/bin/dotfiles/git/completion
 . ~/bin/dotfiles/proxmox/proxmox
 . ~/bin/dotfiles/linux/bashcompletion
 . ~/bin/dotfiles/kubernetes/kubernetes
