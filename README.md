@@ -11,7 +11,7 @@ The project requires you to set up a directory named `dotfiles` under `~/bin`.
 In your home directory create/update the file `.bashrc` with the following content:
 
 
-	grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc || echo '. ~/bin/dotfiles/bashrc' >> ~/.bashrc
+	grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc || echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
 
 
 In your home directory create the file `.bash_profile` with the following content:
