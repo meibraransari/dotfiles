@@ -2,7 +2,7 @@
 
 These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
-## 👉 Setup instruction
+## 👉 Installation Instruction
 
 The project requires you to set up a directory named `dotfiles` under `~/bin`.
 
@@ -22,6 +22,10 @@ Load profile with the below command:
 
 	source ~/.bash_profile
 
+## 👉 Update Instruction
+
+	cd ~/bin/dotfiles && git pull
+ 
 ## Uninstall
 
 	cd /tmp && rm -rf  ~/bin && sed -i '/\. ~\/bin\/dotfiles\/bashrc/d' ~/.bashrc && source ~/.bash_profile
