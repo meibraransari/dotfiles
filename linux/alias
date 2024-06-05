@@ -24,6 +24,7 @@ function topmemo {
 }
 
 alias na='nano -A -cilmS' 
+alias nano='nano -A -cilmS' 
 alias py='python3' 
 alias versions="python --version && ruby -v && rails -v && node --version && mongo --version && postgres --version"
 alias rm='rm -i'  
