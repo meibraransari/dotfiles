@@ -1,6 +1,6 @@
 # Ibrar Ansari Dotfiles
 
-These are my configuration dotfiles which provide me power of automation using keyboard shortcuts and reduce time on terminal related to relevant tasks.
+These are my configuration dotfiles which provide me the power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
 ## Setup instruction
 
@@ -26,3 +26,10 @@ In your home directory create the file `.vimrc` with the following content:
 	source ~/bin/dotfiles/vimrc
 
 
+### 💼 Connect with me 👇👇 😊
+
+- 🔥 [**Youtube**](https://www.youtube.com/@DevOpsinAction?sub_confirmation=1)
+- ✍ [**Blog**](https://ibraransari.blogspot.com/)
+- 💼 [**LinkedIn**](https://www.linkedin.com/in/ansariibrar/)
+- 👨‍💻 [**Github**](https://github.com/meibraransari?tab=repositories)
+- 💬 [**Telegram**](https://t.me/DevOpsinActionTelegram)
