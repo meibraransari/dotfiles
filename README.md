@@ -18,12 +18,7 @@ In your home directory create/update the file `.bashrc` with the following conte
 
 In your home directory create the file `.bash_profile` with the following content:
 
-	cat << EOF >> ~/.bash_profile
-	if [ -f ~/.bashrc ];
-	then
-	    source ~/.bashrc
-	fi
-	EOF
+	grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile || echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
 
 Load profile with the below command:
 
