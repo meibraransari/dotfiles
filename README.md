@@ -38,6 +38,8 @@ In your home directory create the file `.vimrc` with the following content:
 - ✔ [Vim](https://www.vim.org/)
 
 
+> Feel free to fork this repository for future updates!
+
 ### 💼 Connect with me 👇👇 😊
 
 - 🔥 [**Youtube**](https://www.youtube.com/@DevOpsinAction?sub_confirmation=1)
