@@ -6,8 +6,7 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 The project requires you to set up a directory named `dotfiles` under `~/bin`.
 
-	mkdir ~/bin
-	cd ~/bin
+	mkdir ~/bin && 	cd ~/bin
 	git clone https://github.com/meibraransari/dotfiles.git
 
 In your home directory create the file `.bashrc` with the following content:
