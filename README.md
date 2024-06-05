@@ -24,7 +24,7 @@ Load profile with the below command:
 
 ## 👉 Update Instruction
 
-	cd ~/bin/dotfiles && git pull
+	cd ~/bin/dotfiles && git pull && source ~/.bash_profile
  
 ## Uninstall
 
