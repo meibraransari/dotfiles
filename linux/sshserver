@@ -1,0 +1,13 @@
+#=======================================
+#     SSH Server
+#=======================================
+
+# SSH Login to home network
+function s () { 
+ ssh $1@192.168.1.$2
+}
+
+# SSH Login to Office network
+function so () { 
+ ssh $1@192.168.192.$2
+}

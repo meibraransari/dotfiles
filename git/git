@@ -1,0 +1,106 @@
+
+alias gitstats='git-stats'
+alias gits='git status -s'
+alias gita='git add -A && git status -s'
+alias gitcom='git commit -am'
+alias gitacom='git add -A && git commit -am'
+alias gitc='git checkout'
+alias gitcm='git checkout master'
+alias gitcd='git checkout development'
+alias gitcgh='git checkout gh-pages'
+alias gitb='git branch'
+alias gitcb='git checkout -b'
+alias gitdb='git branch -d'
+alias gitDb='git branch -D'
+alias gitdr='git push origin --delete'
+alias gitf='git fetch'
+alias gitr='git rebase'
+alias gitp='git push -u'
+alias gitpl='git pull'
+alias gitfr='git fetch && git rebase'
+alias gitfrp='git fetch && git rebase && git push -u'
+alias gitpo='git push -u origin'
+alias gitpom='git push -u origin master'
+alias gitphm='git push heroku master'
+alias gitm='git merge'
+alias gitmd='git merge development'
+alias gitmm='git merge master'
+alias gitcl='git clone'
+alias gitclr='git clone --recursive'
+alias gitamend='git commit --amend'
+alias gitundo='git reset --soft HEAD~1'
+alias gitm2gh='git checkout gh-pages && git merge master && git push -u && git checkout master'
+alias gitrao='git remote add origin'
+alias gitrso='git remote set-url origin'
+alias gittrack='git update-index --no-assume-unchanged'
+alias gituntrack='git update-index --assume-unchanged'
+alias gitpls='git submodule foreach git pull origin master'
+alias gitremoveremote='git rm -r --cached'
+alias gitcount="git shortlog -sne"
+alias gitlog="git log --oneline"
+alias gitlog-full="git log --graph --abbrev-commit --decorate --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)'"
+alias gitlog-changes="git log --oneline --decorate --stat --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)'"
+gitdbr() { git branch -d "$@" && git push origin --delete "$@"; }
+gitupstream() { git branch --set-upstream-to="$@"; }
+gitreset() {
+    if [ -z "$1" ]; then
+        while true; do
+            read -ep 'Reset to HEAD? [y/N] ' response
+            case $response in
+                [Yy]* )
+                    bash -c 'git reset --hard HEAD'
+                    break;;
+                * )
+                    echo 'Skipped resetting to HEAD...'
+                    break;;
+            esac
+        done
+    else
+        while true; do
+            read -ep "Reset to $1? [y/N] " response
+            case $response in
+                [Yy]* )
+                    bash -c "git reset --hard $1"
+                    break;;
+                * )
+                    echo "Skipped resetting to $1..."
+                    break;;
+            esac
+        done
+    fi
+}
+
+gitrinse() {
+    if [[ "$1" == "all" ]]; then
+        while true; do
+            read -ep "Are you sure you want to gitrinse this repo and it's submodules? [y/N] " response
+            case $response in
+                [Yy]* )
+                    git clean -xfd;
+                    git submodule foreach --recursive git clean -xfd;
+                    git reset --hard;
+                    git submodule foreach --recursive git reset --hard;
+                    git submodule update --init --recursive;
+                    break;;
+                * )
+                    echo "Skipped gitrinse..."
+                    break;;
+            esac
+        done
+    else
+        while true; do
+            read -ep "Are you sure you want to gitrinse this repo's submodules? [y/N] " response
+            case $response in
+                [Yy]* )
+                    git submodule foreach --recursive git clean -xfd;
+                    git submodule foreach --recursive git reset --hard;
+                    git submodule update --init --recursive;
+                    break;;
+                * )
+                    echo "Skipped gitrinse..."
+                    break;;
+            esac
+        done
+    fi
+
+}

@@ -1,4 +1,14 @@
-. ~/bin/dotfiles/bash/env
-. ~/bin/dotfiles/bash/config
-. ~/bin/dotfiles/bash/aliases
+. ~/bin/dotfiles/docker/docker
+. ~/bin/dotfiles/git/git
+. ~/bin/dotfiles/linux/alias
+. ~/bin/dotfiles/linux/colours
+. ~/bin/dotfiles/linux/env
+. ~/bin/dotfiles/linux/firewall
+. ~/bin/dotfiles/linux/install
+. ~/bin/dotfiles/linux/permission
+. ~/bin/dotfiles/linux/sshserver
+. ~/bin/dotfiles/linux/systeminfo
+. ~/bin/dotfiles/linux/trash
 . ~/bin/dotfiles/git/completion
+. ~/bin/dotfiles/proxmox/proxmox
+. ~/bin/dotfiles/linux/bashcompletion

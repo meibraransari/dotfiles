@@ -1,0 +1,57 @@
+#=======================================
+#     Manage UFW Firewall
+#=======================================
+ufw_hlp() {
+	echo "ufw_list = sudo ufw status numbered"
+	echo "ufw_add = ufw_add 80 "HTTP traffic""
+	echo "ufw_remove = sudo ufw delete 5"
+	echo "ufw_delete = sudo ufw delete 3"
+    echo "ufw_blockip = sudo ufw deny from '192.168.192.220'"
+    echo "ufw_blockport = sudo ufw deny port 80"
+	echo "ufw_enable = sudo ufw enable"
+	echo "ufw_disable = sudo ufw disable"
+}
+
+# Function to list all ufw rules
+ufw_list() {
+    #sudo ufw status verbose
+    sudo ufw status numbered
+}
+
+# Function to add a ufw rule
+ufw_add() {
+    # sudo ufw allow $1
+    echo "ufw_add 80 HTTP traffic"
+    sudo ufw allow $1 comment $2
+}
+
+# Function to remove a ufw rule
+ufw_remove() {
+    sudo ufw delete $1
+}
+
+# Function to remove a ufw rule
+ufw_blockip() {
+    sudo ufw deny from $1
+}
+
+# Function to remove a ufw rule
+ufw_blockport() {
+    sudo ufw deny port $1
+}
+
+
+# Function to remove a ufw rule
+ufw_delete() {
+    sudo ufw delete $1
+}
+
+# Function to enable ufw
+ufw_enable() {
+    sudo ufw enable
+}
+
+# Function to disable ufw
+ufw_disable() {
+    sudo ufw disable
+}

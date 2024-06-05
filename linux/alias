@@ -1,0 +1,92 @@
+
+###################
+###### Linux ######
+###################
+unset GREP_OPTIONS
+unalias docs &> /dev/null # unalias any alias
+alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
+alias home='clear && cd ~ && ll'
+alias downloads='clear && cd ~/Downloads && ll'  
+alias c='clear'
+alias h=" history "
+alias su="sudo -i"
+alias susu="sudo bash"
+alias shutdown="sudo shutdown -h now"
+alias restart="init 6"
+alias topcpu='ps -eo pcpu,args --sort=-pcpu | head -n 50 | awk '"'"'{printf("%13.2f%%\t", $1); print $2}'"'"''
+alias topmem='ps -eo "rss,args" --sort=-rss | head -n 50 | awk "{hr=\$1/1024; printf(\"%13.2fM\t\", hr); print \$2}"'
+alias topfile='du -hsx * | sort -nr | head -n 20'
+function topmemo {
+  if ! command -v smem &> /dev/null; then
+    sudo apt install smem
+  fi
+  smem -t -k -c pss -P $1 | tail -n 1
+}
+
+alias na='nano -A -cilmS' 
+alias py='python3' 
+alias versions="python --version && ruby -v && rails -v && node --version && mongo --version && postgres --version"
+alias rm='rm -i'  
+alias lsn='stat -c "%A %a %U %G %s %n" *'
+alias ls='ls -hp'
+alias ll='ls -alshp'
+alias lll='pwd && ls -alshtrin --time-style=long-iso'
+alias la='ls -la'
+alias l='ls -CF'
+alias cll="clear; ls -lAh"
+alias ..='cd ../'                           # Go back 1  level
+alias .2='cd ../../'                        # Go back 2  levels
+alias .3='cd ../../../'                     # Go back 3  levels
+alias .4='cd ../../../../'                  # Go back 4  levels
+alias .5='cd ../../../../../'               # Go back 5  levels
+alias .6='cd ../../../../../../'            # Go back 6  levels
+alias back='cd -'
+alias ~='cd ~'
+alias o='open'
+alias trash='safe_rm'
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+#alias grep='grep -H -n'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias cwd='pwd | tr -d "\r\n" | pbcopy' #copy working directory
+alias p="pwd"
+alias h='history'
+alias ppath="echo $PATH | tr ':' '\n'" #print path
+alias untar="tar -xvf"
+alias rtags="find . -name '*.rb' | xargs /usr/bin/ctags -R -a -f TAGS"
+alias settimezone='timedatectl set-timezone Asia/Kolkata && timedatectl'
+alias make1mb=' mkfile 1m ./1MB.dat '         # make1mb:      Creates a file of 1mb size (all zeros)
+alias make5mb=' mkfile 5m ./5MB.dat '         # make5mb:      Creates a file of 5mb size (all zeros)
+alias make10mb=' mkfile 10m ./10MB.dat '      # make10mb:     Creates a file of 10mb size (all zeros)
+alias getsshkey="pbcopy < ~/.ssh/id_rsa.pub"  
+alias ch='cat /dev/null > ~/.bash_history && history -c'
+alias myip='curl ifconfig.me'
+alias netstats='netstat -tulpan | grep LISTEN'
+alias ps='ps -u $USER'
+alias ifconfig='ifconfig -a'
+alias logs='tail -f /var/log/*.log'
+alias service='systemctl list-units --type=service'
+alias bootlog='dmesg'
+alias hardware='lshw'
+alias net='ss -s'
+alias snaplist='snap refresh --list'
+alias snaplist='snap refresh'
+alias svcrunn='systemctl --type service --state running'
+alias svcrunni='systemctl list-units --all --type=service --no-pager | grep running'
+alias svclist='systemctl --type=service list-unit-files'
+alias update="sudo apt-get update -y"
+alias upgrade="sudo apt-get dist-upgrade -y && sudo aptitude safe-upgrade"
+alias clean="sudo apt-get autoremove -y && sudo apt-get clean -y && sudo apt-get autoclean -y && sudo apt-get -f install -y && sudo dpkg --configure -a && sudo journalctl --rotate && sudo journalctl --vacuum-size=0"
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell
+
+# This will ensure that multiple line commands stay together in your history.
+shopt -s cmdhist

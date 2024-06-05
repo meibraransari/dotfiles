@@ -1,0 +1,16 @@
+###################
+### bash-completion
+###################
+bash_completion () {
+if ! dpkg -l | grep -q bash-completion; then sudo apt-get install -y bash-completion; fi
+#echo "source <(kubectl completion bash)" >> ~/.bashrc
+#echo "source /etc/profile.d/bash_completion.sh" >> ~/.bashrc
+source <(kubectl completion bash)
+source /etc/profile.d/bash_completion.sh
+source  ~/.bashrc
+}
+bash_completion
+
+## Tab improvements
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'

@@ -1,0 +1,27 @@
+###################
+###### Info ######
+###################
+
+function systeminfo() {
+    echo ""
+    echo "###### Linux Information ######"
+    uname -a
+    echo ""
+    echo "###### java Version ######"
+    java -version
+    echo ""
+    reinit
+}
+
+info() {
+    echo "Check Failed Login Attempts"
+    cat /var/log/auth.log | grep "Failed password"
+    
+    echo -e "\nSystem-related Error and Information Messages:"
+    cat /var/log/syslog | grep -E "error|warning|info"
+
+    echo -e "\nSystem Information:"
+    last -n 5  # Show last 5 logins
+    uptime     # Display system uptime
+    df -h      # Show disk space usage
+}

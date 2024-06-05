@@ -1,0 +1,41 @@
+#=======================================
+#     Set Permission
+#=======================================
+# Permission
+# 644() {
+#   find "$@" -type f -exec chmod 644 {} \;
+#   find "$@" -type d -exec chmod 644 {} \;
+# }
+# 664() {
+#   find "$@" -type f -exec chmod 664 {} \;
+#   find "$@" -type d -exec chmod 664 {} \;
+# }
+# 755() {
+#   find "$@" -type f -exec chmod 755 {} \;
+#   find "$@" -type d -exec chmod 755 {} \;
+# }
+# 775() {
+#   find "$@" -type f -exec chmod 775 {} \;
+#   find "$@" -type d -exec chmod 775 {} \;
+# }
+# 777() {
+#   find "$@" -type d -exec chmod 777 {} \;
+#   find "$@" -type f -exec chmod 777 {} \;
+# }
+
+set_permissions() {
+    permission=$1
+    shift
+    for i in "$@"
+    do
+        if [ -d "$i" ] 
+        then
+            chmod "$permission" "$i"
+        elif [ -f "$i" ]
+        then
+            chmod "$permission" "$i"
+        else
+            echo "The file or folder '$i' does not exist."
+        fi
+    done
+}

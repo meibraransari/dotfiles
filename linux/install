@@ -1,0 +1,10 @@
+#=======================================
+#     Install app
+#=======================================
+
+install() {
+    sudo apt install "$@" -y
+}
+install_basic() {
+    sudo apt install -y vim nano tldr zip unzip vim jq screen htop atop iotop sysstat ioping tcptrack traceroute dnsutils pinfo speedtest-cli net-tools iptraf iptraf-ng ncdu gdu aptitude
+}

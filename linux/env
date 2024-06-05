@@ -1,8 +1,12 @@
-export EDITOR="mate -w"
+#=======================================
+#     Manage ENV
+#=======================================
+
+export EDITOR="nano -l"
 
 # Development
-export JAVA_ROOT=/System/Library/Frameworks/JavaVM.framework/Versions
-export DEV_HOME=~/dev
+#export JAVA_ROOT=
+export DEV_HOME=/ansari
 export DEV_PROJECTS=$DEV_HOME/projects
 export DEV_TOOLS=$DEV_HOME/tools
 export GROOVY_HOME=$DEV_TOOLS/groovy

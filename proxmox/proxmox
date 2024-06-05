@@ -1,0 +1,33 @@
+
+###################
+### Proxmox ####
+###################
+
+lxc () {
+    echo lxc-ls
+    echo lxc-ls -f
+    echo lxc-attach
+    echo lxc-autostart
+    echo lxc-cgroup
+    echo lxc-checkconfig
+    echo lxc-checkpoint
+    echo lxc-config
+    echo lxc-console
+    echo lxc-copy
+    echo lxc-create
+    echo lxc-destroy
+    echo lxc-device
+    echo lxc-execute
+    echo lxc-freeze
+    echo lxc-info
+    echo lxc-monitor
+    echo lxc-snapshot
+    echo lxc-start
+    echo lxc-stop
+    echo lxc-top
+    echo lxc-unfreeze
+    echo lxc-unshare
+    echo lxc-update-config
+    echo lxc-usernsexec
+    echo lxc-wait
+}

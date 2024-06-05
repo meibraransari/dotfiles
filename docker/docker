@@ -1,0 +1,87 @@
+
+###################
+##    Docker     ##
+###################
+
+function add_users_to_docker_group() {
+  # Get a list of all manually created users
+  users=$(awk -F':' '$3 >= 1000 && $1 != "nobody" { print $1 }' /etc/passwd)
+  # Loop through the list of users
+  for user in $users; do
+    # Add the user to the "docker" group
+    sudo usermod -aG docker $user
+  done
+}
+
+install_docker() {
+    cd /tmp/ && curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo groupadd docker
+    add_users_to_docker_group
+    sudo systemctl enable docker
+    sudo systemctl restart docker
+    echo ""
+    echo "Reboot required so, kindly reboot system"
+}
+
+alias dps="docker ps -a"
+alias dpi='clear >$(tty) && echo -e "List of running containers" && docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Image}}\t{{.Names}}"'
+alias dpp='clear >$(tty) && docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
+alias dpia='clear >$(tty) && docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}\t{{.Image}}\t{{.Command}}\{{.RunningFor}}\{{.Status}}"'
+alias dpl="docker pull $1"
+alias dis="docker images"
+alias drn="docker run -itd $1 $2"
+alias dsp="docker stop $1"
+alias dspa='docker stop $(docker ps -aq)'
+alias dst="docker start $1"
+alias drt="docker restart $1"
+alias dre="docker rename $1"
+alias dls="docker logs -fn 20 $1"
+alias drm="docker rm $1 -f"
+alias dri="docker rmi $1 -f"
+alias dit="docker inspect $1"
+alias dvl="docker volume ls"
+alias dsd="docker system df -v"
+alias dss="docker stats"
+alias drs='docker rm $(docker ps -q -f status=exited) -f'
+alias dhy="docker history $1"
+alias ddi='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+alias durn="docker update --restart=no $1"
+alias dura="docker update --restart=always $1"
+alias dcr="docker ps -aq | xargs docker inspect --format '{{.Name}} Restart: {{ .HostConfig.RestartPolicy.Name }}'"
+
+dec() {
+  docker exec -it "$@" bash
+}
+
+decx() {
+  docker exec -it "$@" sh
+}
+
+dhp() {
+	echo "dpl = docker pull"
+	echo "dis = docker images"
+	echo "drn = docker run -itd 2=name 2=image"
+	echo "dps = docker ps -a"
+	echo "dpi = Formatted by Ibrar"
+	echo "dpp = Formatted ports"
+	echo "dsp = docker stop"
+    echo "dspa = docker stop All"
+    echo "dst = docker start"
+	echo "drt = docker restart"
+	echo "dre = docker rename"
+	echo "dec = docker exec -it"
+	echo "dls = docker logs"
+	echo "drm = docker rm -f"
+	echo "dri = docker rmi -f"
+	echo "dit = docker inspect"
+	echo "dvl = docker volume ls"
+	echo "dss = docker stats"
+    echo "dsd = docker system df -v #==> Check disk space used by docker"
+	echo "drs = docker rm $(docker ps -q -f status=exited)"
+	echo "dhy = docker history"
+	echo "ddi = docker rmi $(docker images --filter "dangling=true" -q --no-trunc)"
+	echo "durn = docker update --restart=no <Container>"
+    echo "dura = docker update --restart=always <Container>"
+    echo "dcr = docker inspect restart policy"
+}
