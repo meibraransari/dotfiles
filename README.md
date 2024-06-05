@@ -1,4 +1,4 @@
-# Dotfiles (Ibrar Ansari)
+# 📌 Dotfiles (Ibrar Ansari)
 
 These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
@@ -29,14 +29,14 @@ In your home directory create the file `.vimrc` with the following content:
 
 ### Power 💪🏽 of keyboard shortcuts
 
-* ✔ bash (latest version)
-* [git](http://git-scm.com/)
-* [Linux](https://www.linux.org/)
-* [bash-completion](http://bash-completion.alioth.debian.org/)
-* [Docker](https://www.docker.com/)
-* [Kubernetes](https://kubernetes.io/)
-* [Proxmox](https://www.proxmox.com/en/)
-* [Vim](https://www.vim.org/)
+✔ bash (latest version)
+✔ [git](http://git-scm.com/)
+✔ [Linux](https://www.linux.org/)
+✔ [bash-completion](http://bash-completion.alioth.debian.org/)
+✔ [Docker](https://www.docker.com/)
+✔ [Kubernetes](https://kubernetes.io/)
+✔ [Proxmox](https://www.proxmox.com/en/)
+✔ [Vim](https://www.vim.org/)
 
 
 ### 💼 Connect with me 👇👇 😊
