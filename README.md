@@ -1,8 +1,8 @@
 # Dotfiles (Ibrar Ansari)
 
-These are my configuration dotfiles which provide me the power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
+These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
-## Setup instruction
+## 👉 Setup instruction
 
 The project requires you to set up a directory named `dotfiles` under `~/bin`.
 
@@ -27,9 +27,9 @@ In your home directory create the file `.vimrc` with the following content:
 
 ## Features
 
-### Power of keyboard shortcuts
+### Power 💪🏽 of keyboard shortcuts
 
-* bash (latest version)
+* ✔ bash (latest version)
 * [git](http://git-scm.com/)
 * [Linux](https://www.linux.org/)
 * [bash-completion](http://bash-completion.alioth.debian.org/)
