@@ -25,6 +25,19 @@ In your home directory create the file `.vimrc` with the following content:
 
 	source ~/bin/dotfiles/vimrc
 
+## Features
+
+### Power of keyboard shortcuts
+
+* bash (latest version)
+* [git](http://git-scm.com/)
+* [Linux](https://www.linux.org/)
+* [bash-completion](http://bash-completion.alioth.debian.org/)
+* [Docker](https://www.docker.com/)
+* [Kubernetes](https://kubernetes.io/)
+* [Proxmox](https://www.proxmox.com/en/)
+* [Vim](https://www.vim.org/)
+
 
 ### 💼 Connect with me 👇👇 😊
 
