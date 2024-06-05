@@ -13,4 +13,4 @@
 . ~/bin/dotfiles/proxmox/proxmox
 . ~/bin/dotfiles/linux/bashcompletion
 . ~/bin/dotfiles/kubernetes/kubernetes
-. ~/bin/dotfiles/vim/vimrc
+#. ~/bin/dotfiles/vim/vimrc
