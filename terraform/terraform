@@ -1,0 +1,12 @@
+#=======================================
+#     Terraform
+#=======================================
+
+alias t='terraform'
+alias ti='terraform init'
+alias tget='terraform get'
+alias tplan='terraform plan'
+alias tapply='terraform apply'
+alias tdestroy='terraform destroy'
+alias tshow='terraform show'
+alias toutput='terraform output'

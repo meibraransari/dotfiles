@@ -14,4 +14,5 @@
 . ~/bin/dotfiles/linux/bashcompletion
 . ~/bin/dotfiles/kubernetes/kubernetes
 . ~/bin/dotfiles/ansible/ansible
+. ~/bin/dotfiles/terraform/terraform
 #. ~/bin/dotfiles/vim/vimrc
