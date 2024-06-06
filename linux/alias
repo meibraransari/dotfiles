@@ -5,7 +5,7 @@
 unset GREP_OPTIONS
 unalias docs &> /dev/null # unalias any alias
 alias reload='source ~/.bash_profile && source ~/.bashrc'
-alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
+export HISTTIMEFORMAT="%d/%m/%y %T "'
 alias home='clear && cd ~ && ll'
 alias downloads='clear && cd ~/Downloads && ll'  
 alias c='clear'
