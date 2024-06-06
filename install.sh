@@ -13,8 +13,6 @@ echo -e " ${GREEN}${BOLD}#======================================================
 echo -e " ${GREEN}${BOLD}#        Dotfiles installation is in progress....         #${NOCOLOR}"
 echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
 
-# Create directory if it doesn't exist and clone dotfiles repository
-mkdir -p ~/bin && cd ~/bin && git clone https://github.com/meibraransari/dotfiles.git
 
 # Check if the line '. ~/bin/dotfiles/bashrc' exists in ~/.bashrc, if not, append it
 if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc; then
