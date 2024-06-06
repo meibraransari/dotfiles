@@ -4,8 +4,6 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 ## 👉 Installation Instruction
 
-The project requires you to set up a directory named `dotfiles` under `~/bin`.
-
 	mkdir -p ~/bin && cd ~/bin && git clone https://github.com/meibraransari/dotfiles.git
  	bash ~/bin/dotfiles/install.sh
 
