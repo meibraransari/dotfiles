@@ -4,6 +4,7 @@
 ###################
 unset GREP_OPTIONS
 unalias docs &> /dev/null # unalias any alias
+alias reload='source ~/.bash_profile && source ~/.bashrc'
 alias mc='. /usr/share/mc/bin/mc-wrapper.sh'
 alias home='clear && cd ~ && ll'
 alias downloads='clear && cd ~/Downloads && ll'  
