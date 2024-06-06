@@ -14,7 +14,7 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 	uninstall_dotfiles
  
-## Features
+## ✨ Features
 
 ### Power 💪🏽 of keyboard shortcuts
 
