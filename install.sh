@@ -36,6 +36,8 @@ if [ $? -eq 0 ]
 then
     #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
     echo -e " ${Blue}${BLINK}${BOLD}   Installation done successfully...${NOCOLOR}"
+echo ""
+
     echo -e " ${GREEN}${BOLD}   		 -:Thanks for using Dotfiles:-		${NOCOLOR}"
 echo ""
 echo ""
