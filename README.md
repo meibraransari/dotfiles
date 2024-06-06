@@ -4,23 +4,8 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 ## 👉 Installation Instruction
 
-The project requires you to set up a directory named `dotfiles` under `~/bin`.
-
 	mkdir -p ~/bin && cd ~/bin && git clone https://github.com/meibraransari/dotfiles.git
-
-In your home directory create/update the file `.bashrc` with the following content:
-
-
-	grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc || echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
-
-
-In your home directory create the file `.bash_profile` with the following content:
-
-	grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile || echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
-
-Load profile with the below command:
-
-	source ~/.bash_profile
+ 	bash ~/bin/dotfiles/install.sh
 
 ## 👉 Update Instruction
 
