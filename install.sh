@@ -34,9 +34,9 @@ cd /tmp
 # Check Deployment status
 if [ $? -eq 0 ]
 then
-    echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
+    #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
     echo -e " ${Blue}${BLINK}${BOLD}   Installation done successfully...${NOCOLOR}"
-    echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
+    #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
 
     
 else
