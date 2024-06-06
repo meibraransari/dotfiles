@@ -95,7 +95,7 @@ shopt -s cdspell
 shopt -s cmdhist
 
 # Update dot files
-alias update_dotfiles='clear >$(tty) && cd ~/bin/dotfiles && git pull && source ~/.bash_profile'
+alias update_dotfiles='clear >$(tty) && cd ~/bin/dotfiles && git pull && cd /tmp/ && source ~/.bash_profile'
 
 # Uninstall dot files
 alias uninstall_dotfiles='clear >$(tty) && cd /tmp && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && bash && source ~/.bash_profile && bash'
