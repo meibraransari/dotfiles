@@ -91,3 +91,9 @@ shopt -s cdspell
 
 # This will ensure that multiple line commands stay together in your history.
 shopt -s cmdhist
+
+# Update dot files
+alias update='cd ~/bin/dotfiles && git pull && source ~/.bash_profile'
+
+# Uninstall dot files
+alias uninstall='cd /tmp && rm -rf  ~/bin && sed -i '/\. ~\/bin\/dotfiles\/bashrc/d' ~/.bashrc && source ~/.bash_profile'
