@@ -24,11 +24,11 @@ Load profile with the below command:
 
 ## 👉 Update Instruction
 
-	cd ~/bin/dotfiles && git pull && source ~/.bash_profile
+	update_dotfiles
  
 ## Uninstall
 
-	cd /tmp && rm -rf  ~/bin && sed -i '/\. ~\/bin\/dotfiles\/bashrc/d' ~/.bashrc && source ~/.bash_profile
+	uninstall_dotfiles
  
 ## Features
 
