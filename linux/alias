@@ -96,4 +96,4 @@ shopt -s cmdhist
 alias update='cd ~/bin/dotfiles && git pull && source ~/.bash_profile'
 
 # Uninstall dot files
-alias uninstall='cd /tmp && rm -rf  ~/bin && sed -i '/\. ~\/bin\/dotfiles\/bashrc/d' ~/.bashrc && source ~/.bash_profile'
+alias uninstall='cd /tmp && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && source ~/.bash_profile'
