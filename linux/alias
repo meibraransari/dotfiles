@@ -19,7 +19,7 @@ alias topmem='ps -eo "rss,args" --sort=-rss | head -n 50 | awk "{hr=\$1/1024; pr
 alias topfile='du -hsx * | sort -nr | head -n 20'
 function topmemo {
   if ! command -v smem &> /dev/null; then
-    sudo apt install smem
+    sudo apt install smem -y
   fi
   smem -t -k -c pss -P $1 | tail -n 1
 }
@@ -99,3 +99,5 @@ alias update_dotfiles='clear >$(tty) && cd ~/bin/dotfiles && git pull && cd /tmp
 
 # Uninstall dot files
 alias uninstall_dotfiles='clear >$(tty) && cd /tmp && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && bash && source ~/.bash_profile && bash'
+
+alias ts='tail -f /var/log/syslog'
