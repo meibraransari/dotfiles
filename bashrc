@@ -1,3 +1,4 @@
+#. ~/bin/dotfiles/vim/vimrc
 . ~/bin/dotfiles/docker/docker
 . ~/bin/dotfiles/git/git
 . ~/bin/dotfiles/linux/ibraransari
@@ -15,4 +16,4 @@
 . ~/bin/dotfiles/kubernetes/kubernetes
 . ~/bin/dotfiles/ansible/ansible
 . ~/bin/dotfiles/terraform/terraform
-#. ~/bin/dotfiles/vim/vimrc
+. ~/bin/dotfiles/htop/htop
