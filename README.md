@@ -18,7 +18,7 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 ### Power 💪🏽 of keyboard shortcuts
 
-- ✔ [git](http://git-scm.com/)
+- ✔ [Git](http://git-scm.com/)
 - ✔ [Linux](https://www.linux.org/)
 - ✔ [bash-completion](http://bash-completion.alioth.debian.org/)
 - ✔ [Docker](https://www.docker.com/)
