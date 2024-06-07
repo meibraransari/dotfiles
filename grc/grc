@@ -6,6 +6,7 @@ function install_grc {
     # Check if grc is installed
     if ! command -v grc &> /dev/null
     then
+        clear >$(tty)
         echo "Grc is not installed. Installing..."
         sudo apt-get update -y #>/dev/null 2>&1
         sudo apt-get install grc -y #>/dev/null 2>&1
@@ -14,6 +15,7 @@ function install_grc {
         [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
         echo "grc installed successfully."
     else
+        clear >$(tty)
         echo "Grc is already installed."
     fi
 }
