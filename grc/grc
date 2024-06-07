@@ -1,6 +1,7 @@
 #=======================================
 #     GRC Colored output
 #=======================================
+function install_grc {
 #!/bin/bash
 # Check if grc is installed
 if ! command -v grc &> /dev/null
@@ -11,4 +12,4 @@ then
     [ -f /etc/default/grc ] && . /etc/default/grc
     [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
 fi
-
+}
