@@ -17,4 +17,4 @@
 . ~/bin/dotfiles/ansible/ansible
 . ~/bin/dotfiles/terraform/terraform
 . ~/bin/dotfiles/htop/htop
-#. ~/bin/dotfiles/grc/grc
+. ~/bin/dotfiles/grc/grc
