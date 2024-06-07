@@ -2,14 +2,18 @@
 #     GRC Colored output
 #=======================================
 function install_grc {
-#!/bin/bash
-# Check if grc is installed
-if ! command -v grc &> /dev/null
-then
-    sudo apt-get update -y #>/dev/null 2>&1
-    sudo apt-get install grc -y #>/dev/null 2>&1
-    sudo sed -i 's/GRC_ALIASES=false/GRC_ALIASES=true/g' /etc/default/grc #>/dev/null 2>&1
-    [ -f /etc/default/grc ] && . /etc/default/grc
-    [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
-fi
+    #!/bin/bash
+    # Check if grc is installed
+    if ! command -v grc &> /dev/null
+    then
+        echo "grc is not installed. Installing..."
+        sudo apt-get update -y #>/dev/null 2>&1
+        sudo apt-get install grc -y #>/dev/null 2>&1
+        sudo sed -i 's/GRC_ALIASES=false/GRC_ALIASES=true/g' /etc/default/grc #>/dev/null 2>&1
+        [ -f /etc/default/grc ] && . /etc/default/grc
+        [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
+        echo "grc installed successfully."
+    else
+        echo "grc is already installed."
+    fi
 }
