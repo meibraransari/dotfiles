@@ -6,9 +6,9 @@ function install_grc {
 # Check if grc is installed
 if ! command -v grc &> /dev/null
 then
-    sudo apt-get update -y >/dev/null 2>&1
-    sudo apt-get install grc -y >/dev/null 2>&1
-    sudo sed -i 's/GRC_ALIASES=false/GRC_ALIASES=true/g' /etc/default/grc >/dev/null 2>&1
+    sudo apt-get update -y #>/dev/null 2>&1
+    sudo apt-get install grc -y #>/dev/null 2>&1
+    sudo sed -i 's/GRC_ALIASES=false/GRC_ALIASES=true/g' /etc/default/grc #>/dev/null 2>&1
     [ -f /etc/default/grc ] && . /etc/default/grc
     [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
 fi
