@@ -6,7 +6,7 @@ unset GREP_OPTIONS
 unalias docs &> /dev/null # unalias any alias
 alias reload='source ~/.bash_profile && source ~/.bashrc'
 export HISTTIMEFORMAT="%d/%m/%y %T   "
-alias home='clear && cd ~ && ll'
+alias home='clear && cd ~ && pwd'
 alias downloads='clear && cd ~/Downloads && ll'  
 alias c='clear'
 alias h=" history "
