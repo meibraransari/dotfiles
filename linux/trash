@@ -28,6 +28,7 @@ trash()
 
                 # Move to the Trash with non-conflicting name
                 mv $file ~/.Trash/$file.$i
+				echo "$file moved to ~/.Trash/$file.$i due it is already exists."
             fi
 
         # Target doesn't exist, return error
