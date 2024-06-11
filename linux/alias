@@ -18,7 +18,7 @@ alias topcpu='ps -eo pcpu,args --sort=-pcpu | head -n 50 | awk '"'"'{printf("%13
 alias topmem='ps -eo "rss,args" --sort=-rss | head -n 50 | awk "{hr=\$1/1024; printf(\"%13.2fM\t\", hr); print \$2}"'
 alias topdisk='iotop -aoP'
 alias topdisk1='iostat -x 1'
-alias topdisk1='iostat -mxy 1'
+alias topdisk2='iostat -mxy 1'
 alias topfile='du -hsx * | sort -nr | head -n 20'
 alias na='nano -A -cilmS' 
 alias nano='nano -A -cilmS' 
