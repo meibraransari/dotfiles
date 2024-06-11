@@ -18,13 +18,15 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 ### Power 💪🏽 of keyboard shortcuts
 
+- ✔ [Docker](https://www.docker.com/)
+- ✔ [Kubernetes](https://kubernetes.io/)
+- ✔ [Terraform](https://www.terraform.io/)
+- ✔ [Ansible](https://www.ansible.com/)
+- ✔ [Proxmox](https://www.proxmox.com/en/)
+- ✔ [Vim](https://www.vim.org/)
 - ✔ [Git](http://git-scm.com/)
 - ✔ [Linux](https://www.linux.org/)
 - ✔ [bash-completion](http://bash-completion.alioth.debian.org/)
-- ✔ [Docker](https://www.docker.com/)
-- ✔ [Kubernetes](https://kubernetes.io/)
-- ✔ [Proxmox](https://www.proxmox.com/en/)
-- ✔ [Vim](https://www.vim.org/)
 
 
 > 📢📢📢 I am continuously updating this repository so feel free to fork this repository for future updates!
