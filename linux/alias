@@ -68,15 +68,15 @@ alias ps='ps -u $USER'
 alias ifconfig='ifconfig -a'
 alias logs='tail -f /var/log/*.log'
 alias ts='tail -f /var/log/syslog'
-alias service='systemctl list-units --type=service'
 alias bootlog='sudo dmesg'
 alias hardware='sudo lshw'
 alias net='ss -s'
 alias snaplist='snap refresh --list'
 alias snapref='snap refresh'
+alias svclist1='systemctl list-units --type=service'
+alias svclist='systemctl --type=service list-unit-files'
 alias svcrunn='systemctl --type service --state running'
 alias svcrunni='systemctl list-units --all --type=service --no-pager | grep running'
-alias svclist='systemctl --type=service list-unit-files'
 alias update="sudo apt-get update -y"
 alias upgrade="sudo apt-get dist-upgrade -y && sudo aptitude safe-upgrade"
 alias clean="sudo apt-get autoremove -y && sudo apt-get clean -y && sudo apt-get autoclean -y && sudo apt-get -f install -y && sudo dpkg --configure -a && sudo journalctl --rotate && sudo journalctl --vacuum-size=0"
