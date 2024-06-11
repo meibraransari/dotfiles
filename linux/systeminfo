@@ -10,7 +10,6 @@ function systeminfo() {
     echo "###### java Version ######"
     java -version
     echo ""
-    reinit
 }
 
 info() {

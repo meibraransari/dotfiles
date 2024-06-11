@@ -2,7 +2,7 @@
 ##    Trash      ##
 ###################
 # Safe rm procedure
-safe_rm()
+trash()
 {
     mkdir -p ~/.Trash/ && chmod 775 ~/.Trash/
     #ln -s ~/.Trash ~/Desktop/Trash
