@@ -26,7 +26,7 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 - ✔ [Vim](https://www.vim.org/)
 - ✔ [Git](http://git-scm.com/)
 - ✔ [Linux](https://www.linux.org/)
-- ✔ [bash-completion](http://bash-completion.alioth.debian.org/)
+- ✔ [Bash-Completion](http://bash-completion.alioth.debian.org/)
 
 
 > 📢📢📢 I am continuously updating this repository so feel free to fork this repository for future updates!
