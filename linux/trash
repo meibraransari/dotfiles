@@ -13,6 +13,7 @@ trash()
             # Target exists and can be moved to Trash safely
             if [ ! -e ~/.Trash/$file ]; then
                 mv $file ~/.Trash
+				echo "$file moved to ~/.Trash"
 
             # Target exists and conflicts with target in Trash
             elif [ -e ~/.Trash/$file ]; then
