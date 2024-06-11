@@ -20,8 +20,8 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 - ✔ [Docker](https://www.docker.com/)
 - ✔ [Kubernetes](https://kubernetes.io/)
-- ✔ [Terraform](https://www.terraform.io/)
 - ✔ [Ansible](https://www.ansible.com/)
+- ✔ [Terraform](https://www.terraform.io/)
 - ✔ [Proxmox](https://www.proxmox.com/en/)
 - ✔ [Vim](https://www.vim.org/)
 - ✔ [Git](http://git-scm.com/)
