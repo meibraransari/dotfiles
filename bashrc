@@ -1,4 +1,4 @@
-#. ~/bin/dotfiles/vim/vimrc
+. ~/bin/dotfiles/vim/vimrc
 . ~/bin/dotfiles/docker/docker
 . ~/bin/dotfiles/git/git
 . ~/bin/dotfiles/linux/ibraransari

@@ -1,3 +1,7 @@
+tee "~/.vimrc" > /dev/null 2>&1 <<EOF
+#=======================================
+#     Vim Configuration
+#=======================================
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
@@ -104,3 +108,6 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+
+EOF
