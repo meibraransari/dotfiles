@@ -1,4 +1,4 @@
-tee "~/.vimrc" > /dev/null 2>&1 <<EOF
+tee "$HOME/.vimrc" > /dev/null 2>&1 <<EOF
 #=======================================
 #     Vim Configuration
 #=======================================
