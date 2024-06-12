@@ -17,7 +17,7 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 # 📌 Dotfiles usage in short (Trailer) 😊
 
-## ✨ For more details click on below link tu understand it full functionality.
+## ✨ For more details click on below link to understand it's full functionality.
 
 > 🟢 Linux:
 ```
