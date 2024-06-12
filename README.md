@@ -19,14 +19,15 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 ### Power 💪🏽 of keyboard shortcuts
 
 - ✔ [Docker](https://github.com/meibraransari/dotfiles/blob/main/docker/docker)
-- ✔ [Kubernetes](https://kubernetes.io/)
-- ✔ [Ansible](https://www.ansible.com/)
-- ✔ [Terraform](https://www.terraform.io/)
-- ✔ [Proxmox](https://www.proxmox.com/en/)
-- ✔ [Vim](https://www.vim.org/)
-- ✔ [Git](http://git-scm.com/)
-- ✔ [Linux](https://www.linux.org/)
+- ✔ [Kubernetes](https://github.com/meibraransari/dotfiles/blob/main/kubernetes/kubernetes)
+- ✔ [Ansible](https://github.com/meibraransari/dotfiles/blob/main/ansible/ansible)
+- ✔ [Terraform](https://github.com/meibraransari/dotfiles/blob/main/terraform/terraform)
+- ✔ [Proxmox](https://github.com/meibraransari/dotfiles/blob/main/proxmox/proxmox)
+- ✔ [Vim](https://github.com/meibraransari/dotfiles/blob/main/vim/vimrc)
+- ✔ [Git](https://github.com/meibraransari/dotfiles/blob/main/git/git)
+- ✔ [Linux](https://github.com/meibraransari/dotfiles/tree/main/linux)
 - ✔ [Bash-Completion](http://bash-completion.alioth.debian.org/)
+- ✔ [GRC](https://github.com/meibraransari/dotfiles/blob/main/grc/grc)
 
 
 > 📢📢📢 I am continuously updating this repository so feel free to fork this repository for future updates!
