@@ -22,7 +22,7 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 - ✔ [Kubernetes](https://github.com/meibraransari/dotfiles/blob/main/kubernetes/kubernetes)
 - ✔ [Ansible](https://github.com/meibraransari/dotfiles/blob/main/ansible/ansible)
 - ✔ [Terraform](https://github.com/meibraransari/dotfiles/blob/main/terraform/terraform)
-- ✔ [Proxmox](https://github.com/meibraransari/dotfiles/blob/main/proxmox/proxmox)
+- ✔ [Proxmox-LXC](https://github.com/meibraransari/dotfiles/blob/main/proxmox/proxmox)
 - ✔ [Vim](https://github.com/meibraransari/dotfiles/blob/main/vim/vimrc)
 - ✔ [Git](https://github.com/meibraransari/dotfiles/blob/main/git/git)
 - ✔ [Linux](https://github.com/meibraransari/dotfiles/tree/main/linux)
