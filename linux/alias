@@ -41,7 +41,7 @@ alias .6='cd ../../../../../../'            # Go back 6  levels
 alias back='cd -'
 alias ~='cd ~'
 alias o='open'
-alias www='cd /var/www/html'
+alias html='cd /var/www/html'
 alias trash='safe_rm'
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
