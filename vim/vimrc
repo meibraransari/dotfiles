@@ -1,7 +1,7 @@
 tee "$HOME/.vimrc" > /dev/null 2>&1 <<EOF
-#=======================================
-#     Vim Configuration
-#=======================================
+"=======================================
+"     Vim Configuration
+"=======================================
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
