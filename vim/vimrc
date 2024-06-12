@@ -4,8 +4,6 @@ tee "$HOME/.vimrc" > /dev/null 2>&1 <<EOF
 "=======================================
 " Use the Solarized Dark theme
 set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
