@@ -114,7 +114,7 @@ vault='ansible-vault edit vars/aws_vault.yml'
 And much more... to see the full features click on Ansible below link.
 ```
 
-### Power 💪🏽 of keyboard shortcuts
+### ⚡️ Power of keyboard ⌨️ shortcuts 💪🏽
 
 - ✔ [Docker](https://github.com/meibraransari/dotfiles/blob/main/docker/docker)
 - ✔ [Kubernetes](https://github.com/meibraransari/dotfiles/blob/main/kubernetes/kubernetes)
