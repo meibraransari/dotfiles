@@ -23,9 +23,10 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 ```
 c='clear'
 p="pwd"
-h=" history"
+h="history"
 hc='history -c'
 home='clear && cd ~ && pwd'
+html='/var/www/html/'
 cll="clear; ls -lAh --color=auto"
 ..='cd ../'                           # Go back 1  level
 .2='cd ../../'                        # Go back 2  levels
