@@ -1,22 +1,29 @@
 
-alias gitstats='git-stats'
-alias gits='git status -s'
-alias gita='git add -A && git status -s'
+#=======================================
+#     Git
+#=======================================
+alias gitv='git --version'
+alias gitpl='git pull'
+alias gitrv='git remote -v'
+alias gitp='git push -u'
+alias gits='git status'
+alias gita='git add -A && git status'
 alias gitcom='git commit -am'
 alias gitacom='git add -A && git commit -am'
 alias gitc='git checkout'
 alias gitcm='git checkout master'
 alias gitcd='git checkout development'
+alias gitcq='git checkout quality'
+alias gitcp='git checkout production'
 alias gitcgh='git checkout gh-pages'
 alias gitb='git branch'
+alias gitc='git checkout'
 alias gitcb='git checkout -b'
 alias gitdb='git branch -d'
 alias gitDb='git branch -D'
 alias gitdr='git push origin --delete'
 alias gitf='git fetch'
 alias gitr='git rebase'
-alias gitp='git push -u'
-alias gitpl='git pull'
 alias gitfr='git fetch && git rebase'
 alias gitfrp='git fetch && git rebase && git push -u'
 alias gitpo='git push -u origin'
@@ -24,6 +31,8 @@ alias gitpom='git push -u origin master'
 alias gitphm='git push heroku master'
 alias gitm='git merge'
 alias gitmd='git merge development'
+alias gitmq='git merge quality'
+alias gitmp='git merge production'
 alias gitmm='git merge master'
 alias gitcl='git clone'
 alias gitclr='git clone --recursive'
@@ -37,9 +46,15 @@ alias gituntrack='git update-index --assume-unchanged'
 alias gitpls='git submodule foreach git pull origin master'
 alias gitremoveremote='git rm -r --cached'
 alias gitcount="git shortlog -sne"
+alias gitst='git stash'
+alias gitstl='git stash list'
+
 alias gitlog="git log --oneline"
+
 alias gitlog-full="git log --graph --abbrev-commit --decorate --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)'"
+
 alias gitlog-changes="git log --oneline --decorate --stat --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)'"
+
 gitdbr() { git branch -d "$@" && git push origin --delete "$@"; }
 gitupstream() { git branch --set-upstream-to="$@"; }
 gitreset() {
