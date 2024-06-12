@@ -31,6 +31,9 @@ set noeol
 "set directory=~/.vim/swaps
 "if exists("&undodir")
 "	set undodir=~/.vim/undo
+"else
+"    " If 'undodir' doesn't exist, set it to a default directory
+"    set undodir=~/.vim/default_undo
 "endif
 
 " Don’t create backups when editing files in certain directories
