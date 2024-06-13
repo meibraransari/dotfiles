@@ -51,4 +51,3 @@ dhp() {
     	echo "dcr = docker inspect restart policy"
 }
 
-alias docker_help="grep 'alias' ~/bin/dotfiles/docker/docker | sed 's/alias //'"

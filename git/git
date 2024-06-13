@@ -48,7 +48,6 @@ alias gitremoveremote='git rm -r --cached'
 alias gitcount="git shortlog -sne"
 alias gitst='git stash'
 alias gitstl='git stash list'
-alias git_help="grep 'alias' ~/bin/dotfiles/git/git | sed 's/alias //'"
 
 alias gitlog="git log --oneline"
 
