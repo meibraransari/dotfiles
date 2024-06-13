@@ -13,6 +13,8 @@ echo -e " ${GREEN}${BOLD}#======================================================
 echo -e " ${GREEN}${BOLD}#        Dotfiles installation is in progress....         #${NOCOLOR}"
 echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
 
+current_dir=$(pwd)
+
 # Check if the line '. ~/bin/dotfiles/bashrc' exists in ~/.bashrc, if not, append it
 if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc; then
     echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
@@ -46,7 +48,7 @@ else
 fi
 
 # Change directory
-cd /tmp
+cd "$current_dir"
 
 # Reload terminal
 bash
