@@ -4,7 +4,7 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 ## 📥 Installation Command.
 
-	mkdir -p ~/bin && cd ~/bin && git clone https://github.com/meibraransari/dotfiles.git && bash ~/bin/dotfiles/install.sh
+	mkdir -p ~/bin/dotfiles && git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles && bash ~/bin/dotfiles/install.sh
 
 ## 🔄 Update Command.
 
