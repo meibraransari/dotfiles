@@ -4,15 +4,14 @@
 ###################
 export HISTTIMEFORMAT="%d/%m/%y %T   "
 unset GREP_OPTIONS
-alias reload='source ~/.bash_profile && source ~/.bashrc'
-alias home='clear && cd ~ && pwd'
-alias downloads='clear && cd ~/Downloads && pwd'  
 alias c='clear'
 alias h=" history"
 alias su="sudo -i"
 alias susu="sudo bash"
 alias shutdown="sudo shutdown -h now"
 alias restart="init 6"
+alias home='clear && cd ~ && pwd'
+alias downloads='clear && cd ~/Downloads && pwd'  
 alias topcpu='ps -eo pcpu,args --sort=-pcpu | head -n 50 | awk '"'"'{printf("%13.2f%%\t", $1); print $2}'"'"''
 alias topmem='ps -eo "rss,args" --sort=-rss | head -n 50 | awk "{hr=\$1/1024; printf(\"%13.2fM\t\", hr); print \$2}"'
 alias topdisk='iotop -aoP'
@@ -83,3 +82,4 @@ alias clean="sudo apt-get autoremove -y && sudo apt-get clean -y && sudo apt-get
 alias vi="vim"
 alias linux_help="grep 'alias' ~/bin/dotfiles/linux/linux | sed 's/alias //'"
 unalias docs &> /dev/null # unalias any alias
+alias reload='source ~/.bash_profile && source ~/.bashrc'
