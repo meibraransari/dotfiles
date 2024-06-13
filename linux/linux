@@ -83,18 +83,3 @@ alias upgrade="sudo apt-get dist-upgrade -y && sudo aptitude safe-upgrade"
 alias clean="sudo apt-get autoremove -y && sudo apt-get clean -y && sudo apt-get autoclean -y && sudo apt-get -f install -y && sudo dpkg --configure -a && sudo journalctl --rotate && sudo journalctl --vacuum-size=0"
 alias vi="vim"
 
-# Case-insensitive globbing (used in pathname expansion)
-#shopt -s nocaseglob
-
-# Autocorrect typos in path names when using `cd`
-#shopt -s cdspell
-
-# This will ensure that multiple line commands stay together in your history.
-#shopt -s cmdhist
-
-# Update dot files
-#alias update_dotfiles='clear >$(tty) && cd ~/bin/dotfiles && git pull && cd /tmp/ && source ~/.bash_profile'
-alias update_dotfiles='current_dir=$(pwd); clear >$(tty) && cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile'
-
-# Uninstall dot files
-alias uninstall_dotfiles='clear >$(tty) && cd /tmp && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && bash && source ~/.bash_profile && bash'

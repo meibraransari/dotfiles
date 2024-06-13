@@ -124,7 +124,7 @@ And much more... to see the full features click on Ansible below link.
 - ✔ [Proxmox-LXC](https://github.com/meibraransari/dotfiles/blob/main/proxmox/proxmox)
 - ✔ [Vim](https://github.com/meibraransari/dotfiles/blob/main/vim/vimrc)
 - ✔ [Git](https://github.com/meibraransari/dotfiles/blob/main/git/git)
-- ✔ [Linux](https://github.com/meibraransari/dotfiles/tree/main/linux)
+- ✔ [Linux](https://github.com/meibraransari/dotfiles/tree/main/linux/linux)
 - ✔ [Bash-Completion](http://bash-completion.alioth.debian.org/)
 - ✔ [GRC](https://github.com/meibraransari/dotfiles/blob/main/grc/grc)
 

@@ -2,7 +2,7 @@
 . ~/bin/dotfiles/docker/docker
 . ~/bin/dotfiles/git/git
 . ~/bin/dotfiles/linux/ibraransari
-. ~/bin/dotfiles/linux/alias
+. ~/bin/dotfiles/linux/linux
 . ~/bin/dotfiles/linux/colours
 . ~/bin/dotfiles/linux/env
 . ~/bin/dotfiles/linux/firewall
