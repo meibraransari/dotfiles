@@ -1,3 +1,4 @@
+
 # 📌 Dotfiles (Ibrar Ansari)
 
 These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
@@ -19,7 +20,7 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 ## ✨ For more details click on below link to understand it's full functionality.
 
-> 🟢 Git:
+## `🔄 Git:` ✔
 ```
 gitv='git --version'
 gitpl='git pull'
@@ -44,7 +45,7 @@ gitmd='git merge development'
 
 And many more... to see the all commands and its usage, use "git_help" command.
 ```
-> 🟢 Linux:
+## `🐧 Linux:` ✔
 ```
 c='clear'
 p="pwd"
@@ -63,7 +64,7 @@ ts='tail -f /var/log/syslog'
 
 And many more... to see the all commands and its usage, use "linux_help" command.
 ```
-> 🟢 Docker:
+## `🐳 Docker:` ✔
 ```
 dpl = docker pull
 dis = docker images
@@ -85,7 +86,7 @@ dss = docker stats
 
 And many more... to see the all commands and its usage, use "docker_help" command.
 ```
-> 🟢 Kubernetes:
+## `☸️ Kubernetes:` ✔
 ```
 k       ='kubectl'
 kc      ='kubectl'
@@ -114,7 +115,7 @@ kclf    ='kubectl logs --tail=200  -f'
 
 And many more... to see the all commands and its usage, use "k8s_help" command.
 ```
-> 🟢 Ansible:
+## `🤖 Ansible:` ✔
 ```
 a='ansible'
 ap='ansible-playbook '
