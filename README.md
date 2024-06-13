@@ -36,7 +36,7 @@ cll="clear; ls -lAh --color=auto"
 .6='cd ../../../../../../'            # Go back 6  levels
 ts='tail -f /var/log/syslog'
 
-And much more... to see the full features click on Linux below link.
+And many more... to see the all commands and its usage, use "linux_help" command.
 ```
 > 🟢 Docker:
 ```
@@ -58,7 +58,7 @@ dit = docker inspect
 dvl = docker volume ls
 dss = docker stats
 
-And much more... to see the full features click on Docker below link.
+And many more... to see the full features click on Docker below link.
 ```
 > 🟢 Kubernetes:
 ```
@@ -87,7 +87,7 @@ kcaf    ='kubectl apply -f'
 kcdf    ='kubectl delete -f'
 kclf    ='kubectl logs --tail=200  -f'
 
-And much more... to see the full features click on Kubernetes below link.
+And many more... to see the full features click on Kubernetes below link.
 ```
 > 🟢 Ansible:
 ```
@@ -112,7 +112,7 @@ agar='ansible-galaxy remove'
 agas='ansible-galaxy search'
 vault='ansible-vault edit vars/aws_vault.yml' 
 
-And much more... to see the full features click on Ansible below link.
+And many more... to see the full features click on Ansible below link.
 ```
 
 ### ⚡️ Power of keyboard ⌨️ shortcuts 💪🏽

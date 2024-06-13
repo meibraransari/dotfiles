@@ -1,5 +1,6 @@
 . ~/bin/dotfiles/vim/vimrc
 . ~/bin/dotfiles/docker/docker
+. ~/bin/dotfiles/docker/docker_install
 . ~/bin/dotfiles/git/git
 . ~/bin/dotfiles/linux/ibraransari
 . ~/bin/dotfiles/linux/linux

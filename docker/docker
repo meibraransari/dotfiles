@@ -1,55 +1,7 @@
-
 ###################
 ##    Docker     ##
 ###################
-function add_users_to_docker_group() {
-  # Get a list of all manually created users
-  users=$(awk -F':' '$3 >= 1000 && $1 != "nobody" { print $1 }' /etc/passwd)
-  # Loop through the list of users
-  for user in $users; do
-    # Add the user to the "docker" group
-    sudo usermod -aG docker $user
-  done
-}
-
-install_docker() {
-    cd /tmp/ && curl -fsSL https://get.docker.com -o get-docker.sh
-    sudo sh get-docker.sh
-    sudo groupadd docker
-    add_users_to_docker_group
-    sudo systemctl enable docker
-    sudo systemctl restart docker
-    echo ""
-    echo "Reboot required so, kindly reboot system"
-}
-
-dhp() {
-	echo "dpl = docker pull"
-	echo "dis = docker images"
-	echo "drn = docker run -itd 2=name 2=image"
-	echo "dps = docker ps -a"
-	echo "dpi = Formatted by Ibrar"
-	echo "dpp = Formatted ports"
-	echo "dsp = docker stop"
-    	echo "dspa = docker stop All"
-   	echo "dst = docker start"
-	echo "drt = docker restart"
-	echo "dre = docker rename"
-	echo "dec = docker exec -it"
-	echo "dls = docker logs"
-	echo "drm = docker rm -f"
-	echo "dri = docker rmi -f"
-	echo "dit = docker inspect"
-	echo "dvl = docker volume ls"
-	echo "dss = docker stats"
-    	echo "dsd = docker system df -v #==> Check disk space used by docker"
-	echo "drs = docker rm $(docker ps -q -f status=exited)"
-	echo "dhy = docker history"
-	echo "ddi = docker rmi $(docker images --filter "dangling=true" -q --no-trunc)"
-	echo "durn = docker update --restart=no <Container>"
-    	echo "dura = docker update --restart=always <Container>"
-    	echo "dcr = docker inspect restart policy"
-}
+alias dv="docker version"
 alias dps="docker ps -a"
 alias dpi='clear >$(tty) && echo -e "List of running containers" && docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Image}}\t{{.Names}}"'
 alias dpp='clear >$(tty) && docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
