@@ -24,6 +24,9 @@ alias reload='source ~/.bash_profile && source ~/.bashrc'
 alias linux_help="grep 'alias' ~/bin/dotfiles/linux/linux | sed 's/alias //'"
 alias docker_help="grep 'alias' ~/bin/dotfiles/docker/docker | sed 's/alias //'"
 alias git_help="grep 'alias' ~/bin/dotfiles/git/git | sed 's/alias //'"
+alias k8s_help="grep 'alias' ~/bin/dotfiles/kubernetes/kubernetes | sed 's/alias //'"
+alias ansible_help="grep 'alias' ~/bin/dotfiles/ansible/ansible | sed 's/alias //'"
+
 
 
 

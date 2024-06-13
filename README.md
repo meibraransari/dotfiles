@@ -19,6 +19,31 @@ These are my configuration dotfiles which provide me the 💪🏽 power of autom
 
 ## ✨ For more details click on below link to understand it's full functionality.
 
+> 🟢 Git:
+```
+gitv='git --version'
+gitpl='git pull'
+gitrv='git remote -v'
+gitp='git push -u'
+gits='git status'
+gitc='git checkout'
+gitb='git branch'
+gitf='git fetch'
+gitr='git rebase'
+gitm='git merge'
+gitcl='git clone'
+gitst='git stash'
+gitstl='git stash list'
+gita='git add -A && git status'
+gitcom='git commit -am'
+gitacom='git add -A && git commit -am'
+gitc='git checkout'
+gitcm='git checkout master'
+gitm='git merge'
+gitmd='git merge development'
+
+And many more... to see the all commands and its usage, use "git_help" command.
+```
 > 🟢 Linux:
 ```
 c='clear'
@@ -58,7 +83,7 @@ dit = docker inspect
 dvl = docker volume ls
 dss = docker stats
 
-And many more... to see the full features click on Docker below link.
+And many more... to see the all commands and its usage, use "docker_help" command.
 ```
 > 🟢 Kubernetes:
 ```
@@ -87,7 +112,7 @@ kcaf    ='kubectl apply -f'
 kcdf    ='kubectl delete -f'
 kclf    ='kubectl logs --tail=200  -f'
 
-And many more... to see the full features click on Kubernetes below link.
+And many more... to see the all commands and its usage, use "k8s_help" command.
 ```
 > 🟢 Ansible:
 ```
@@ -112,7 +137,7 @@ agar='ansible-galaxy remove'
 agas='ansible-galaxy search'
 vault='ansible-vault edit vars/aws_vault.yml' 
 
-And many more... to see the full features click on Ansible below link.
+And many more... to see the all commands and its usage, use "ansible_help" command.
 ```
 
 ### ⚡️ Power of keyboard ⌨️ shortcuts 💪🏽
