@@ -80,6 +80,3 @@ alias update="sudo apt-get update -y"
 alias upgrade="sudo apt-get dist-upgrade -y && sudo aptitude safe-upgrade"
 alias clean="sudo apt-get autoremove -y && sudo apt-get clean -y && sudo apt-get autoclean -y && sudo apt-get -f install -y && sudo dpkg --configure -a && sudo journalctl --rotate && sudo journalctl --vacuum-size=0"
 alias vi="vim"
-alias linux_help="grep 'alias' ~/bin/dotfiles/linux/linux | sed 's/alias //'"
-unalias docs &> /dev/null # unalias any alias
-alias reload='source ~/.bash_profile && source ~/.bashrc'

@@ -18,3 +18,7 @@ alias update_dotfiles='current_dir=$(pwd); clear >$(tty) && cd ~/bin/dotfiles &&
 
 # Uninstall dot files
 alias uninstall_dotfiles='current_dir=$(pwd); clear >$(tty) && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && bash && cd "$current_dir" && source ~/.bash_profile && bash'
+
+alias linux_help="grep 'alias' ~/bin/dotfiles/linux/linux | sed 's/alias //'"
+unalias docs &> /dev/null # unalias any alias
+alias reload='source ~/.bash_profile && source ~/.bashrc'
