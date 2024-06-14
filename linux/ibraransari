@@ -28,7 +28,7 @@ alias k8s_help="grep 'alias' ~/bin/dotfiles/kubernetes/kubernetes | sed 's/alias
 alias ansible_help="grep 'alias' ~/bin/dotfiles/ansible/ansible | sed 's/alias //'"
 alias compose_help="grep 'alias' ~/bin/dotfiles/docker/docker_compose | sed 's/alias //'"
 
-
+# Auto update dotfiles
 # Check if the dotfiles repository exists
 if [ -d "$HOME/bin/dotfiles" ]; then
     # Change directory to dotfiles
