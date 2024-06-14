@@ -29,5 +29,21 @@ alias ansible_help="grep 'alias' ~/bin/dotfiles/ansible/ansible | sed 's/alias /
 alias compose_help="grep 'alias' ~/bin/dotfiles/docker/docker_compose | sed 's/alias //'"
 
 
+# Check if the dotfiles repository exists
+if [ -d "$HOME/bin/dotfiles" ]; then
+    # Change directory to dotfiles
+    cd "$HOME/bin/dotfiles"
 
+    # Fetch the latest changes from the Git repository silently
+    git fetch origin main > /dev/null 2>&1
 
+    # Compare the local branch with the remote branch
+    LOCAL=$(git rev-parse @)
+    REMOTE=$(git rev-parse @{u})
+	#echo $LOCAL
+	#echo $REMOTE
+    if [ "$LOCAL" != "$REMOTE" ]; then
+        # Pull the latest changes from the Git repository silently if updates are available
+        git pull > /dev/null 2>&1
+	fi
+fi
