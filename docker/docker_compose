@@ -1,0 +1,19 @@
+###################
+# Docker Compose  #
+###################
+alias dcv='docker-compose version'
+alias dcv='docker-compose pull'
+alias dci='docker-compose images'
+alias dcud='docker-compose up -d'
+alias dcudb='docker-compose up -d --build'
+alias dcps='docker-compose ps'
+alias dcls='docker-compose ps'
+alias dcsp='docker-compose stop'
+alias dcd='docker-compose down'
+alias dcst='docker-compose start'
+alias dcp='docker-compose pause'
+alias dcu='docker-compose unpause'
+alias dcdv='docker-compose down -v'
+alias dcl='docker-compose logs'
+alias dcc='docker-compose config'
+alias dcb='docker-compose build'
