@@ -1,0 +1,12 @@
+
+###################
+# Install Nginx   #
+###################
+install_nginx() {
+	sudo apt update -y
+	sudo apt-get install nginx nginx-extras -y
+    sudo systemctl enable nginx
+	cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup-original
+    echo ""
+    echo "Nginx installed!..."
+}

@@ -19,3 +19,4 @@
 . ~/bin/dotfiles/terraform/terraform
 . ~/bin/dotfiles/htop/htop
 . ~/bin/dotfiles/grc/grc
+. ~/bin/dotfiles/nginx/nginx
