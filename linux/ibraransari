@@ -30,6 +30,7 @@ alias compose_help="grep 'alias' ~/bin/dotfiles/docker/docker_compose | sed 's/a
 
 # Auto update dotfiles
 # Check if the dotfiles repository exists
+current_dir=$(pwd)
 if [ -d "$HOME/bin/dotfiles" ]; then
     # Change directory to dotfiles
     cd "$HOME/bin/dotfiles"
@@ -47,3 +48,4 @@ if [ -d "$HOME/bin/dotfiles" ]; then
         git pull > /dev/null 2>&1
 	fi
 fi
+cd "$current_dir"
