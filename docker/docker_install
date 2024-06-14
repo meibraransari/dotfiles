@@ -23,6 +23,18 @@ install_docker() {
     echo "Reboot required so, kindly reboot system"
 }
 
+install_docker() {
+	sudo curl -L "https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	sudo chmod +x /usr/local/bin/docker-compose
+	cp -a /usr/local/bin/docker-compose /usr/bin/docker-compose
+	docker-compose -v
+    echo ""
+    echo "Docker-compose installed!..."
+}
+
+
+
+
 dhp() {
 	echo "dpl = docker pull"
 	echo "dis = docker images"
