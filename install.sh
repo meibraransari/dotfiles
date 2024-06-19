@@ -52,3 +52,6 @@ cd "$current_dir"
 
 # Reload terminal
 bash
+
+# install GRC
+install_grc
