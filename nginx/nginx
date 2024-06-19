@@ -10,3 +10,14 @@ install_nginx() {
     echo ""
     echo "Nginx installed!..."
 }
+
+nt() {
+#!/bin/bash
+# Check nginx configuration
+if nginx -t 2>&1 | grep -q "successful"; then
+    echo "Nginx configuration test successful. Reloading nginx..."
+    nginx -s reload
+else
+    echo "Nginx configuration test failed. Not reloading nginx."
+fi
+}
