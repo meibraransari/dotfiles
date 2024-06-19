@@ -29,7 +29,7 @@ function install_grc {
         [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
         echo "grc installed successfully."
     else
-        clear >$(tty)
+        #clear >$(tty)
         echo "Grc is already installed."
     fi
 }
