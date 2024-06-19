@@ -49,3 +49,62 @@ if [ -d "$HOME/bin/dotfiles" ]; then
 	fi
 fi
 cd "$current_dir"
+
+
+
+function pwdgen() {
+#=======================================
+# Password generator with lenght option
+#=======================================
+NOCOLOR='\e[0m'
+BOLD='\e[1m'
+BLINK='\e[5m'
+Blue='\e[44m'
+
+# Ask user for the string length
+clear
+printf "\n"
+read -p "How many characters you would like the password to have? " pass_lenght
+printf "\n"
+
+# This is where the magic happens!
+# Generate a list of 10 strings and cut it to the desired value provided from the user
+#for i in {1..10}; do (tr -cd '[:alnum:]' < /dev/urandom | fold -w${pass_lenght} | head -n 1); done
+#tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c ${pass_lenght}  ; echo
+
+for i in {1..10}; do (tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c ${pass_lenght}  ; echo); done
+
+# Print the strings
+echo ""
+echo -e "${Blue}${BLINK}${BOLD}Goodbye, ${USER}${NOCOLOR}"
+echo ""
+echo ""
+}
+
+function pwdgen_sql() {
+#=======================================
+# Password generator for mysql
+#=======================================
+NOCOLOR='\e[0m'
+BOLD='\e[1m'
+BLINK='\e[5m'
+Blue='\e[44m'
+
+# Ask user for the string length
+clear
+printf "\n"
+read -p "How many characters you would like the password to have? " pass_lenght
+printf "\n"
+
+# This is where the magic happens!
+# Generate a list of 10 strings and cut it to the desired value provided from the user
+#for i in {1..10}; do (tr -cd '[:alnum:]' < /dev/urandom | fold -w${pass_lenght} | head -n 1); done
+#tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c ${pass_lenght}  ; echo
+for i in {1..10}; do (tr -dc 'A-Za-z0-9:@.,/+!=-' </dev/urandom | head -c ${pass_lenght}  ; echo); done
+
+# Print the strings
+echo ""
+echo -e "${Blue}${BLINK}${BOLD}Goodbye, ${USER}${NOCOLOR}"
+echo ""
+echo ""
+}
