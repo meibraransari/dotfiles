@@ -20,7 +20,7 @@ function install_grc {
     # Check if grc is installed
     if ! command -v grc &> /dev/null
     then
-        clear >$(tty)
+        #clear >$(tty)
         echo "Grc is not installed. Installing..."
         sudo apt-get update -y #>/dev/null 2>&1
         sudo apt-get install grc -y #>/dev/null 2>&1
