@@ -15,6 +15,26 @@ echo -e " ${GREEN}${BOLD}#======================================================
 
 current_dir=$(pwd)
 
+function install_grc {
+    #!/bin/bash
+    # Check if grc is installed
+    if ! command -v grc &> /dev/null
+    then
+        clear >$(tty)
+        echo "Grc is not installed. Installing..."
+        sudo apt-get update -y #>/dev/null 2>&1
+        sudo apt-get install grc -y #>/dev/null 2>&1
+        sudo sed -i 's/GRC_ALIASES=false/GRC_ALIASES=true/g' /etc/default/grc #>/dev/null 2>&1
+        [ -f /etc/default/grc ] && . /etc/default/grc
+        [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
+        echo "grc installed successfully."
+    else
+        clear >$(tty)
+        echo "Grc is already installed."
+    fi
+}
+install_grc
+
 # Check if the line '. ~/bin/dotfiles/bashrc' exists in ~/.bashrc, if not, append it
 if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc; then
     echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
@@ -52,6 +72,3 @@ cd "$current_dir"
 
 # Reload terminal
 bash
-
-# install GRC
-install_grc
