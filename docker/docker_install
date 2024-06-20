@@ -33,7 +33,22 @@ install_docker_compose() {
 }
 
 
-
+check_container_health() {
+    local container_name=$1
+    local max_retry=30
+    local retry=0
+    local health_status="unhealthy"
+    info "Waiting for $container_name to be healthy"
+    while [[ "$health_status" == "unhealthy" && $retry -lt $max_retry ]]; do
+        health_status=$(docker inspect --format='{{.State.Health.Status}}' $container_name 2>/dev/null || info 'unhealthy')
+        sleep 5
+        retry=$((retry+1))
+    done
+    if [[ "$health_status" == "unhealthy" ]]; then
+        abort "Container $container_name is unhealthy"
+    fi
+    info "Container $container_name is healthy"
+}
 
 dhp() {
 	echo "dpl = docker pull"
