@@ -76,11 +76,19 @@ alias kcgcm='kubectl get configmaps'
 alias kcsec='kubectl get secrets'
 alias kcgev='kubectl get events --all-namespaces'
 
+# Explain 
+alias kcep='kubectl explain pod'
+alias kceps='kubectl explain pod.spec'
+
 # Describe
 alias kcdp='kubectl describe pod | more'
 alias kcds='kubectl describe service | more'
 alias kcdd='kubectl describe deployment | more'
 alias kcdr='kubectl describe rs | more'
+
+# TOP
+alias kctp='kubectl top pod'
+alias kctn='kubectl top node'
 
 # Apply
 alias kcaf='kubectl apply -f'
@@ -92,6 +100,10 @@ alias kclf='kubectl logs --tail=200  -f'
 function kcge() { kubectl get $1 $2 -o yaml | more; } # Examine object
 function kces() { kubectl edit $1 $2; } # Edit object
 #function kces() { kubectl edit svc/@1; } # Edit Service
+
+# R𝐨𝐥𝐥𝐨𝐮𝐭
+alias kcrs='kubectl rollout status'
+alias kcru='kubectl rollout undo'
 
 #------------------------------ Small Function ----------------------------------#
 function kcfp() { kubectl get pod -o wide| grep $@; }
