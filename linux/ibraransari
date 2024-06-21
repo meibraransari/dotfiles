@@ -142,6 +142,11 @@ svc_custom() {
         "systemd-fsck@dev-disk-by\x2dlabel-UEFI.service" "systemd-machine-id-commit.service"
         "google-guest-agent.service" "google-osconfig-agent.service" "google-shutdown-scripts.service" 
         "ensure-gss-startup-order.service" "acpid.service" "snap.amazon-ssm-agent.amazon-ssm-agent.service"
+        "alsa-restore.service" "avahi-daemon.service" "cups-browsed.service" "cups.service" "gdm.service" 
+        "kerneloops.service" "NetworkManager-wait-online.service" "NetworkManager.service" "openvpn.service" 
+        "plymouth-start.service" "power-profiles-daemon.service" "rtkit-daemon.service" "switcheroo-control.service" 
+        "systemd-fsck@dev-disk-by\x2duuid-362A\x2dBCE6.service" "systemd-oomd.service" "thermald.service" "wpa_supplicant.service"
+
     )
 
     active_services=$(systemctl list-units --state=active --type=service --no-pager --no-legend | awk '{print $1}')
