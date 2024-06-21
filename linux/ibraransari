@@ -154,4 +154,4 @@ svc_custom() {
 }
 
 # Call the function to list active services except those excluded
-#list_active_services_except
+#svc_custom
