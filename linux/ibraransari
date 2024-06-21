@@ -147,7 +147,7 @@ svc_custom() {
         "^kerneloops\.service$" "^NetworkManager-wait-online\.service$" "^NetworkManager\.service$" "^openvpn\.service$"
         "^plymouth-start\.service$" "^power-profiles-daemon\.service$" "^rtkit-daemon\.service$" "^switcheroo-control\.service$"
         "^systemd-oomd\.service$" "^thermald\.service$" "^wpa_supplicant\.service$"
-        "^named\.service$"
+        "^named\.service$" "^systemd-*\.service$"
     )
 
     active_services=$(systemctl list-units --state=active --type=service --no-pager --no-legend | awk '{print $1}')
