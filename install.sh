@@ -9,6 +9,10 @@ GREEN='\e[0;32m'
 
 clear >$(tty)
 
+echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
+echo -e " ${GREEN}${BOLD}#        Dotfiles installation is in progress....         #${NOCOLOR}"
+echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
+
 echo '
  ____        _    __ _ _           
 |  _ \  ___ | |_ / _(_) | ___  ___ 
@@ -16,11 +20,6 @@ echo '
 | |_| | (_) | |_|  _| | |  __/\__ \
 |____/ \___/ \__|_| |_|_|\___||___/
 '
-
-
-echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
-echo -e " ${GREEN}${BOLD}#        Dotfiles installation is in progress....         #${NOCOLOR}"
-echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
 
 current_dir=$(pwd)
 
