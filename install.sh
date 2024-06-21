@@ -12,7 +12,6 @@ clear >$(tty)
 echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
 echo -e " ${GREEN}${BOLD}#        Dotfiles installation is in progress....         #${NOCOLOR}"
 echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
-
 echo '
  ____        _    __ _ _           
 |  _ \  ___ | |_ / _(_) | ___  ___ 
