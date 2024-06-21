@@ -145,7 +145,8 @@ svc_custom() {
         "alsa-restore.service" "avahi-daemon.service" "cups-browsed.service" "cups.service" "gdm.service" 
         "kerneloops.service" "NetworkManager-wait-online.service" "NetworkManager.service" "openvpn.service" 
         "plymouth-start.service" "power-profiles-daemon.service" "rtkit-daemon.service" "switcheroo-control.service" 
-        "systemd-fsck@*" "systemd-oomd.service" "thermald.service" "wpa_supplicant.service"
+        "systemd-fsck@dev-disk-by\x2duuid-362A\x2dBCE6.service" "systemd-oomd.service" "thermald.service" "wpa_supplicant.service"
+        "systemd-fsck@dev-disk-by\x2duuid-FE4C\x2d55DD.service"
 
     )
 
