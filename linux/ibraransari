@@ -111,43 +111,102 @@ echo ""
 
 
 
+##!/bin/bash
+#
+#svc_custom() {
+#    excluded_patterns=(
+#        "^accounts-daemon\.service$" "^atd\.service$" "^cron\.service$" "^dbus\.service$"
+#        "^getty@tty1\.service$" "^irqbalance\.service$" "^ModemManager\.service$"
+#        "^multipathd\.service$" "^networkd-dispatcher\.service$" "^open-vm-tools\.service$"
+#        "^polkit\.service$" "^rsyslog\.service$" "^snapd\.service$" "^ssh\.service$"
+#        "^systemd-journald\.service$" "^systemd-logind\.service$" "^systemd-networkd\.service$"
+#        "^systemd-resolved\.service$" "^systemd-timesyncd\.service$" "^systemd-udevd\.service$"
+#        "^udisks2\.service$" "^unattended-upgrades\.service$" "^upower\.service$"
+#        "^user@1000\.service$" "^uuidd\.service$" "^vgauth\.service$"
+#        "^apparmor\.service$" "^apport\.service$" "^blk-availability\.service$"
+#        "^cloud-config\.service$" "^cloud-final\.service$" "^cloud-init-local\.service$"
+#        "^cloud-init\.service$" "^console-setup\.service$" "^finalrd\.service$"
+#        "^fwupd\.service$" "^keyboard-setup\.service$" "^kmod-static-nodes\.service$"
+#        "^lvm2-monitor\.service$" "^packagekit\.service$" "^setvtrgb\.service$"
+#        "^snapd\.apparmor\.service$" "^snapd\.seeded\.service$" "^sysstat\.service$"
+#        "^systemd-journal-flush\.service$" "^systemd-modules-load\.service$"
+#        "^systemd-networkd-wait-online\.service$" "^systemd-random-seed\.service$"
+#        "^systemd-remount-fs\.service$" "^systemd-sysctl\.service$"
+#        "^systemd-sysusers\.service$" "^systemd-tmpfiles-setup-dev\.service$"
+#        "^systemd-tmpfiles-setup\.service$" "^systemd-udev-settle\.service$"
+#        "^systemd-udev-trigger\.service$" "^systemd-update-utmp\.service$"
+#        "^systemd-user-sessions\.service$" "^ubuntu-fan\.service$" "^ufw\.service$"
+#        "^user-runtime-dir@1000\.service$" "^plymouth-quit-wait\.service$"
+#        "^plymouth-quit\.service$" "^plymouth-read-write\.service$"
+#        "^systemd-binfmt\.service$" "^systemd-tmpfiles-setup-dev-early\.service$"
+#        "^chrony\.service$" "^serial-getty@ttyS0\.service$" "^systemd-fsck-root\.service$"
+#        "^systemd-fsck@dev-disk-by-.*\.service$" "^systemd-machine-id-commit\.service$"
+#        "^google-guest-agent\.service$" "^google-osconfig-agent\.service$" "^google-shutdown-scripts\.service$"
+#        "^ensure-gss-startup-order\.service$" "^acpid\.service$" "^snap\.amazon-ssm-agent\.amazon-ssm-agent\.service$"
+#        "^alsa-restore\.service$" "^avahi-daemon\.service$" "^cups-browsed\.service$" "^cups\.service$" "^gdm\.service$"
+#        "^kerneloops\.service$" "^NetworkManager-wait-online\.service$" "^NetworkManager\.service$" "^openvpn\.service$"
+#        "^plymouth-start\.service$" "^power-profiles-daemon\.service$" "^rtkit-daemon\.service$" "^switcheroo-control\.service$"
+#        "^systemd-oomd\.service$" "^thermald\.service$" "^wpa_supplicant\.service$"
+#        "^named\.service$" "^systemd-*\.service$" "^systemd*" "^touchegg*"
+#    )
+#
+#    active_services=$(systemctl list-units --state=active --type=service --no-pager --no-legend | awk '{print $1}')
+#
+#    for service in $active_services; do
+#        excluded=false
+#        for pattern in "${excluded_patterns[@]}"; do
+#            if [[ $service =~ $pattern ]]; then
+#                excluded=true
+#                break
+#            fi
+#        done
+#
+#        if [[ $excluded == false ]]; then
+#            echo "$service"
+#        fi
+#    done
+#}
+#
+## Call the function to list active services except those excluded
+##svc_custom
+
 #!/bin/bash
 
 svc_custom() {
     excluded_patterns=(
-        "^accounts-daemon\.service$" "^atd\.service$" "^cron\.service$" "^dbus\.service$"
-        "^getty@tty1\.service$" "^irqbalance\.service$" "^ModemManager\.service$"
-        "^multipathd\.service$" "^networkd-dispatcher\.service$" "^open-vm-tools\.service$"
-        "^polkit\.service$" "^rsyslog\.service$" "^snapd\.service$" "^ssh\.service$"
-        "^systemd-journald\.service$" "^systemd-logind\.service$" "^systemd-networkd\.service$"
-        "^systemd-resolved\.service$" "^systemd-timesyncd\.service$" "^systemd-udevd\.service$"
-        "^udisks2\.service$" "^unattended-upgrades\.service$" "^upower\.service$"
-        "^user@1000\.service$" "^uuidd\.service$" "^vgauth\.service$"
-        "^apparmor\.service$" "^apport\.service$" "^blk-availability\.service$"
-        "^cloud-config\.service$" "^cloud-final\.service$" "^cloud-init-local\.service$"
-        "^cloud-init\.service$" "^console-setup\.service$" "^finalrd\.service$"
-        "^fwupd\.service$" "^keyboard-setup\.service$" "^kmod-static-nodes\.service$"
-        "^lvm2-monitor\.service$" "^packagekit\.service$" "^setvtrgb\.service$"
-        "^snapd\.apparmor\.service$" "^snapd\.seeded\.service$" "^sysstat\.service$"
-        "^systemd-journal-flush\.service$" "^systemd-modules-load\.service$"
-        "^systemd-networkd-wait-online\.service$" "^systemd-random-seed\.service$"
-        "^systemd-remount-fs\.service$" "^systemd-sysctl\.service$"
-        "^systemd-sysusers\.service$" "^systemd-tmpfiles-setup-dev\.service$"
-        "^systemd-tmpfiles-setup\.service$" "^systemd-udev-settle\.service$"
-        "^systemd-udev-trigger\.service$" "^systemd-update-utmp\.service$"
-        "^systemd-user-sessions\.service$" "^ubuntu-fan\.service$" "^ufw\.service$"
-        "^user-runtime-dir@1000\.service$" "^plymouth-quit-wait\.service$"
-        "^plymouth-quit\.service$" "^plymouth-read-write\.service$"
-        "^systemd-binfmt\.service$" "^systemd-tmpfiles-setup-dev-early\.service$"
-        "^chrony\.service$" "^serial-getty@ttyS0\.service$" "^systemd-fsck-root\.service$"
-        "^systemd-fsck@dev-disk-by-.*\.service$" "^systemd-machine-id-commit\.service$"
-        "^google-guest-agent\.service$" "^google-osconfig-agent\.service$" "^google-shutdown-scripts\.service$"
-        "^ensure-gss-startup-order\.service$" "^acpid\.service$" "^snap\.amazon-ssm-agent\.amazon-ssm-agent\.service$"
-        "^alsa-restore\.service$" "^avahi-daemon\.service$" "^cups-browsed\.service$" "^cups\.service$" "^gdm\.service$"
-        "^kerneloops\.service$" "^NetworkManager-wait-online\.service$" "^NetworkManager\.service$" "^openvpn\.service$"
-        "^plymouth-start\.service$" "^power-profiles-daemon\.service$" "^rtkit-daemon\.service$" "^switcheroo-control\.service$"
-        "^systemd-oomd\.service$" "^thermald\.service$" "^wpa_supplicant\.service$"
-        "^named\.service$" "^systemd-*\.service$" "^systemd*" "^touchegg*"
+        "^accounts-daemon*" "^atd*" "^cron*" "^dbus*"
+        "^getty@tty1*" "^irqbalance*" "^ModemManager*"
+        "^multipathd*" "^networkd-dispatcher*" "^open-vm-tools*"
+        "^polkit*" "^rsyslog*" "^snapd*" "^ssh*"
+        "^systemd-journald*" "^systemd-logind*" "^systemd-networkd*"
+        "^systemd-resolved*" "^systemd-timesyncd*" "^systemd-udevd*"
+        "^udisks2*" "^unattended-upgrades*" "^upower*"
+        "^user@1000*" "^uuidd*" "^vgauth*"
+        "^apparmor*" "^apport*" "^blk-availability*"
+        "^cloud-config*" "^cloud-final*" "^cloud-init-local*"
+        "^cloud-init*" "^console-setup*" "^finalrd*"
+        "^fwupd*" "^keyboard-setup*" "^kmod-static-nodes*"
+        "^lvm2-monitor*" "^packagekit*" "^setvtrgb*"
+        "^snapd\.apparmor*" "^snapd\.seeded*" "^sysstat*"
+        "^systemd-journal-flush*" "^systemd-modules-load*"
+        "^systemd-networkd-wait-online*" "^systemd-random-seed*"
+        "^systemd-remount-fs*" "^systemd-sysctl*"
+        "^systemd-sysusers*" "^systemd-tmpfiles-setup-dev*"
+        "^systemd-tmpfiles-setup*" "^systemd-udev-settle*"
+        "^systemd-udev-trigger*" "^systemd-update-utmp*"
+        "^systemd-user-sessions*" "^ubuntu-fan*" "^ufw*"
+        "^user-runtime-dir@1000*" "^plymouth-quit-wait*"
+        "^plymouth-quit*" "^plymouth-read-write*"
+        "^systemd-binfmt*" "^systemd-tmpfiles-setup-dev-early*"
+        "^chrony*" "^serial-getty@ttyS0*" "^systemd-fsck-root*"
+        "^systemd-fsck@dev-disk-by-.**" "^systemd-machine-id-commit*"
+        "^google-guest-agent*" "^google-osconfig-agent*" "^google-shutdown-scripts*"
+        "^ensure-gss-startup-order*" "^acpid*" "^snap\.amazon-ssm-agent\.amazon-ssm-agent*"
+        "^alsa-restore*" "^avahi-daemon*" "^cups-browsed*" "^cups*" "^gdm*"
+        "^kerneloops*" "^NetworkManager-wait-online*" "^NetworkManager*" "^openvpn*"
+        "^plymouth-start*" "^power-profiles-daemon*" "^rtkit-daemon*" "^switcheroo-control*"
+        "^systemd-oomd*" "^thermald*" "^wpa_supplicant*"
+        "^named*" "^systemd-**" "^systemd*" "^touchegg*"
     )
 
     active_services=$(systemctl list-units --state=active --type=service --no-pager --no-legend | awk '{print $1}')
@@ -169,6 +228,3 @@ svc_custom() {
 
 # Call the function to list active services except those excluded
 #svc_custom
-
-
-
