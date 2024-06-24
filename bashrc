@@ -21,3 +21,4 @@
 . ~/bin/dotfiles/htop/htop
 . ~/bin/dotfiles/grc/grc
 . ~/bin/dotfiles/nginx/nginx
+. ~/bin/dotfiles/pm2/pm2
