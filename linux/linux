@@ -40,6 +40,8 @@ alias back='cd -'
 alias ~='cd ~'
 alias o='open'
 alias html='cd /var/www/html'
+alias ae='cd /etc/apache2/sites-enabled/  && ls -alsh'
+alias ne='cd /etc/nginx/sites-enabled/ && ls -alsh'
 alias trash='safe_rm'
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
