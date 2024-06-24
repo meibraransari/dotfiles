@@ -27,6 +27,7 @@ alias git_help="grep 'alias' ~/bin/dotfiles/git/git | sed 's/alias //'"
 alias k8s_help="grep 'alias' ~/bin/dotfiles/kubernetes/kubernetes | sed 's/alias //'"
 alias ansible_help="grep 'alias' ~/bin/dotfiles/ansible/ansible | sed 's/alias //'"
 alias compose_help="grep 'alias' ~/bin/dotfiles/docker/docker_compose | sed 's/alias //'"
+alias pm2_help="grep 'alias' ~/bin/dotfiles/pm2/pm2 | sed 's/alias //'"
 
 # Auto update dotfiles
 # Check if the dotfiles repository exists
