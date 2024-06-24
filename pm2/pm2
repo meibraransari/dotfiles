@@ -2,21 +2,21 @@
 ###################
 ######  PM2  ######
 ###################
-alias pm2m='pm2 monit' # Monitor all processes
-alias pm2sta='pm2 stop all'
-alias pm2rta='pm2 restart all'
-alias pm2rla='pm2 reload all'
-alias pm2st='pm2 start'
-alias pm2sp='pm2 stop'
-alias pm2rt='pm2 restart'
-alias pm2ls='pm2 list'
-alias pm2s='pm2 status'
-alias pm2lgs='pm2 logs'
-alias pm2d='pm2 describe'
-alias pm2f='pm2 flush' # Empty all log files
-alias pm2rls='pm2 reloadLogs' # Reload all logs 
-alias pm2dl='pm2 delete' 
-alias pm2sv='pm2 save'
-alias pm2rc='pm2 reset'
-alias pm2rca='pm2 reset all'
+alias pm2-m='pm2 monit' # Monitor all processes
+alias pm2-sta='pm2 stop all'
+alias pm2-rta='pm2 restart all'
+alias pm2-rla='pm2 reload all'
+alias pm2-st='pm2 start'
+alias pm2-sp='pm2 stop'
+alias pm2-rt='pm2 restart'
+alias pm2-ls='pm2 list'
+alias pm2-s='pm2 status'
+alias pm2-lgs='pm2 logs'
+alias pm2-d='pm2 describe'
+alias pm2-f='pm2 flush' # Empty all log files
+alias pm2-rls='pm2 reloadLogs' # Reload all logs 
+alias pm2-dl='pm2 delete' 
+alias pm2-sv='pm2 save'
+alias pm2-rc='pm2 reset'
+alias pm2-rca='pm2 reset all'
 
