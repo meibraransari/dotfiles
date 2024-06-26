@@ -51,6 +51,7 @@ alias fgrep='fgrep --color=auto'
 alias cp='cp -i'
 alias mv='mv -i'
 #alias cwd='pwd | tr -d "\r\n" | pbcopy' #copy working directory
+alias tmp="cd /tmp"
 alias p="pwd"
 alias h='history'
 alias ppath="echo $PATH | tr ':' '\n'" #print path
