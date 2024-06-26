@@ -234,7 +234,7 @@ svc_custom() {
 
 # Define the adjusted function
 cron_list() {
-    USERS=$(cut -d: -f1 /etc/passwd)
+    USERS=$(sudo cut -d: -f1 /etc/passwd)
     for USER in $USERS; do
         echo "=== Crontab for $USER ==="
         crontab -u $USER -l 2>/dev/null | grep -v '^#'
