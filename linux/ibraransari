@@ -245,3 +245,18 @@ cron_list() {
 # Call the function
 #cron_list
 
+# Define the function
+cron_list_system() {
+    echo "=== System Crontabs ==="
+
+    for FILE in /etc/cron.d/* /etc/cron.daily/* /etc/cron.hourly/* /etc/cron.monthly/* /etc/cron.weekly/*; do
+        if [ -f "$FILE" ]; then
+            echo "=== Crontab in $FILE ==="
+            cat $FILE | grep -v '^#' | grep -v '^[[:space:]]*$'
+            echo ""
+        fi
+    done
+}
+
+# Call the function
+cron_list_system
