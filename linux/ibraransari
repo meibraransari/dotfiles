@@ -229,3 +229,19 @@ svc_custom() {
 
 # Call the function to list active services except those excluded
 #svc_custom
+
+
+
+# Define the adjusted function
+cron_list() {
+    USERS=$(cut -d: -f1 /etc/passwd)
+    for USER in $USERS; do
+        echo "=== Crontab for $USER ==="
+        crontab -u $USER -l 2>/dev/null | grep -v '^#'
+        echo ""
+    done
+}
+
+# Call the function
+#cron_list
+
