@@ -240,15 +240,6 @@ cron_list() {
         crontab -u $USER -l 2>/dev/null | grep -v '^#'
         echo ""
     done
-    echo "=== System Crontabs ==="
-    # List system-wide cron directories and files, excluding commented lines
-    for FILE in /etc/cron.d/* /etc/cron.daily/* /etc/cron.hourly/* /etc/cron.monthly/* /etc/cron.weekly/*; do
-        if [ -f "$FILE" ]; then
-            echo "=== Crontab in $FILE ==="
-            cat $FILE | grep -v '^#' | grep -v '^[[:space:]]*$'  # Exclude empty lines as well
-            echo ""
-        fi
-    done
 }
 
 # Call the function
