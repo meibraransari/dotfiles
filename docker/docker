@@ -19,6 +19,7 @@ alias drm="docker rm $1 -f"
 alias dri="docker rmi $1 -f"
 alias dit="docker inspect $1"
 alias dvl="docker volume ls"
+alias dvi="docker volume inspect"
 alias dsd="docker system df -v"
 alias dss="docker stats"
 alias drs='docker rm $(docker ps -q -f status=exited) -f'
