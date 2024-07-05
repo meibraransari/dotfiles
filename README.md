@@ -10,7 +10,7 @@
 > These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
 ## 📝 Prerequisites
-Brain not poisoned with beer so you have enough brain cells to read this manual
+🧠 Brain is not poisoned with beer because you have enough brain cells required to read this manual. 
 
 ## 📥 Installation Command.
 
