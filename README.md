@@ -1,6 +1,6 @@
 
 # 📌 Dotfiles (Ibrar Ansari)
-
+[![Latest Version][releases-badge]][releases-link]
 These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
 ## 📥 Installation Command.
@@ -165,3 +165,6 @@ And many more... to see the all commands and its usage, use "ansible_help" comma
 - 👨‍💻 [**Github**](https://github.com/meibraransari?tab=repositories)
 - 💬 [**Telegram**](https://t.me/DevOpsinActionTelegram)
 - 🐳 [**Docker**](https://hub.docker.com/u/ibraransaridocker)
+
+[releases-badge]: https://img.shields.io/github/tag/TheLocehiliosan/yadm.svg?label=latest+release
+[releases-link]: https://github.com/TheLocehiliosan/yadm/releases
