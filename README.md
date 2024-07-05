@@ -1,5 +1,6 @@
 <div align="center">
     <h1> 📌 Dotfiles 📁 (Ibrar Ansari) </h1>
+    <img src="https://readme-typing-svg.herokuapp.com?font=Iosevka&weight=800&size=20&pause=1000&color=6791C9&background=0C0E0F&center=true&vCenter=true&random=false&width=435&lines=The+Place+Of+Aesthetic+Customization"
     <h3></h3>
 </div>
 
