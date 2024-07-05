@@ -6,6 +6,7 @@
 
 [![Latest Version][releases-badge]][releases-link]
 
+![Banner Image](./images/banner.png)
 
 > These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
