@@ -3,7 +3,7 @@
 ###################
 alias dv="docker version"
 alias dps="docker ps -a"
-alias dpi='clear >$(tty) && echo -e "List of running containers" && docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Image}}\t{{.Names}}"'
+alias dpi='clear >$(tty) && echo -e "List of running containers" && docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
 alias dpp='clear >$(tty) && docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
 alias dpia='clear >$(tty) && docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}\t{{.Image}}\t{{.Command}}\{{.RunningFor}}\{{.Status}}"'
 alias dpl="docker pull $1"
