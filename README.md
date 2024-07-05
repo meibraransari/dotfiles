@@ -6,9 +6,10 @@
 
 [![Latest Version][releases-badge]][releases-link]
 
+> These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
+
 ![Banner Image](./images/banner.png)
 
-> These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
 ## 📝 Prerequisites
 🧠 Brain is not poisoned with beer, because you have enough brain cells is required to read this manual. 
