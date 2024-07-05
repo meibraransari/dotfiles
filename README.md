@@ -1,6 +1,6 @@
 
 # 📌 Dotfiles (Ibrar Ansari)
-[![Latest Version][releases-badge]][releases-link]
+> [![Latest Version][releases-badge]][releases-link]
 These are my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
 
 ## 📥 Installation Command.
