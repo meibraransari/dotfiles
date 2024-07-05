@@ -1,5 +1,7 @@
-
-# 📌 Dotfiles (Ibrar Ansari)
+<div align="center">
+    <h1>【 📌 Dotfiles (Ibrar Ansari) 】</h1>
+    <h3></h3>
+</div>
 
 [![Latest Version][releases-badge]][releases-link]
 
