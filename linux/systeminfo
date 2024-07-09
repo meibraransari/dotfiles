@@ -49,10 +49,10 @@ function system_info {
     echo "$(who)"
 
     echo -e "\n### LAST 20 LOGGED IN USER HISTORY ###"
-    echo "$(last -n 20)
+    echo "$(last -n 20)"
 
-    # echo -e "\n### ACTIVE PROCESSES ###"
-    # echo "$(ps aux --sort=-%cpu | head -n 10)"
+    echo -e "\n### ACTIVE PROCESSES ###"
+    echo "$(ps aux --sort=-%cpu | head -n 10)"
 
     echo -e "\n### SOFTWARE VERSIONS ###"
     echo "Shell: $SHELL"
