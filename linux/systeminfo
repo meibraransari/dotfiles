@@ -4,11 +4,11 @@
 
 function system_info {
     echo ""
-    echo -e "### System Information for Host $HOSTNAME###"
+    echo -e "\n### System Information for Host $HOSTNAME###"
     RIGHT_NOW=$(date +"%x %r %Z")
-    echo -e"Generated on $RIGHT_NOW by $USER"
+    echo -e "Generated on $RIGHT_NOW by $USER"
 
-    echo -e "### SYSTEM INFORMATION ###"
+    echo -e "\n### SYSTEM INFORMATION ###"
     echo "Hostname: $(hostname)"
     sysuptime=$(uptime | awk '{print $3,$4}' | cut -f1 -d,)
     echo "Uptime: $sysuptime"
@@ -18,7 +18,7 @@ function system_info {
     echo "$OS $Version"
     echo "Architecture: $(uname -m)"
 
-    echo -e "### SYSTEM STATISTICS ###"
+    echo -e "\n### SYSTEM STATISTICS ###"
     echo "System Statistics: $(cat /tmp/sysstats)"
 
     echo -e "\n### INTERNET CONNECTIVITY ###"
