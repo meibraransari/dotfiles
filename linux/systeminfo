@@ -51,8 +51,8 @@ function system_info {
     echo -e "\n### LAST 20 LOGGED IN USER HISTORY ###"
     echo "$(last -n 20)"
 
-    echo -e "\n### ACTIVE PROCESSES ###"
-    echo "$(ps aux --sort=-%cpu | head -n 10)"
+    echo -e "\n### LISTENNING PORTS ###"
+    echo "$(sudo netstat -tulpan | grep LISTEN)"
 
     echo -e "\n### SOFTWARE VERSIONS ###"
     echo "Shell: $SHELL"
