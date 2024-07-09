@@ -6,8 +6,9 @@ function system_info {
     echo "### SYSTEM INFORMATION ###"
     echo "Hostname: $(hostname)"
     echo "Kernel Version: $(uname -r)"
-    echo "Operating System: $(cat /etc/*release | grep ^NAME | cut -d= -f2 | sed 's/"//g')"
-    echo "Version: $(grep ^VERSION /etc/os-release | cut -d= -f2 | sed 's/"//g')"
+    OS=$(cat /etc/*release | grep ^NAME | cut -d= -f2 | sed 's/"//g')
+    Version=$(grep ^VERSION_ID /etc/os-release | cut -d= -f2 | sed 's/"//g')
+    echo "$OS $Version"
     echo "Architecture: $(uname -m)"
 
     echo -e "\n### CPU INFORMATION ###"
