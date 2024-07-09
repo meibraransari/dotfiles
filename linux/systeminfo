@@ -70,5 +70,9 @@ function system_info {
     echo $users
     }
     list_users
+
+    echo -e "\n### Installed services ###"
+    svc_custom
+
 }
 
