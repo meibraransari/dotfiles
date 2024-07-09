@@ -31,6 +31,7 @@ alias help_pm2="grep 'alias' ~/bin/dotfiles/pm2/pm2 | sed 's/alias //'"
 
 # Auto update dotfiles
 # Check if the dotfiles repository exists
+function autoupdate() {
 current_dir=$(pwd)
 if [ -d "$HOME/bin/dotfiles" ]; then
     # Change directory to dotfiles
@@ -50,7 +51,8 @@ if [ -d "$HOME/bin/dotfiles" ]; then
 	fi
 fi
 cd "$current_dir"
-
+}
+autoupdate &
 
 
 function pwdgen() {
