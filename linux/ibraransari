@@ -267,3 +267,8 @@ function list_users() {
   users=$(awk -F':' '$3 >= 1000 && $1 != "nobody" { print $1 }' /etc/passwd)
   echo $users
 }
+function list_users_system() {
+  # Get a list of all manually created users
+  users=$(awk -F':' '$3 <= 1000 { print $1 }' /etc/passwd)
+  echo $users
+}
