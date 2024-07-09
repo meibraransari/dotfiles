@@ -46,7 +46,7 @@ function system_info {
     echo "Gateway: $(ip route | awk '/default/ {print $3}')"
 
     echo -e "\n### Public IP ###"
-    echo "Public IP Address: $(curl ifconfig.me)"
+    echo "Public IP Address: $(curl https://ipinfo.io/ip)"
 
     echo -e "\n### USERS LOGGED IN ###"
     echo "$(who)"
