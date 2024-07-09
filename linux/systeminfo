@@ -47,7 +47,7 @@ function system_info {
 
     echo -e "\n### Public IP ###"
     public_ip=$(curl -s https://ipinfo.io/ip)
-    echo "Public IP Address: $(curl https://ipinfo.io/ip)"
+    echo "Public IP Address: $public_ip"
 
     echo -e "\n### USERS LOGGED IN ###"
     echo "$(who)"
