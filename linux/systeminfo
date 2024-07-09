@@ -41,11 +41,11 @@ function system_info {
     check_ssd_hdd
 
     echo -e "\n### NETWORK INFORMATION ###"
-    echo "IP Address: $(hostname -I)"
-    echo "MAC Address: $(ip link | awk '/ether/ {print $2}')"
-    echo "Gateway: $(ip route | awk '/default/ {print $3}')"
     public_ip=$(curl -s https://ipinfo.io/ip)
     echo "Public IP Address: $public_ip"
+    echo "LAN IP Address: $(hostname -I)"
+    echo "MAC Address: $(ip link | awk '/ether/ {print $2}')"
+    echo "Gateway: $(ip route | awk '/default/ {print $3}')"
 
     echo -e "\n### USERS LOGGED IN ###"
     echo "$(who)"
