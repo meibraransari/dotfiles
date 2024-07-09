@@ -23,6 +23,23 @@ function system_info {
     echo "Disk Usage:"
     df -h | grep 'Filesystem\|/dev/'
 
+    function check_ssd_hdd() {
+    # Get list of block devices excluding loop devices
+    devices=$(lsblk -d -n -o name | grep -v '^loop')
+    # Iterate through each device
+    while IFS= read -r device; do
+        rota=$(lsblk -d -o rota "/dev/$device" | awk 'NR>1 {print $1}')
+        if [ "$rota" -eq 1 ]; then
+            echo "/dev/$device is a HDD"
+        elif [ "$rota" -eq 0 ]; then
+            echo "/dev/$device is an SSD"
+        else
+            echo "Unable to determine type for /dev/$device"
+        fi
+    done <<< "$devices"
+    }
+    check_ssd_hdd
+
     echo -e "\n### NETWORK INFORMATION ###"
     echo "IP Address: $(hostname -I)"
     echo "MAC Address: $(ip link | awk '/ether/ {print $2}')"
@@ -31,8 +48,8 @@ function system_info {
     echo -e "\n### USERS LOGGED IN ###"
     echo "$(who)"
 
-    echo -e "\n### LAST 10 LOGGED IN USER HISTORY ###"
-    echo "$(last -n 10)
+    echo -e "\n### LAST 20 LOGGED IN USER HISTORY ###"
+    echo "$(last -n 20)
 
     echo -e "\n### ACTIVE PROCESSES ###"
     echo "$(ps aux --sort=-%cpu | head -n 10)"
