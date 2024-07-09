@@ -2,25 +2,46 @@
 ###### Info ######
 ###################
 
-function systeminfo() {
-    echo ""
-    echo "###### Linux Information ######"
-    uname -a
-    echo ""
-    echo "###### java Version ######"
-    java -version
-    echo ""
+function system_info {
+    echo "### SYSTEM INFORMATION ###"
+    echo "Hostname: $(hostname)"
+    echo "Kernel Version: $(uname -r)"
+    echo "Operating System: $(cat /etc/*release | grep ^NAME | cut -d= -f2 | sed 's/"//g')"
+    echo "Architecture: $(uname -m)"
+
+    echo -e "\n### CPU INFORMATION ###"
+    echo "CPU Vendor: $(cat /proc/cpuinfo | grep 'vendor_id' | head -n 1 | awk '{print $3}')"
+    echo "CPU Model: $(cat /proc/cpuinfo | grep 'model name' | head -n 1 | awk -F: '{print $2}' | sed 's/^ //')"
+    echo "Number of Cores: $(cat /proc/cpuinfo | grep '^processor' | wc -l)"
+
+    echo -e "\n### MEMORY INFORMATION ###"
+    echo "Total Memory: $(free -h | grep Mem | awk '{print $2}')"
+    echo "Used Memory: $(free -h | grep Mem | awk '{print $3}')"
+    echo "Free Memory: $(free -h | grep Mem | awk '{print $4}')"
+
+    echo -e "\n### DISK INFORMATION ###"
+    echo "Disk Usage:"
+    df -h | grep 'Filesystem\|/dev/'
+
+    echo -e "\n### NETWORK INFORMATION ###"
+    echo "IP Address: $(hostname -I)"
+    echo "MAC Address: $(ip link | awk '/ether/ {print $2}')"
+    echo "Gateway: $(ip route | awk '/default/ {print $3}')"
+
+    echo -e "\n### USERS LOGGED IN ###"
+    echo "$(who)"
+
+    echo -e "\n### LAST 10 LOGGED IN USER HISTORY ###"
+    echo "$(last -n 10)
+
+    echo -e "\n### ACTIVE PROCESSES ###"
+    echo "$(ps aux --sort=-%cpu | head -n 10)"
+
+    echo -e "\n### SOFTWARE VERSIONS ###"
+    echo "Shell: $SHELL"
+    echo "Bash Version: $BASH_VERSION"
+    echo "GCC Version: $(gcc --version | head -n 1)"
+    echo "Python Version: $(python3 --version | cut -d ' ' -f 2)"
+
 }
 
-info() {
-    echo "Check Failed Login Attempts"
-    cat /var/log/auth.log | grep "Failed password"
-    
-    echo -e "\nSystem-related Error and Information Messages:"
-    cat /var/log/syslog | grep -E "error|warning|info"
-
-    echo -e "\nSystem Information:"
-    last -n 5  # Show last 5 logins
-    uptime     # Display system uptime
-    df -h      # Show disk space usage
-}
