@@ -51,6 +51,7 @@ if [ -d "$HOME/bin/dotfiles" ]; then
 	fi
 fi
 cd "$current_dir"
+source ~/.bash_profile
 }
 autoupdate &
 
