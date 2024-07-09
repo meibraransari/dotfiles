@@ -209,8 +209,8 @@ svc_custom() {
         "^alsa-restore*" "^avahi-daemon*" "^cups-browsed*" "^cups*" "^gdm*"
         "^kerneloops*" "^NetworkManager-wait-online*" "^NetworkManager*" "^openvpn*"
         "^plymouth-start*" "^power-profiles-daemon*" "^rtkit-daemon*" "^switcheroo-control*"
-        "^systemd-oomd*" "^thermald*" "^wpa_supplicant*"
-        "^named*" "^systemd-**" "^systemd*" "^touchegg*"
+        "^systemd-oomd*" "^thermald*" "^wpa_supplicant*" "^ifup*" "^ifupdown*" "^networking*"
+        "^named*" "^systemd-**" "^systemd*" "^touchegg*" "^rc-local*" "^user-runtime*" "^user*" 
     )
 
     active_services=$(systemctl list-units --state=active --type=service --no-pager --no-legend | awk '{print $1}')
