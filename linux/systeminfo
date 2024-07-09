@@ -3,8 +3,7 @@
 ###################
 
 function system_info {
-    echo ""
-    echo -e "\n### System Information for Host $HOSTNAME###"
+    echo -e "\n### System Information for the host: $HOSTNAME ###"
     RIGHT_NOW=$(date +"%x %r %Z")
     echo -e "Generated on $RIGHT_NOW by $USER"
 
@@ -19,7 +18,7 @@ function system_info {
     echo "Architecture: $(uname -m)"
 
     echo -e "\n### SYSTEM STATISTICS ###"
-    echo "System Statistics: $(cat /tmp/sysstats)"
+    echo "System Statistics: $(top -n 1 -b | head -5)"
 
     echo -e "\n### INTERNET CONNECTIVITY ###"
     ping -c 1 google.com &> /dev/null && echo -e "Internet: $tempvar Connected" || echo -e "Internet: $tempvar Disconnected"
