@@ -272,3 +272,24 @@ function list_users_system() {
   users=$(awk -F':' '$3 <= 1000 { print $1 }' /etc/passwd)
   echo $users
 }
+
+
+function check_ssd_hdd() {
+    # Get list of block devices excluding loop devices
+    devices=$(lsblk -d -n -o name | grep -v '^loop')
+    # Iterate through each device
+    while IFS= read -r device; do
+        rota=$(lsblk -d -o rota "/dev/$device" | awk 'NR>1 {print $1}')
+        if [ "$rota" -eq 1 ]; then
+            echo "/dev/$device is a HDD"
+        elif [ "$rota" -eq 0 ]; then
+            echo "/dev/$device is an SSD"
+        else
+            echo "Unable to determine type for /dev/$device"
+        fi
+    done <<< "$devices"
+}
+
+
+
+
