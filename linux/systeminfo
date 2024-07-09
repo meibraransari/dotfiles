@@ -57,8 +57,14 @@ function system_info {
     echo -e "\n### SOFTWARE VERSIONS ###"
     echo "Shell: $SHELL"
     echo "Bash Version: $BASH_VERSION"
-    echo "GCC Version: $(gcc --version | head -n 1)"
     echo "Python Version: $(python3 --version | cut -d ' ' -f 2)"
 
+    echo -e "\n### LIST USERS ###"
+    function list_users() {
+    # Get a list of all manually created users
+    users=$(awk -F':' '$3 >= 1000 && $1 != "nobody" { print $1 }' /etc/passwd)
+    echo $users
+    }
+    list_users
 }
 
