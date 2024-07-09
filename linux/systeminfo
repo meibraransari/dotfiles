@@ -3,11 +3,10 @@
 ###################
 
 function system_info {
-    TITLE="### System Information for $HOSTNAME###"
+    echo ""
+    echo -e "### System Information for Host $HOSTNAME###"
     RIGHT_NOW=$(date +"%x %r %Z")
-    TIME_STAMP="Generated on $RIGHT_NOW by $USER"
-    echo -e $TITLE
-    echo -e $TIME_STAMP
+    echo -e"Generated on $RIGHT_NOW by $USER"
 
     echo -e "### SYSTEM INFORMATION ###"
     echo "Hostname: $(hostname)"
