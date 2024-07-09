@@ -260,3 +260,9 @@ cron_list_system() {
 
 # Call the function
 #cron_list_system
+
+
+function list_users() {
+  # Get a list of all manually created users
+  users=$(awk -F':' '$3 >= 1000 && $1 != "nobody" { print $1 }' /etc/passwd)
+}
