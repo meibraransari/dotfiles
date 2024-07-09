@@ -6,8 +6,8 @@ function system_info {
     TITLE="### System Information for $HOSTNAME###"
     RIGHT_NOW=$(date +"%x %r %Z")
     TIME_STAMP="Generated on $RIGHT_NOW by $USER"
-    echo $TITLE
-    echo $TIME_STAMP
+    echo -e $TITLE
+    echo -e $TIME_STAMP
 
     echo -e "### SYSTEM INFORMATION ###"
     echo "Hostname: $(hostname)"
