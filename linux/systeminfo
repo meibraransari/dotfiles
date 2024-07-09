@@ -24,7 +24,7 @@ function system_info {
     
 
     echo -e "\n### INTERNET CONNECTIVITY ###"
-    ping -c 1 google.com &> /dev/null && echo -e '\E[33m'"Internet: $tempvar Connected" || echo -e '\E[33m'"Internet: $tempvar Disconnected"
+    ping -c 1 google.com &> /dev/null && echo -e "Internet: $tempvar Connected" || echo -e "Internet: $tempvar Disconnected"
 
     echo -e "\n### CPU INFORMATION ###"
     echo "CPU Vendor: $(cat /proc/cpuinfo | grep 'vendor_id' | head -n 1 | awk '{print $3}')"
