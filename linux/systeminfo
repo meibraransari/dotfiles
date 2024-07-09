@@ -9,7 +9,7 @@ function system_info {
     echo $TITLE
     echo $TIME_STAMP
 
-    echo "### SYSTEM INFORMATION ###"
+    echo -e "### SYSTEM INFORMATION ###"
     echo "Hostname: $(hostname)"
     sysuptime=$(uptime | awk '{print $3,$4}' | cut -f1 -d,)
     echo "Uptime: $sysuptime"
@@ -19,9 +19,8 @@ function system_info {
     echo "$OS $Version"
     echo "Architecture: $(uname -m)"
 
-    echo "### SYSTEM STATISTICS ###"
+    echo -e "### SYSTEM STATISTICS ###"
     echo "System Statistics: $(cat /tmp/sysstats)"
-    
 
     echo -e "\n### INTERNET CONNECTIVITY ###"
     ping -c 1 google.com &> /dev/null && echo -e "Internet: $tempvar Connected" || echo -e "Internet: $tempvar Disconnected"
