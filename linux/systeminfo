@@ -12,12 +12,14 @@ function system_info {
     echo "### SYSTEM INFORMATION ###"
     echo "Hostname: $(hostname)"
     sysuptime=$(uptime | awk '{print $3,$4}' | cut -f1 -d,)
-    echo "Uptime: $(sysuptime)"
+    echo "Uptime: $sysuptime"
     echo "Kernel Version: $(uname -r)"
     OS=$(cat /etc/*release | grep ^NAME | cut -d= -f2 | sed 's/"//g')
     Version=$(grep ^VERSION_ID /etc/os-release | cut -d= -f2 | sed 's/"//g')
     echo "$OS $Version"
     echo "Architecture: $(uname -m)"
+
+    echo "### SYSTEM STATISTICS ###"
     echo "System Statistics: $(cat /tmp/sysstats)"
     
 
