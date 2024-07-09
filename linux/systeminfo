@@ -3,8 +3,14 @@
 ###################
 
 function system_info {
+    TITLE="System Information for $HOSTNAME"
+    RIGHT_NOW=$(date +"%x %r %Z")
+    TIME_STAMP="Updated on $RIGHT_NOW by $USER"
+    echo $TITLE
+    echo $TIME_STAMP
     echo "### SYSTEM INFORMATION ###"
     echo "Hostname: $(hostname)"
+    echo "Uptime: $(uptime)"
     echo "Kernel Version: $(uname -r)"
     OS=$(cat /etc/*release | grep ^NAME | cut -d= -f2 | sed 's/"//g')
     Version=$(grep ^VERSION_ID /etc/os-release | cut -d= -f2 | sed 's/"//g')
