@@ -3,9 +3,9 @@
 ###################
 
 function system_info {
-    TITLE="System Information for $HOSTNAME"
+    TITLE="### System Information for $HOSTNAME###"
     RIGHT_NOW=$(date +"%x %r %Z")
-    TIME_STAMP="Updated on $RIGHT_NOW by $USER"
+    TIME_STAMP="Generated on $RIGHT_NOW by $USER"
     echo $TITLE
     echo $TIME_STAMP
     echo "### SYSTEM INFORMATION ###"
