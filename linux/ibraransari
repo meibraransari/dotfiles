@@ -293,6 +293,14 @@ function check_ssd_hdd() {
     done <<< "$devices"
 }
 
+# Start services
+stop() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: start <service>"
+    return 1
+  fi
+  sudo systemctl start "$@"
+}
 
 
 # Stop services
@@ -302,4 +310,14 @@ stop() {
     return 1
   fi
   sudo systemctl stop "$@"
+}
+
+
+# Status services
+stop() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: status <service>"
+    return 1
+  fi
+  sudo systemctl status "$@"
 }
