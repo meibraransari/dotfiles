@@ -294,7 +294,7 @@ function check_ssd_hdd() {
 }
 
 # Start services
-stop() {
+start() {
   if [ $# -eq 0 ]; then
     echo "Usage: start <service>"
     return 1
@@ -314,7 +314,7 @@ stop() {
 
 
 # Status services
-stop() {
+status() {
   if [ $# -eq 0 ]; then
     echo "Usage: status <service>"
     return 1
