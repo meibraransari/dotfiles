@@ -295,4 +295,11 @@ function check_ssd_hdd() {
 
 
 
-
+# Stop services
+stop() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: stop <service>"
+    return 1
+  fi
+  sudo systemctl stop "$@"
+}
