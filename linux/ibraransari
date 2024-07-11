@@ -22,7 +22,7 @@ if [ -d "$HOME/bin/dotfiles" ]; then
     cd "$HOME/bin/dotfiles"
 
     # Fetch the latest changes from the Git repository silently
-    git fetch origin main > /dev/null 2>&1
+    git fetch origin main
 
     # Compare the local branch with the remote branch
     LOCAL=$(git rev-parse @)
@@ -31,13 +31,13 @@ if [ -d "$HOME/bin/dotfiles" ]; then
 	#echo $REMOTE
     if [ "$LOCAL" != "$REMOTE" ]; then
         # Pull the latest changes from the Git repository silently if updates are available
-        git pull > /dev/null 2>&1
+        git pull
 	fi
 fi
 cd "$current_dir"
 source ~/.bash_profile
 }
-autoupdate &
+autoupdate >/dev/null 2>&1 &
 
 # Update dot files
 alias update_dotfiles='autoupdate >/dev/null 2>&1 &'
