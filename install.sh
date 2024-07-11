@@ -23,13 +23,10 @@ echo '
 # Set current dir
 current_dir=$(pwd)
 
-# Install app
-mkdir -p ~/bin/dotfiles
-#git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
-
 # Check if the directory is empty (no files or directories inside)
 if [ -z "$(ls -A ~/bin/dotfiles)" ]; then
     # Directory is empty, so clone the repository
+    mkdir -p ~/bin/dotfiles
     git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
 else
     # Directory is not empty, do nothing
