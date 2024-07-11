@@ -10,7 +10,7 @@
 
 ![Banner Image](./images/banner.png)
 
-## Supported Systems
+## 🖥️ Supported Systems
 
 - \[x\] Linux
 - \[x\] MacOS
