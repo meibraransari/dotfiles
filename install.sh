@@ -93,6 +93,3 @@ fi
 
 # Change directory
 cd "$current_dir"
-
-# Reload terminal
-bash
