@@ -13,22 +13,6 @@ export IHOME=/home/iansari
 # This will ensure that multiple line commands stay together in your history.
 #shopt -s cmdhist
 
-# Update dot files
-alias update_dotfiles='current_dir=$(pwd); clear >$(tty) && cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile'
-
-# Uninstall dot files
-alias uninstall_dotfiles='current_dir=$(pwd); clear >$(tty) && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && bash && cd "$current_dir" && source ~/.bash_profile && bash'
-
-unalias docs &> /dev/null # unalias any alias
-alias reload='source ~/.bash_profile && source ~/.bashrc'
-alias help_linux="grep 'alias' ~/bin/dotfiles/linux/linux | sed 's/alias //'"
-alias help_docker="grep 'alias' ~/bin/dotfiles/docker/docker | sed 's/alias //'"
-alias help_git="grep 'alias' ~/bin/dotfiles/git/git | sed 's/alias //'"
-alias help_k8s="grep 'alias' ~/bin/dotfiles/kubernetes/kubernetes | sed 's/alias //'"
-alias help_ansible="grep 'alias' ~/bin/dotfiles/ansible/ansible | sed 's/alias //'"
-alias help_compose="grep 'alias' ~/bin/dotfiles/docker/docker_compose | sed 's/alias //'"
-alias help_pm2="grep 'alias' ~/bin/dotfiles/pm2/pm2 | sed 's/alias //'"
-
 # Auto update dotfiles
 # Check if the dotfiles repository exists
 function autoupdate() {
@@ -54,6 +38,24 @@ cd "$current_dir"
 source ~/.bash_profile
 }
 autoupdate &
+
+# Update dot files
+alias update_dotfiles='autoupdate &'
+
+# Uninstall dot files
+alias uninstall_dotfiles='current_dir=$(pwd); clear >$(tty) && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && bash && cd "$current_dir" && source ~/.bash_profile && bash'
+
+unalias docs &> /dev/null # unalias any alias
+alias reload='source ~/.bash_profile && source ~/.bashrc'
+alias help_linux="grep 'alias' ~/bin/dotfiles/linux/linux | sed 's/alias //'"
+alias help_docker="grep 'alias' ~/bin/dotfiles/docker/docker | sed 's/alias //'"
+alias help_git="grep 'alias' ~/bin/dotfiles/git/git | sed 's/alias //'"
+alias help_k8s="grep 'alias' ~/bin/dotfiles/kubernetes/kubernetes | sed 's/alias //'"
+alias help_ansible="grep 'alias' ~/bin/dotfiles/ansible/ansible | sed 's/alias //'"
+alias help_compose="grep 'alias' ~/bin/dotfiles/docker/docker_compose | sed 's/alias //'"
+alias help_pm2="grep 'alias' ~/bin/dotfiles/pm2/pm2 | sed 's/alias //'"
+
+
 
 
 function pwdgen() {
