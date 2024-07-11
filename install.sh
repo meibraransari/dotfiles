@@ -24,7 +24,8 @@ echo '
 current_dir=$(pwd)
 
 # Check if the directory is empty (no files or directories inside)
-if [ -z "$(ls -A ~/bin/dotfiles)" ]; then
+dotfiles_dir="$HOME/bin/dotfiles"
+if [ -d "$dotfiles_dir" ]; then
     # Directory is empty, so clone the repository
     mkdir -p ~/bin/dotfiles
     git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
