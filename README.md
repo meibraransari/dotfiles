@@ -21,7 +21,7 @@
 
 ## 📥 Installation Command.
 
-	mkdir -p ~/bin/dotfiles && git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles && bash ~/bin/dotfiles/install.sh
+	curl -sSL https://raw.githubusercontent.com/meibraransari/dotfiles/main/install.sh | bash
 
 ## 🔄 Update Command.
 
