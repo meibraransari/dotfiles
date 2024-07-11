@@ -21,6 +21,7 @@ echo '
 '
 
 current_dir=$(pwd)
+mkdir -p ~/bin/dotfiles && git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
 
 function install_grc {
     #!/bin/bash
