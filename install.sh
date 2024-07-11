@@ -31,6 +31,7 @@ if [ -z "$(ls -A ~/bin/dotfiles)" ]; then
 else
     # Directory is not empty, do nothing
     echo "Dotfiles already installed. Skipping Installation."
+    echo ""
 fi
 
 # Install GRC
