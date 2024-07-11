@@ -7,7 +7,8 @@ BLINK='\e[5m'
 Blue='\e[44m'
 GREEN='\e[0;32m'
 
-clear >$(tty)
+# clear >$(tty)
+clear >/dev/tty
 
 echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
 echo -e " ${GREEN}${BOLD}#        Dotfiles installation is in progress....         #${NOCOLOR}"
