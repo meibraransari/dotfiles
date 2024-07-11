@@ -30,7 +30,6 @@ if [ ! -d "$dotfiles_dir" ]; then
     # Directory does not exist, create it and clone the repository
     mkdir -p "$dotfiles_dir"
     if [ $? -eq 0 ]; then
-        echo "Created dotfiles directory successfully."
         git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir" &> /dev/null
     else
         echo "Failed to create dotfiles directory."
