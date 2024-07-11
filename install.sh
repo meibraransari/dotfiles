@@ -26,11 +26,7 @@ current_dir=$(pwd)
 # Check if the directory is empty (no files or directories inside)
 dotfiles_dir="$HOME/bin/dotfiles"
 # Check if the directory exists
-if [ -d "$dotfiles_dir" ]; then
-    echo "Dotfiles already installed."
-    echo "Skipping installation."
-    echo ""
-else
+if [ ! -d "$dotfiles_dir" ]; then
     # Directory does not exist, create it and clone the repository
     mkdir -p "$dotfiles_dir"
     if [ $? -eq 0 ]; then
@@ -40,6 +36,10 @@ else
         echo "Failed to create dotfiles directory."
         exit 1
     fi
+else
+    echo "Dotfiles already installed."
+    echo "Skipping installation."
+    echo ""
 fi
 
 exit 0
