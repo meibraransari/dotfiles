@@ -93,4 +93,3 @@ fi
 
 # Change directory
 cd "$current_dir"
-source ~/.bash_profile
