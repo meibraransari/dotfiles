@@ -33,6 +33,8 @@ else
     echo "Dotfiles already installed. Skipping Installation."
 fi
 
+exit 0
+
 # Install GRC
 function install_grc {
     #!/bin/bash
