@@ -16,7 +16,7 @@ export IHOME=/home/iansari
 # Auto update dotfiles
 # Check if the dotfiles repository exists
 function autoupdate() {
-current_dir=$(pwd)
+# current_dir=$(pwd)
 if [ -d "$HOME/bin/dotfiles" ]; then
     # Change directory to dotfiles
     cd "$HOME/bin/dotfiles"
@@ -34,10 +34,10 @@ if [ -d "$HOME/bin/dotfiles" ]; then
         git pull
 	fi
 fi
-cd "$current_dir"
+# cd "$current_dir"
 source ~/.bash_profile
 }
-autoupdate
+autoupdate &
 
 # Update dot files
 alias update_dotfiles='autoupdate'
