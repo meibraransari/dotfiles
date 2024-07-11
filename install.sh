@@ -20,8 +20,12 @@ echo '
 |____/ \___/ \__|_| |_|_|\___||___/
 '
 
+# Set current dir
 current_dir=$(pwd)
-mkdir -p ~/bin/dotfiles && git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
+
+# Install app
+mkdir -p ~/bin/dotfiles
+git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
 
 function install_grc {
     #!/bin/bash
