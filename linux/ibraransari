@@ -37,7 +37,7 @@ fi
 cd "$current_dir"
 source ~/.bash_profile
 }
-#autoupdate >/dev/null 2>&1 &
+autoupdate &
 
 # Update dot files
 alias update_dotfiles='autoupdate >/dev/null 2>&1 &'
