@@ -31,7 +31,7 @@ if [ ! -d "$dotfiles_dir" ]; then
     mkdir -p "$dotfiles_dir"
     if [ $? -eq 0 ]; then
         echo "Created dotfiles directory successfully."
-        git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir"
+        git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir" &> /dev/null
     else
         echo "Failed to create dotfiles directory."
         exit 1
