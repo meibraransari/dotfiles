@@ -10,6 +10,11 @@
 
 ![Banner Image](./images/banner.png)
 
+## Supported Systems
+
+- \[x\] Linux
+- \[x\] MacOS
+
 
 ## 📝 Prerequisites
 🧠 Brain is not poisoned with beer, because you have enough brain cells is required to read this manual. 
