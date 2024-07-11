@@ -34,6 +34,7 @@ else
     echo "Dotfiles already installed."
     echo "Skipping installation."
     echo ""
+    exit 0
 fi
 
 # Install GRC
