@@ -29,12 +29,7 @@ dotfiles_dir="$HOME/bin/dotfiles"
 if [ ! -d "$dotfiles_dir" ]; then
     # Directory does not exist, create it and clone the repository
     mkdir -p "$dotfiles_dir"
-    if [ $? -eq 0 ]; then
-        git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir" &> /dev/null
-    else
-        echo "Failed to create dotfiles directory."
-        exit 1
-    fi
+    git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir" &> /dev/null
 else
     echo "Dotfiles already installed."
     echo "Skipping installation."
