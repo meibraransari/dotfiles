@@ -42,8 +42,6 @@ else
     echo ""
 fi
 
-exit 0
-
 # Install GRC
 function install_grc {
     #!/bin/bash
