@@ -27,6 +27,16 @@ current_dir=$(pwd)
 mkdir -p ~/bin/dotfiles
 git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
 
+# Check if the directory is empty (no files or directories inside)
+if [ -z "$(ls -A ~/bin/dotfiles)" ]; then
+    # Directory is empty, so clone the repository
+    git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
+else
+    # Directory is not empty, do nothing
+    echo "Dotfiles already installed. Skipping Installation."
+fi
+
+# Install GRC
 function install_grc {
     #!/bin/bash
     # Check if grc is installed
