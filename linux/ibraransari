@@ -40,7 +40,7 @@ source ~/.bash_profile
 autoupdate &
 
 # Update dot files
-alias update_dotfiles='autoupdate &'
+alias update_dotfiles='autoupdate >/dev/null 2>&1 &'
 
 # Uninstall dot files
 alias uninstall_dotfiles='current_dir=$(pwd); clear >$(tty) && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && bash && cd "$current_dir" && source ~/.bash_profile && bash'
