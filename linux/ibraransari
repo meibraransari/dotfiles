@@ -55,9 +55,6 @@ alias help_ansible="grep 'alias' ~/bin/dotfiles/ansible/ansible | sed 's/alias /
 alias help_compose="grep 'alias' ~/bin/dotfiles/docker/docker_compose | sed 's/alias //'"
 alias help_pm2="grep 'alias' ~/bin/dotfiles/pm2/pm2 | sed 's/alias //'"
 
-
-
-
 function pwdgen() {
 #=======================================
 # Password generator with lenght option
