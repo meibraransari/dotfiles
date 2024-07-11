@@ -25,14 +25,21 @@ current_dir=$(pwd)
 
 # Check if the directory is empty (no files or directories inside)
 dotfiles_dir="$HOME/bin/dotfiles"
+# Check if the directory exists
 if [ -d "$dotfiles_dir" ]; then
-    # Directory is empty, so clone the repository
-    mkdir -p ~/bin/dotfiles
-    git clone https://github.com/meibraransari/dotfiles.git ~/bin/dotfiles
-else
-    # Directory is not empty, do nothing
-    echo "Dotfiles already installed. Skipping Installation."
+    echo "Dotfiles already installed."
+    echo "Skipping installation."
     echo ""
+else
+    # Directory does not exist, create it and clone the repository
+    mkdir -p "$dotfiles_dir"
+    if [ $? -eq 0 ]; then
+        echo "Created dotfiles directory successfully."
+        git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir"
+    else
+        echo "Failed to create dotfiles directory."
+        exit 1
+    fi
 fi
 
 # Install GRC
