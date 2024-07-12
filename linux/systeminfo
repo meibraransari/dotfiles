@@ -6,6 +6,8 @@ function system_info {
     echo -e "\n### System Information for the host: $HOSTNAME ###"
     RIGHT_NOW=$(date +"%x %r %Z")
     echo -e "Generated on $RIGHT_NOW by $USER"
+    echo -e "Server Location"
+    curl -s https://ipinfo.io/json | jq -r '"Country: \(.country)\nRegion: \(.region)\nCity: \(.city)\nTimezone: \(.timezone)"'
 
     echo -e "\n### SYSTEM INFORMATION ###"
     echo "Hostname: $(hostname)"
