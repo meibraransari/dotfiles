@@ -106,13 +106,12 @@ echo ""
 echo ""
 echo ""
 echo ""
-echo ""    
+echo ""   
+# Change directory
+cd "$current_dir"
+echo "test && exit 0"
 else
     echo "Installation Failed.. Please contact to Ibrar Ansari"
     exit 1
 fi
 
-# Change directory
-cd "$current_dir"
-
-echo "test && exit 0"
