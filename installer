@@ -64,6 +64,7 @@ install_grc
 
 # Check if the line '. ~/bin/dotfiles/bashrc' exists in ~/.bashrc, if not, append it
 if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc; then
+    sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc
     echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
 fi
 
