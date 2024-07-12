@@ -44,7 +44,7 @@ export IHOME=/home/iansari
 function autoupdate() {
     current_dir=$(pwd)
     if [ -d "$HOME/bin/dotfiles" ]; then
-        cd ~/bin/dotfiles && git pull
+        cd ~/bin/dotfiles && git pull 
     fi
     cd "$current_dir"
     #source ~/.bash_profile
@@ -52,7 +52,16 @@ function autoupdate() {
 autoupdate
 
 # Update dot files
-alias update_dotfiles='current_dir=$(pwd); clear >$(tty) && cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile'
+# alias update_dotfiles='current_dir=$(pwd); clear >$(tty) && cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile'
+# Auto update dotfiles new one
+function update_dotfiles() {
+    current_dir=$(pwd)
+    if [ -d "$HOME/bin/dotfiles" ]; then
+        cd ~/bin/dotfiles && git pull 
+    fi
+    cd "$current_dir"
+    #source ~/.bash_profile
+}
 
 # Uninstall dot files
 alias uninstall_dotfiles='current_dir=$(pwd); clear >$(tty) && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && bash && cd "$current_dir" && source ~/.bash_profile && bash'
