@@ -11,13 +11,32 @@ install_nginx() {
     echo "Nginx installed!..."
 }
 
+# nt() {
+# #!/bin/bash
+# # Check nginx configuration
+# if nginx -t 2>&1 | grep -q "successful"; then
+#     echo "Nginx configuration test successful. Reloading nginx..."
+#     nginx -s reload
+# else
+#     echo "Nginx configuration test failed. Not reloading nginx."
+# fi
+# }
+
 nt() {
-#!/bin/bash
-# Check nginx configuration
-if nginx -t 2>&1 | grep -q "successful"; then
+    #!/bin/bash
+    sudo nginx -t > /dev/null 2>&1
+    # Check if the Nginx test failed
+    if [ $? -ne 0 ]; then
+        echo "Nginx test failed. Exiting script."
+        exit 1
+    fi
     echo "Nginx configuration test successful. Reloading nginx..."
-    nginx -s reload
-else
-    echo "Nginx configuration test failed. Not reloading nginx."
-fi
+    # If the test passed, reload Nginx
+    sudo service nginx reload
+    # Check if Nginx reload was successful
+    if [ $? -eq 0 ]; then
+        echo "Nginx service reloaded successfully."
+    else
+        echo "Nginx configuration test failed. Not reloading nginx."
+    fi
 }
