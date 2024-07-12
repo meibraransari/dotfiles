@@ -44,7 +44,7 @@ export IHOME=/home/iansari
 function autoupdate() {
 # current_dir=$(pwd)
 if [ -d "$HOME/bin/dotfiles" ]; then
-    'cd "$HOME/bin/dotfiles" && git pull'
+    cd ~/bin/dotfiles && git pull
 fi
 }
 autoupdate &
