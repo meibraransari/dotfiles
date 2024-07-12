@@ -39,7 +39,8 @@ else
     echo "Skipping installation and updating to the latest version."
     echo ""
     # Update dot files
-    cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile
+    #cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile
+    cd ~/bin/dotfiles && git pull && cd "$current_dir" > /dev/null && source ~/.bash_profile
     exit 0
 fi
 }
@@ -116,7 +117,7 @@ else
 fi
 
 # Change directory
-cd "$current_dir"
+cd "$current_dir" &> /dev/null
 
 # Source ~/.bash_profile to apply changes
 source ~/.bash_profile
