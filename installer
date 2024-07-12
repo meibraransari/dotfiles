@@ -34,7 +34,7 @@ if [ ! -d "$dotfiles_dir" ]; then
 else
     echo "Dotfiles is already installed."
     echo ""
-    echo "Skipping installation and updating to the latest"
+    echo "Skipping installation and updating to the latest version."
     echo ""
     # Update dot files
     cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile
