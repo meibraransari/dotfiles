@@ -63,7 +63,17 @@ function install_grc {
 install_grc
 
 function install_jq {
-    apt install jq -y
+    if ! command -v jq &> /dev/null
+    then
+        #clear >$(tty)
+        echo "JQ is not installed. Installing..."
+        sudo apt-get update -y #>/dev/null 2>&1
+        sudo apt-get install jq -y #>/dev/null 2>&1
+        echo "jq installed successfully."
+    else
+        #clear >$(tty)
+        echo "jq is already installed."
+    fi
 }
 install_jq
 
