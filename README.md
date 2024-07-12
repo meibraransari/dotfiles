@@ -10,6 +10,8 @@
 
 ![Banner Image](./images/banner.png)
 
+---
+
 ## 🖥️ Supported Systems
 
 - \[x\] Linux
