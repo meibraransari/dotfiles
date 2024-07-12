@@ -34,6 +34,27 @@ function install_git {
 }
 install_git
 
+# Install GRC
+function install_grc {
+    #!/bin/bash
+    # Check if grc is installed
+    if ! command -v grc &> /dev/null
+    then
+        #clear >$(tty)
+        echo "Grc is not installed. Installing..."
+        sudo apt-get update -y #>/dev/null 2>&1
+        sudo apt-get install grc -y #>/dev/null 2>&1
+        sudo sed -i 's/GRC_ALIASES=false/GRC_ALIASES=true/g' /etc/default/grc #>/dev/null 2>&1
+        [ -f /etc/default/grc ] && . /etc/default/grc
+        [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
+        echo "grc installed successfully."
+    else
+        #clear >$(tty)
+        echo "Grc is already installed."
+    fi
+}
+install_grc
+
 function install_dotfiles {
 # Set current dir
 current_dir=$(pwd)
@@ -56,27 +77,6 @@ else
 fi
 }
 install_dotfiles
-
-# Install GRC
-function install_grc {
-    #!/bin/bash
-    # Check if grc is installed
-    if ! command -v grc &> /dev/null
-    then
-        #clear >$(tty)
-        echo "Grc is not installed. Installing..."
-        sudo apt-get update -y #>/dev/null 2>&1
-        sudo apt-get install grc -y #>/dev/null 2>&1
-        sudo sed -i 's/GRC_ALIASES=false/GRC_ALIASES=true/g' /etc/default/grc #>/dev/null 2>&1
-        [ -f /etc/default/grc ] && . /etc/default/grc
-        [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
-        echo "grc installed successfully."
-    else
-        #clear >$(tty)
-        echo "Grc is already installed."
-    fi
-}
-install_grc
 
 function install_jq {
     if ! command -v jq &> /dev/null
