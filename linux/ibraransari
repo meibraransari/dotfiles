@@ -45,6 +45,7 @@ function autoupdate() {
 # current_dir=$(pwd)
 if [ -d "$HOME/bin/dotfiles" ]; then
     cd ~/bin/dotfiles && git pull
+    source ~/.bash_profile
 fi
 }
 autoupdate
