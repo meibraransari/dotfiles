@@ -33,8 +33,9 @@ if [ ! -d "$dotfiles_dir" ]; then
     git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir" &> /dev/null
 else
     echo "Dotfiles already installed."
-    echo "Skipping installation."
+    echo "Skipping installation and updating to latest"
     echo ""
+    update_dotfiles
     exit 0
 fi
 
