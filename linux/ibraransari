@@ -49,7 +49,7 @@ function autoupdate() {
     cd "$current_dir"
     source ~/.bash_profile
 }
-autoupdate
+#autoupdate
 
 # Update dot files
 alias update_dotfiles='current_dir=$(pwd); clear >$(tty) && cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile'
