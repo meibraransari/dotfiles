@@ -183,4 +183,4 @@ And many more... to see the all commands and its usage, use "ansible_help" comma
 - 🐳 [**Docker**](https://hub.docker.com/u/ibraransaridocker)
 
 [releases-badge]: https://img.shields.io/github/tag/TheLocehiliosan/yadm.svg?label=latest+release
-[releases-link]: https://github.com/meibraransari/dotfiles/blob/main/README.md
+[releases-link]: https://github.com/meibraransari/dotfiles/releases
