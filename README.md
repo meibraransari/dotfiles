@@ -59,7 +59,7 @@ gitcm='git checkout master'
 gitm='git merge'
 gitmd='git merge development'
 
-And many more... to see the all commands and its usage, use "git_help" command.
+And many more... to see the all commands and its usage, use "help_git" command.
 ```
 ## `🐧 Linux:` ✔
 ```
@@ -78,7 +78,7 @@ cll="clear; ls -lAh --color=auto"
 .6='cd ../../../../../../'            # Go back 6  levels
 ts='tail -f /var/log/syslog'
 
-And many more... to see the all commands and its usage, use "linux_help" command.
+And many more... to see the all commands and its usage, use "help_linux" command.
 ```
 ## `🐳 Docker:` ✔
 ```
@@ -100,7 +100,7 @@ dit = docker inspect
 dvl = docker volume ls
 dss = docker stats
 
-And many more... to see the all commands and its usage, use "docker_help" command.
+And many more... to see the all commands and its usage, use "help_docker" command.
 ```
 ## `☸️ Kubernetes:` ✔
 ```
@@ -129,7 +129,7 @@ kcaf    ='kubectl apply -f'
 kcdf    ='kubectl delete -f'
 kclf    ='kubectl logs --tail=200  -f'
 
-And many more... to see the all commands and its usage, use "k8s_help" command.
+And many more... to see the all commands and its usage, use "help_k8s" command.
 ```
 ## `🤖 Ansible:` ✔
 ```
@@ -154,7 +154,7 @@ agar='ansible-galaxy remove'
 agas='ansible-galaxy search'
 vault='ansible-vault edit vars/aws_vault.yml' 
 
-And many more... to see the all commands and its usage, use "ansible_help" command.
+And many more... to see the all commands and its usage, use "help_ansible" command.
 ```
 
 ### ⚡️ Power of keyboard ⌨️ shortcuts 💪🏽
