@@ -21,6 +21,8 @@ echo '
 |____/ \___/ \__|_| |_|_|\___||___/
 '
 
+function install_dotfiles {
+    
 # Set current dir
 current_dir=$(pwd)
 
@@ -40,6 +42,8 @@ else
     cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile
     exit 0
 fi
+}
+install_dotfiles
 
 # Install GRC
 function install_grc {
