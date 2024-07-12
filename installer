@@ -85,6 +85,7 @@ if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc; then
     echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
 fi
 
+
 # Check if the line '[ -f ~/.bashrc ] && source ~/.bashrc' exists in ~/.bash_profile, if not, append it
 if ! grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile; then
     echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
@@ -99,19 +100,21 @@ then
     #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
     echo -e " ${Blue}${BLINK}${BOLD}   Installation done successfully...${NOCOLOR}"
 echo ""
-
 echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
 echo ""
 echo ""
 echo ""
 echo ""
 echo ""
-echo ""   
-# Change directory
-cd "$current_dir"
-echo "test && exit 0"
+echo ""    
 else
     echo "Installation Failed.. Please contact to Ibrar Ansari"
     exit 1
 fi
 
+# Change directory
+cd "$current_dir"
+
+# Source ~/.bash_profile to apply changes
+source ~/.bash_profile
+exec bash
