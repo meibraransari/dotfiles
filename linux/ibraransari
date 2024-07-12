@@ -42,13 +42,14 @@ export IHOME=/home/iansari
 
 # Auto update dotfiles new one
 function autoupdate() {
-# current_dir=$(pwd)
-if [ -d "$HOME/bin/dotfiles" ]; then
-    cd ~/bin/dotfiles && git pull && source ~/.bash_profile
-fi
+    current_dir=$(pwd)
+    if [ -d "$HOME/bin/dotfiles" ]; then
+        cd ~/bin/dotfiles && git pull
+    fi
+    cd "$current_dir"
+    source ~/.bash_profile
 }
 autoupdate
-
 
 # Update dot files
 alias update_dotfiles='current_dir=$(pwd); clear >$(tty) && cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile'
