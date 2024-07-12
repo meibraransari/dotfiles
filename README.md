@@ -23,14 +23,14 @@
 Using wget:
 
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/meibraransari/dotfiles/main/install.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/meibraransari/dotfiles/main/installer)
 
 ```
 
 Or using curl:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/installer)
 ```
 
 ## 🔄 Update Command.
