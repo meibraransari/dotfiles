@@ -10,18 +10,28 @@
 
 ![Banner Image](./images/banner.png)
 
+## 📝 Prerequisites
+🧠 Brain is not poisoned with beer, because you have enough brain cells is required to read this manual. 
+
 ## 🖥️ Supported Systems
 
 - \[x\] Linux
 - \[x\] MacOS
 
+## 📥 Installation
 
-## 📝 Prerequisites
-🧠 Brain is not poisoned with beer, because you have enough brain cells is required to read this manual. 
+Using wget:
 
-## 📥 Installation Command.
+```bash
+bash <(wget -qO- https://raw.githubusercontent.com/meibraransari/dotfiles/main/install.sh)
 
-	curl -sSL https://raw.githubusercontent.com/meibraransari/dotfiles/main/install.sh | bash
+```
+
+Or using curl:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/install.sh)
+```
 
 ## 🔄 Update Command.
 
