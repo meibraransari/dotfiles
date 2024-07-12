@@ -114,3 +114,5 @@ fi
 
 # Change directory
 cd "$current_dir"
+
+echo "test && exit 0"
