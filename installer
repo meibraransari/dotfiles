@@ -35,6 +35,8 @@ else
     echo "Dotfiles already installed."
     echo "Skipping installation and updating to latest"
     echo ""
+    # Update dot files
+    alias update_dotfiles='current_dir=$(pwd); clear >$(tty) && cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile'
     update_dotfiles
     exit 0
 fi
