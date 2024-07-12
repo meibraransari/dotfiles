@@ -10,8 +10,6 @@
 
 ![Banner Image](./images/banner.png)
 
----
-
 ## 🖥️ Supported Systems
 
 - \[x\] Linux
@@ -172,6 +170,7 @@ And many more... to see the all commands and its usage, use "help_ansible" comma
 - ✔ [Bash-Completion](https://packages.debian.org/bookworm/bash-completion/)
 - ✔ [GRC](https://github.com/meibraransari/dotfiles/blob/main/grc/grc)
 
+---
 
 > 📢📢📢 I am continuously updating this repository so feel free to fork this repository for future updates!
 
