@@ -21,11 +21,22 @@ echo '
 |____/ \___/ \__|_| |_|_|\___||___/
 '
 
-function install_dotfiles {
+function install_git {
+    if ! command -v git &> /dev/null
+    then
+        echo "Git is not installed. Installing..."
+        sudo apt-get update -y #>/dev/null 2>&1
+        sudo apt-get install git -y #>/dev/null 2>&1
+        echo "Git installed successfully."
+    else
+        echo "Git is already installed."
+    fi
+}
+install_git
 
+function install_dotfiles {
 # Set current dir
 current_dir=$(pwd)
-
 # Check if the directory is empty (no files or directories inside)
 dotfiles_dir="$HOME/bin/dotfiles"
 # Check if the directory exists
