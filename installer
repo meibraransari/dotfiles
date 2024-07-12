@@ -22,7 +22,7 @@ echo '
 '
 
 function install_dotfiles {
-    
+
 # Set current dir
 current_dir=$(pwd)
 
@@ -88,7 +88,6 @@ sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc
 if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc; then
     echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
 fi
-
 
 # Check if the line '[ -f ~/.bashrc ] && source ~/.bashrc' exists in ~/.bash_profile, if not, append it
 if ! grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile; then
