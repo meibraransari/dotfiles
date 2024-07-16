@@ -13,5 +13,5 @@ remove() {
     sudo apt purge "$@" -y
 }
 install_basic_app() {
-    sudo apt install -y mc vim nano tldr zip unzip vim jq screen htop atop iotop sysstat ioping tcptrack traceroute dnsutils pinfo speedtest-cli net-tools iptraf iptraf-ng ncdu gdu aptitude
+    sudo apt update -y && sudo apt install -y mc vim nano tldr zip unzip vim jq screen htop atop iotop sysstat ioping tcptrack traceroute dnsutils pinfo speedtest-cli net-tools iptraf iptraf-ng ncdu aptitude
 }
