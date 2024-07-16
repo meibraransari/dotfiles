@@ -30,10 +30,12 @@ set_permissions() {
     do
         if [ -d "$i" ] 
         then
-            chmod "$permission" "$i"
+            chmod -R "$permission" "$i"
+            chmod -R "$permission" ."$i"
         elif [ -f "$i" ]
         then
-            chmod "$permission" "$i"
+            chmod -R "$permission" "$i"
+            chmod -R "$permission" ."$i"
         else
             echo "The file or folder '$i' does not exist."
         fi
