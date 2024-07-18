@@ -341,3 +341,25 @@ status() {
   fi
   sudo systemctl status "$@"
 }
+
+
+
+# latest_created_files
+latest_created_files() {
+    #!/bin/bash
+    # Get the latest 50 files in the current directory
+    latest_files=$(find . -maxdepth 1 -type f -printf '%T@ %p\n' | sort -k1,1nr | head -n 50 | cut -d' ' -f2-)
+    # Print the list of latest files
+    echo "Top 50 latest created files in $(pwd):"
+    echo "$latest_files"
+}
+
+# latest_modified_files
+latest_modified_files() {
+    # Get the latest 50 files in the current directory based on modification time
+    latest_files=$(find . -maxdepth 1 -type f -printf '%T@ %p\n' | sort -k1,1nr | head -n 50 | cut -d' ' -f2-)
+
+    # Print the list of latest modified files
+    echo "Top 50 latest modified files in $(pwd):"
+    echo "$latest_files"
+}
