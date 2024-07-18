@@ -33,6 +33,20 @@ Or using curl:
 bash <(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/installer)
 ```
 
+## 🐳 Try it in Docker
+
+You can safely install additional software and make any changes to the file system. Once you exit container the image is deleted.
+
+Using Ubuntu latest image:
+
+```bash
+docker run -e TERM -e COLORTERM -w /root -it --rm ubuntu sh -uec '
+  apt-get update
+  apt-get install -y curl git build-essential sudo
+  su -c bash -c "$(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/installer)"
+  su -c exec bash'
+```
+
 ## 🔄 Update Command.
 
 	update_dotfiles
