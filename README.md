@@ -16,7 +16,6 @@
 ## 🖥️ Supported Systems
 
 - \[x\] Linux
-- \[x\] MacOS
 
 ## 📥 Installation
 
