@@ -332,6 +332,15 @@ stop() {
   sudo systemctl stop "$@"
 }
 
+# restart services
+restart() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: restart <service>"
+    return 1
+  fi
+  sudo systemctl restart "$@"
+}
+
 
 # Status services
 status() {
