@@ -24,7 +24,7 @@ upgrade_os() {
     exit 1
     fi
     # Perform update and upgrade
-    apt update
+    apt update -y
     apt upgrade -y
     # Run distribution upgrade
     echo "Running do-release-upgrade..."
