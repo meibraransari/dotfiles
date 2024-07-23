@@ -47,3 +47,14 @@ docker_advantages() {
     echo "6. Version control and sharing: Docker images can be version-controlled and shared through registries like Docker Hub, enabling collaboration."
     echo "7. Ecosystem: Docker has tools like Docker Compose for multi-container apps and Docker Swarm for orchestration, enhancing its functionality."
 }
+
+
+docker_copy() {
+    echo # Host to container
+    echo docker cp /path/to/local/file.txt CONTAINER_ID:/path/in/container/file.txt
+    echo docker cp /home/user/data.txt mycontainer:/data/data.txt
+
+    echo # Container to Host
+    echo docker cp CONTAINER_ID:/path/in/container/file.txt /path/to/local/file.txt
+    echo docker cp mycontainer:/data/data.txt /home/user/data.txt
+}
