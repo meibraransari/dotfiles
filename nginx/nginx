@@ -69,3 +69,27 @@ site_enable() {
         return 1
     fi
 }
+
+
+site_disable() {
+    if [ -z "$1" ]; then
+        echo "Usage: site_disable <site-name>"
+        return 1
+    fi
+    
+    # Check if the symbolic link exists in sites-enabled
+    if [ ! -L "/etc/nginx/sites-enabled/$1" ]; then
+        echo "Error: Site '$1' is not enabled or symbolic link does not exist."
+        return 1
+    fi
+    
+    # Remove the symbolic link to disable the site
+    rm /etc/nginx/sites-enabled/$1
+    if [ $? -eq 0 ]; then
+        echo "Site '$1' disabled successfully."
+        return 0
+    else
+        echo "Failed to disable site '$1'."
+        return 1
+    fi
+}
