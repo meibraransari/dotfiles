@@ -2,7 +2,7 @@ help_ssh() {
 # Use a here document to print all lines
 cat <<EOF
 	# ============================ SSH Key Setup ============================ #
-    
+
     # On your computer
     cd ~/.ssh
     #ssh-keygen -t rsa
@@ -24,6 +24,21 @@ cat <<EOF
     # On your computer
     ssh user@Server_IP
     ssh -v user@Server_IP
+
+    ### As explored in the comments, the private key file was not being specified. The default files (.ssh/id_dsa, .ssh/id_dsa) were attempted but not found.
+    #The private key file can be added in several ways:
+    #We’ll assume you are using SSH keys for authentication. To set up SSH agent to avoid retyping passwords, you can do:
+    # (1) Using the ssh agent(adds private key identities to the OpenSSH authentication agent):
+    eval "$(ssh-agent -s)" #First, you’ll need to start the ssh-agent in the background:
+    ssh-agent bash
+    ssh-add ~/.ssh/id_rsa #Next, add your SSH private key to the ssh-agent. Assuming your private key is in the default location (~/.ssh/id_rsa), you can add it to the ssh-agent using:
+    ssh-add -l 
+    man ssh-add
+    echo 'eval "$(ssh-agent -s)"' >> ~/.bashrc # Auto-start ssh-agent
+    #Setting up a maximum lifetime for identities/private keys
+    ssh-add -t 1800 # 1800 seconds
+    ssh-add -t 45m # 45 minutes
+    ssh-add -t 3h42 # 3 hours 42 minutes
 
 EOF
 }
