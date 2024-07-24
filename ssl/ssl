@@ -5,3 +5,40 @@ install_certbot() {
     sudo snap install --classic certbot
     sudo ln -s /snap/bin/certbot /usr/bin/certbot
 }
+
+help_generate_SSL() {
+# Use a here document to print all lines
+cat <<EOF
+	# ============================ Generate SSL ============================ #
+	# Generating a private key: 
+	openssl genrsa 2048 > private.pem
+
+	# Generating the self signed certificate: 
+	openssl req -x509 -new -key private.pem -out public.pem
+
+	# Generating the self signed certificate for more than one year
+	openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout private.key -out cert.crt
+	openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/example.com/key.key -out /etc/nginx/ssl/example.com/cert.crt
+
+	# If required, creating PFX: 
+	openssl pkcs12 -export -in public.pem -inkey private.pem -out mycert.pfx
+
+
+	# ============================ Validate SSL ============================ #
+	# Print the md5 hash of the SSL Certificate modulus:
+	openssl x509 -noout -modulus -in CERTIFICATE.crt | openssl md5
+
+	# Print the md5 hash of the CSR modulus:
+	openssl req -noout -modulus -in CSR.csr | openssl md5
+
+	# Print the md5 hash of the Private Key modulus:
+	openssl rsa -noout -modulus -in PRIVATEKEY.key | openssl md5
+
+	# Make Sure Your CSR, SSL Certificate and Private Key Match
+	# To check whether a certificate matches a private key, or a CSR matches a certificate, you’ll need to run following OpenSSL commands:
+	openssl pkey -in private.key -pubout -outform pem | sha256sum
+	openssl x509 -in cert.crt -pubkey -noout -outform pem | sha256sum
+	openssl req -in CSR.csr -pubkey -noout -outform pem | sha256sum
+
+EOF
+}
