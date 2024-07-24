@@ -40,3 +40,32 @@ nt() {
         echo "Nginx configuration test failed. Not reloading nginx."
     fi
 }
+
+site_enable() {
+    if [ -z "$1" ]; then
+        echo "Usage: site_enable <site-name>"
+        return 1
+    fi
+    
+    # Check if the site configuration file exists in sites-available
+    if [ ! -f "/etc/nginx/sites-available/$1" ]; then
+        echo "Error: Configuration file /etc/nginx/sites-available/$1 not found."
+        return 1
+    fi
+    
+    # Check if the symbolic link already exists in sites-enabled
+    if [ -f "/etc/nginx/sites-enabled/$1" ]; then
+        echo "Site '$1' is already enabled."
+        return 0
+    fi
+    
+    # Create symbolic link to enable the site
+    ln -s /etc/nginx/sites-available/$1 /etc/nginx/sites-enabled/$1
+    if [ $? -eq 0 ]; then
+        echo "Site '$1' enabled successfully."
+        return 0
+    else
+        echo "Failed to enable site '$1'."
+        return 1
+    fi
+}
