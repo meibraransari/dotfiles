@@ -23,3 +23,4 @@
 . ~/bin/dotfiles/nginx/nginx
 . ~/bin/dotfiles/pm2/pm2
 . ~/bin/dotfiles/ssl/ssl
+. ~/bin/dotfiles/ssh/ssh

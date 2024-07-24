@@ -1,0 +1,29 @@
+help_ssh() {
+# Use a here document to print all lines
+cat <<EOF
+	# ============================ SSH Key Setup ============================ #
+    
+    # On your computer
+    cd ~/.ssh
+    #ssh-keygen -t rsa
+    ssh-keygen -t rsa -f ~/.ssh/cicd_id_rsa_key -b 4096 -C "your_email@example.com"  # Generate for user aceess
+    ssh-keygen -t rsa -f ~/.ssh/cicd_id_rsa_key -b 4096 -C "This is used for cicd"  # Generate for Server only
+
+    # Here we are copieng in User(user)
+    scp ~/.ssh/id_rsa.pub user@host:~/.ssh/
+
+    # On your server
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    chmod 600 ~/.ssh/authorized_keys
+    stat -c '%A %a %n' * #List numric permission
+    chmod 700 ~/.ssh
+    ls -ld ~
+    chmod 700 ~
+    Note:- need to take care of file permission and firewalls
+
+    # On your computer
+    ssh user@Server_IP
+    ssh -v user@Server_IP
+
+EOF
+}
