@@ -9,15 +9,15 @@ alias h=" history"
 alias su="sudo -i"
 alias susu="sudo bash"
 alias shutdown="sudo shutdown -h now"
-alias restart="init 6"
+alias restart="sudo init 6"
 alias home='clear && cd ~ && pwd'
 alias downloads='clear && cd ~/Downloads && pwd'  
-alias topcpu='ps -eo pcpu,args --sort=-pcpu | head -n 50 | awk '"'"'{printf("%13.2f%%\t", $1); print $2}'"'"''
-alias topmem='ps -eo "rss,args" --sort=-rss | head -n 50 | awk "{hr=\$1/1024; printf(\"%13.2fM\t\", hr); print \$2}"'
+alias topcpu='sudo ps -eo pcpu,args --sort=-pcpu | head -n 50 | awk '"'"'{printf("%13.2f%%\t", $1); print $2}'"'"''
+alias topmem='sudo ps -eo "rss,args" --sort=-rss | head -n 50 | awk "{hr=\$1/1024; printf(\"%13.2fM\t\", hr); print \$2}"'
 alias topdisk='sudo iotop -aoP'
 alias topdisk1='sudo iostat -x 1'
 alias topdisk2='sudo iostat -mxy 1'
-alias topfile='du -hsx * | sort -nr | head -n 20'
+alias topfile='sudo du -hsx * | sort -nr | head -n 20'
 alias na='nano -A -clS' 
 alias nano='nano -A -clS' 
 alias py='python3' 
