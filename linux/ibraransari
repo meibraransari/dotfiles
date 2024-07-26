@@ -63,6 +63,9 @@ function update_dotfiles() {
     #source ~/.bash_profile
 }
 
+# Enter in dotfiles
+alias dotfiles='cd ~/bin/dotfiles'
+
 # Uninstall dot files
 alias uninstall_dotfiles='current_dir=$(pwd); clear && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && exec bash && cd "$current_dir" && source ~/.bash_profile && exec bash'
 
