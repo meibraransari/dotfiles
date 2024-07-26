@@ -63,6 +63,7 @@ docker_copy() {
 docker_clean_dangling_builder() {
   docker rmi $(docker images -f "dangling=true" -q)
   docker builder prune --force
+  docker buildx prune -f
 }
 
 
