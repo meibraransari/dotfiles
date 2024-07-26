@@ -24,3 +24,4 @@
 . ~/bin/dotfiles/pm2/pm2
 . ~/bin/dotfiles/ssl/ssl
 . ~/bin/dotfiles/ssh/ssh
+. ~/bin/dotfiles/jenkins/jenkins

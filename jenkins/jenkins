@@ -1,0 +1,33 @@
+
+
+jenkins_backup() {
+    #!/bin/bash
+    #Date
+    date=$(date +"%d-%b-%Y")
+    # Source and destination directories
+    source_dir="/var/lib/jenkins/jobs"
+    destination_dir="/home/jenkins/jenkins_job_backup/$date"
+
+    # Loop through each job directory in the source directory
+    for job_dir in "$source_dir"/*; do
+        # Extract the job name from the directory path
+        job_name=$(basename "$job_dir")
+
+        # Create the destination directory if it doesn't exist
+        destination_job_dir="$destination_dir/$job_name"
+        mkdir -p "$destination_job_dir"
+
+        # Copy the job configuration file (config.xml) to the destination
+        cp "$job_dir/config.xml" "$destination_job_dir"
+
+        echo "Copied $job_name configuration to $destination_job_dir"
+    done
+
+    echo "Backup complete!"
+
+    tree $destination_dir
+}
+
+
+
+
