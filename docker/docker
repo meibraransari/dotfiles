@@ -58,3 +58,12 @@ docker_copy() {
     echo docker cp CONTAINER_ID:/path/in/container/file.txt /path/to/local/file.txt
     echo docker cp mycontainer:/data/data.txt /home/user/data.txt
 }
+
+
+docker_clean_dangling_builder() {
+  docker rmi $(docker images -f "dangling=true" -q)
+  docker builder prune --force
+}
+
+
+
