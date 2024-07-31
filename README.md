@@ -95,9 +95,11 @@ docker exec -it dotfiles /bin/bash
 - Nginx
 - Certbot
 
-## Installer Usage
+## Install/Upgrade/Help Usage
 ```
 install_<Press Tab to select app to install>
+upgrade_<Press Tab to select app to install>
+help_<Press Tab to select app to install>
 ```
 
 # 📌 Dotfiles usage in short (Trailer) 😊
