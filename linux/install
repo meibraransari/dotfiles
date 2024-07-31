@@ -238,9 +238,12 @@ upgrade_jenkins() {
         echo "Jenkins service is running correctly."
     else
         echo "Jenkins service is not running correctly."
+        return 1
+    fi
+    if [ $? -ne 0 ]; then
+        echo "Upgrade failed. Please check the output above."
         exit 1
     fi
-
     # List files to verify
     # echo "Listing files in /usr/share/java:"
     # ls -alsh /usr/share/java
