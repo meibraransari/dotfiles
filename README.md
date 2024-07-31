@@ -72,6 +72,12 @@ docker exec -it dotfiles /bin/bash
 	uninstall_dotfiles
  
 
+## 🛠️Install/🔄Upgrade/❓Help Usage
+```
+install_<Press Tab to select app to install>
+upgrade_<Press Tab to select app to install>
+help_<Press Tab to select app to install>
+```
 
 ## 🚀 DevOps Tools Installer Included
 
@@ -95,12 +101,6 @@ docker exec -it dotfiles /bin/bash
 - Nginx
 - Certbot
 
-## Install/Upgrade/Help Usage
-```
-install_<Press Tab to select app to install>
-upgrade_<Press Tab to select app to install>
-help_<Press Tab to select app to install>
-```
 
 # 📌 Dotfiles usage in short (Trailer) 😊
 
