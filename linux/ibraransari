@@ -424,3 +424,23 @@ create_user() {
 
     echo "User $USERNAME created and configured with sudo privileges without password prompt."
 }
+
+
+# Get system error 
+get_system_errors() {
+    # Check if the system log file exists
+    if [[ -f /var/log/syslog ]]; then
+        log_file="/var/log/syslog"
+    elif [[ -f /var/log/messages ]]; then
+        log_file="/var/log/messages"
+    else
+        echo "No system log file found."
+        return 1
+    fi
+    
+    # Search for common error patterns in the log file
+    echo "Searching for errors in $log_file..."
+    grep -iE 'error|fail|fatal|panic|exception' "$log_file" | less
+}
+
+# Usage: Just type `get_system_errors` in your terminal.
