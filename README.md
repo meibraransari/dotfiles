@@ -15,7 +15,9 @@
 
 ## 🖥️ Supported Systems
 
-- \[x\] Linux
+- \[x\] Ubuntu.
+- \[x\] Debian.
+- \[x\] Windows (WSL must be installed with ubuntu or debian.)
 
 ## 📥 Installation
 
