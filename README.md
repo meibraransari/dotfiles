@@ -38,7 +38,8 @@ bash <(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/ins
 
 You can safely install additional software and make any changes to the file system. Once you exit container the image is deleted.
 
-Using Ubuntu latest image:
+<details>
+<summary>Using Ubuntu latest image:</summary>
 
 ```bash
 docker run -e TERM -e COLORTERM -w /root -it --rm ubuntu sh -uec '
@@ -47,6 +48,20 @@ docker run -e TERM -e COLORTERM -w /root -it --rm ubuntu sh -uec '
   su -c bash -c "$(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/installer)"
   su -c exec bash'
 ```
+
+</details>
+
+<details>
+<summary>Or using Ubuntu Preinstalled:</summary>
+
+```bash
+docker pull ibraransaridocker/dotfiles
+docker run -itd --name=dotfiles ibraransaridocker/dotfiles
+docker exec -it dotfiles /bin/bash
+```
+</details>
+
+
 
 ## 🔄 Update Command.
 
