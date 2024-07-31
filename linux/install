@@ -174,3 +174,70 @@ install_consul() {
   sudo apt-get install -y consul
   echo "Consul installed successfully."
 }
+
+# Define the function to upgrade Jenkins
+upgrade_jenkins() {
+    #!/bin/bash
+    local JENKINS_WAR_PATH="/usr/share/java/jenkins.war"
+    local BACKUP_PATH="/usr/share/java/backup/"
+    local TIMESTAMP=$(date +%F-%H-%M)
+
+    echo "Starting Jenkins upgrade..."
+
+    # Stop the Jenkins service
+    echo "Stopping Jenkins service..."
+    sudo service jenkins stop
+    if [ $? -ne 0 ]; then
+        echo "Error stopping Jenkins service."
+        return 1
+    fi
+
+    # Create backup directory if it doesn't exist
+    sudo mkdir -p "$BACKUP_PATH"
+
+    # Backup the current Jenkins WAR file
+    echo "Backing up the current Jenkins WAR file..."
+    sudo mv "$JENKINS_WAR_PATH" "$BACKUP_PATH/jenkins.war.$TIMESTAMP"
+    if [ $? -ne 0 ]; then
+        echo "Error backing up the Jenkins WAR file."
+        return 1
+    fi
+
+    # Remove any existing Jenkins WAR backup file
+    echo "Removing any existing Jenkins WAR backup..."
+    sudo rm -f "$JENKINS_WAR_PATH.1" > /dev/null 2>&1
+
+    # Download the latest Jenkins WAR file
+    echo "Downloading the latest Jenkins WAR file..."
+    sudo wget -q -O "$JENKINS_WAR_PATH" https://updates.jenkins-ci.org/latest/jenkins.war
+    if [ $? -ne 0 ]; then
+        echo "Error downloading Jenkins WAR file."
+        return 1
+    fi
+
+    # Start Jenkins service
+    echo "Starting Jenkins service..."
+    sudo service jenkins start
+    if [ $? -ne 0 ]; then
+        echo "Error starting Jenkins service."
+        return 1
+    fi
+
+    # Check Jenkins service status
+    echo "Checking Jenkins service status..."
+    if sudo service jenkins status | grep -q "running"; then
+        echo "Jenkins service is running correctly."
+    else
+        echo "Jenkins service is not running correctly."
+        exit 1
+    fi
+
+    # List files to verify
+    # echo "Listing files in /usr/share/java:"
+    # ls -alsh /usr/share/java
+
+    echo "Jenkins upgrade completed successfully!"
+}
+
+# Call the function
+# upgrade_jenkins
