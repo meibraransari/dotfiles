@@ -57,6 +57,34 @@ docker run -e TERM -e COLORTERM -w /root -it --rm ubuntu sh -uec '
 	uninstall_dotfiles
  
 
+
+## 🚀 DevOps Tools Installer Included
+
+- Docker
+- Docker Compose
+- Kubernetes (kubectl)
+- Ansible
+- Terraform
+- Jenkins
+- AWS CLI
+- Azure CLI
+- Google Cloud SDK
+- Helm
+- Prometheus
+- Grafana
+- GitLab Runner
+- HashiCorp Vault
+- HashiCorp Consul
+- Basic CLI App
+- GRC
+- Nginx
+- Certbot
+
+## Installer Usage
+```
+install_<Press Tab to select app to install>
+```
+
 # 📌 Dotfiles usage in short (Trailer) 😊
 
 ## ✨ For more details click on below link to understand it's full functionality.
