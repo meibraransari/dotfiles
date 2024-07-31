@@ -210,3 +210,7 @@ And many more... to see the all commands and its usage, use "help_ansible" comma
 
 [releases-badge]: https://img.shields.io/badge/latest_release-v1.0.0-blue
 [releases-link]: https://github.com/meibraransari/dotfiles/releases
+
+
+# Hit the Star! ⭐
+***If you are planning to use this repo for learning, please hit the star. Thanks!***
