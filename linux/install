@@ -182,6 +182,15 @@ upgrade_jenkins() {
     local BACKUP_PATH="/usr/share/java/backup/"
     local TIMESTAMP=$(date +%F-%H-%M)
 
+    # Check if the file exists
+    if [ -f "$JENKINS_WAR_PATH" ]; then
+        echo "Jenkins found."
+        # Add your commands here that should run if the file exists
+    else
+        echo "Jenkins not found. Aborting"
+        exit 1
+    fi
+
     echo "Starting Jenkins upgrade..."
 
     # Stop the Jenkins service
