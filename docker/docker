@@ -2,6 +2,7 @@
 ##    Docker     ##
 ###################
 alias dv="docker version"
+alias dpr="docker ps"
 alias dps="docker ps -a"
 alias dpi='clear && echo -e "List of running containers" && docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Image}}\t{{.Names}}\t{{.Ports}}"'
 alias dpp='clear && docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
