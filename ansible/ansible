@@ -4,7 +4,7 @@
 alias a='ansible'
 alias ap='ansible-playbook '
 alias al='ansible-pull'
-alias api='ansible-playbook -i inventory '
+alias api='ansible-playbook -i inventory.ini '
 alias avc='ansible-vault create'
 alias ave='ansible-vault edit'
 alias avr='ansible-vault rekey'
