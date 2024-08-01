@@ -1,0 +1,18 @@
+#!/bin/bash
+## Define all the colors
+COL_USER_HOST='\[\e[32m\]' # Green color for 'user@host.ext'
+COL_CURSOR='\[\e[32m\]' # Green color for the trailing cursor arrow
+COL_CURRENT_PATH='\[\e[32m\]' # Green color for the current directory full path
+## Text Styles
+RESET='\[\e[0m\]' # Reset to default color
+BOLD='\[\e[1m\]' # BOLD
+## Build-up what will be the final PS1 string
+set_bash_prompt(){
+  # Full path of the directory where the cursor exists
+  FULL_PATH="${COL_USER_HOST}\u@\h:${COL_CURRENT_PATH}\w"
+  PS1="${RESET}${BOLD}${COL_USER_HOST}\u@\h ${RESET}${COL_CURRENT_PATH}\w "
+  PS1+="${COL_CURSOR}➤ ${RESET}" # Changed prompt symbol
+#  PS1+="${COL_USER_HOST}${COL_CURRENT_PATH}\w${RESET} "
+}
+## Done, now just set the PS1 prompt :)
+PROMPT_COMMAND=set_bash_prompt
