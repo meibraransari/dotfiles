@@ -1,3 +1,8 @@
+---
+Created: 2024-08-03T07:07:27+05:30
+Updated: 2024-08-03T07:09:49+05:30
+Maintainer: Ibrar Ansari
+---
 <div align="center">
     <h1> 📌 Dotfiles 📁 (Ibrar Ansari) </h1>
     <img src="https://readme-typing-svg.herokuapp.com?font=Iosevka&weight=800&size=20&pause=1000&color=6791C9&background=0C0E0F&center=true&vCenter=true&random=false&width=435&lines=The+Power+Of+Customized+Automation"
@@ -18,6 +23,7 @@
 - \[x\] Ubuntu.
 - \[x\] Debian.
 - \[x\] Windows (WSL must be installed with ubuntu or debian.)
+- - \[\ ] Mac (Not tested yet)
 
 ## 📥 Installation
 
@@ -71,11 +77,18 @@ docker exec -it dotfiles /bin/bash
 
 	uninstall_dotfiles
  
-
-## 🛠️Install/🔄Upgrade/❓Help Usage
+## 🛠️Install DevOps Package Usage
 ```
 install_<Press Tab to select app to install>
+```
+
+## 🔄Upgrade DevOps Package Usage
+```
 upgrade_<Press Tab to select app to install>
+```
+
+## Help DevOps Package Usage
+```
 help_<Press Tab to select app to install>
 ```
 
