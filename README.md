@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-03T07:18:55+05:30
+Updated: 2024-08-03T07:25:35+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -266,7 +266,7 @@ And many more... to see the all commands and its usage, use "help_ansible" comma
 - 💬 [**Telegram**](https://t.me/DevOpsinActionTelegram)
 - 🐳 [**Docker**](https://hub.docker.com/u/ibraransaridocker)
 
-[releases-badge]: https://img.shields.io/badge/latest_release-v1.0.0-blue
+[releases-badge]: https://img.shields.io/badge/latest_release-v2.0.0-blue
 [releases-link]: https://github.com/meibraransari/dotfiles/releases
 
 
