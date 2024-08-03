@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-03T07:09:49+05:30
+Updated: 2024-08-03T07:18:02+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -23,7 +23,7 @@ Maintainer: Ibrar Ansari
 - \[x\] Ubuntu.
 - \[x\] Debian.
 - \[x\] Windows (WSL must be installed with ubuntu or debian.)
-- - \[\ ] Mac (Not tested yet)
+-  [ ] Mac (Not tested yet)
 
 ## 📥 Installation
 
