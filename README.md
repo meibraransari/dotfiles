@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-03T07:25:35+05:30
+Updated: 2024-08-03T07:29:02+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -134,9 +134,9 @@ gitm='git merge'
 gitcl='git clone'
 gitst='git stash'
 gitstl='git stash list'
-gita='git add -A && git status'
+gita='git add A && git status'
 gitcom='git commit -am'
-gitacom='git add -A && git commit -am'
+gitacom='git add . && git commit -m'
 gitc='git checkout'
 gitcm='git checkout master'
 gitm='git merge'
