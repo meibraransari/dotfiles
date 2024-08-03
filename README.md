@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-03T07:18:02+05:30
+Updated: 2024-08-03T07:18:55+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -69,7 +69,7 @@ docker exec -it dotfiles /bin/bash
 
 
 
-## 🔄 Update Command.
+## 🔄 Update to latest release.
 
 	update_dotfiles
  
