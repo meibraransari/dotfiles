@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-03T07:29:02+05:30
+Updated: 2024-08-03T07:30:23+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -124,7 +124,7 @@ help_<Press Tab to select app to install>
 gitv='git --version'
 gitpl='git pull'
 gitrv='git remote -v'
-gitp='git push -u'
+gitp='git push'
 gits='git status'
 gitc='git checkout'
 gitb='git branch'
@@ -134,7 +134,7 @@ gitm='git merge'
 gitcl='git clone'
 gitst='git stash'
 gitstl='git stash list'
-gita='git add A && git status'
+gita='git add . && git status'
 gitcom='git commit -am'
 gitacom='git add . && git commit -m'
 gitc='git checkout'
