@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-03T07:30:23+05:30
+Updated: 2024-08-03T20:48:04+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -9,9 +9,10 @@ Maintainer: Ibrar Ansari
     <h3></h3>
 </div>
 
-[![Latest Version][releases-badge]][releases-link]
-
+## 📖 Overview
 > This is my configuration dotfiles which provide me the 💪🏽 power of automation using keyboard shortcuts and reduce time on the terminal related to relevant tasks.
+
+[![Latest Version][releases-badge]][releases-link]
 
 ![Banner Image](./images/banner.png)
 
