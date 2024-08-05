@@ -453,7 +453,7 @@ gacp() {
 
 install_tmux() {
 	sudo apt update && sudo apt install -y tmux
-	apt-cache policy tmux
+	#apt-cache policy tmux
 	echo "Tmux has been installed successfully!"
 	tmux -V
 }
