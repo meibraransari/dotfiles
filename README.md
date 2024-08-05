@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-05T18:32:48+05:30
+Updated: 2024-08-05T18:35:20+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -66,7 +66,7 @@ docker run -e TERM -e COLORTERM -w /root -it --rm ubuntu sh -uec '
 ```bash
 docker pull ibraransaridocker/dotfiles
 docker run -itd --name=c-dotfiles ibraransaridocker/dotfiles /bin/bash
-docker exec -it dotfiles /bin/bash
+docker exec -it c-dotfiles /bin/bash
 ```
 </details>
 
