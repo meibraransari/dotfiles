@@ -447,4 +447,12 @@ get_system_errors() {
 
 
 # Git add commit & push
-alias gacp='git add . && git commit -m "$1" && git push'
+gacp() {
+    git add . && git commit -m "$1" && git push
+}
+
+install_tmux() {
+	sudo apt update && sudo apt install -y tmux
+	apt-cache policy tmux
+	tmux -V
+}
