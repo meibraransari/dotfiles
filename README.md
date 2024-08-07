@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-05T18:35:20+05:30
+Updated: 2024-08-07T18:10:48+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -26,7 +26,7 @@ After using it you can realize the real💪🏽 Power of DevOps 🚀 Automation 
 - \[x\] Ubuntu.
 - \[x\] Debian.
 - \[x\] Windows (WSL must be installed with ubuntu or debian.)
--  [ ] Mac (Not tested yet)
+-  [ ] Mac (Implementation is pending)
 
 ## 📥 Installation
 
@@ -90,9 +90,14 @@ install_<Press Tab to select app to install>
 upgrade_<Press Tab to select app to install>
 ```
 
-## Help DevOps Package Usage
+## ❓Help DevOps Package Usage
 ```
 help_<Press Tab to select app to install>
+```
+
+## 📝A Nice System Info 😊
+```
+system_info
 ```
 
 ## 🚀 DevOps Tools Installer Included
