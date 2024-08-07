@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-07T22:22:11+05:30
+Updated: 2024-08-07T22:22:48+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -248,7 +248,7 @@ vault='ansible-vault edit vars/aws_vault.yml'
 And many more... to see the all commands and its usage, use "help_ansible" command.
 ```
 
-### ⚡️ Power of DevOps 💪🏽Tools
+### ⚡️ Power of DevOps 💪🏽Tools...
 
 - ✔ [Docker](https://github.com/meibraransari/dotfiles/blob/main/docker/docker)
 - ✔ [Kubernetes](https://github.com/meibraransari/dotfiles/blob/main/kubernetes/kubernetes)
