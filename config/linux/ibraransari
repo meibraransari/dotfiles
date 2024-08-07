@@ -71,13 +71,13 @@ alias uninstall_dotfiles='current_dir=$(pwd); clear && rm -rf ~/bin && sed -i "/
 
 unalias docs &> /dev/null # unalias any alias
 alias reload='source ~/.bash_profile && source ~/.bashrc'
-alias help_linux="grep 'alias' ~/bin/dotfiles/linux/linux | sed 's/alias //'"
-alias help_docker="grep 'alias' ~/bin/dotfiles/docker/docker | sed 's/alias //'"
-alias help_git="grep 'alias' ~/bin/dotfiles/git/git | sed 's/alias //'"
-alias help_k8s="grep 'alias' ~/bin/dotfiles/kubernetes/kubernetes | sed 's/alias //'"
-alias help_ansible="grep 'alias' ~/bin/dotfiles/ansible/ansible | sed 's/alias //'"
-alias help_compose="grep 'alias' ~/bin/dotfiles/docker/docker_compose | sed 's/alias //'"
-alias help_pm2="grep 'alias' ~/bin/dotfiles/pm2/pm2 | sed 's/alias //'"
+alias help_linux="grep 'alias' ~/bin/dotfiles/config/linux/linux | sed 's/alias //'"
+alias help_docker="grep 'alias' ~/bin/dotfiles/config/docker/docker | sed 's/alias //'"
+alias help_git="grep 'alias' ~/bin/dotfiles/config/git/git | sed 's/alias //'"
+alias help_k8s="grep 'alias' ~/bin/dotfiles/config/kubernetes/kubernetes | sed 's/alias //'"
+alias help_ansible="grep 'alias' ~/bin/dotfiles/config/ansible/ansible | sed 's/alias //'"
+alias help_compose="grep 'alias' ~/bin/dotfiles/config/docker/docker_compose | sed 's/alias //'"
+alias help_pm2="grep 'alias' ~/bin/dotfiles/config/pm2/pm2 | sed 's/alias //'"
 
 function pwdgen() {
 #=======================================
