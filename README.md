@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-07T18:10:48+05:30
+Updated: 2024-08-07T18:12:43+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -16,7 +16,7 @@ After using it you can realize the real💪🏽 Power of DevOps 🚀 Automation 
 
 [![Latest Version][releases-badge]][releases-link]
 
-![Banner Image](./images/banner.png)
+![Banner Image](./config/images/banner.png)
 
 ## 📝 Prerequisites
 🧠 Brain is not poisoned with beer, because you have enough brain cells is required to read this manual. 
