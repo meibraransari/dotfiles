@@ -1,10 +1,10 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-07T18:48:52+05:30
+Updated: 2024-08-07T22:20:49+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
-    <h1> 📌 Ibrar's Dotfiles 📁</h1>
+    <h1> 📌 Ibrar's Dotfiles For DevOps 📁</h1>
     <img src="https://readme-typing-svg.herokuapp.com?font=Iosevka&weight=800&size=20&pause=1000&color=6791C9&background=0C0E0F&center=true&vCenter=true&random=false&width=435&lines=🚀The+Power+Of+DevOps+Automation⚡"
     <h3></h3>
 </div>
