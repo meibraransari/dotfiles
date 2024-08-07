@@ -6,8 +6,6 @@ export HISTTIMEFORMAT="%d/%m/%y %T   "
 unset GREP_OPTIONS
 alias c='clear'
 alias h=" history"
-alias su="sudo -i"
-alias susu="sudo bash"
 alias shutdown="sudo shutdown -h now"
 alias restart="sudo init 6"
 alias home='clear && cd ~ && pwd'
