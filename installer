@@ -108,7 +108,7 @@ echo ""
 echo ""
 echo ""
 echo ""
-echo "Logout and Re-login toTterminal to See Effect..."    
+echo "Logout and Re-login to Terminal again to See The Effects..."    
 # else
 #     echo "Installation Failed.. Please contact to Ibrar Ansari"
 #     exit 1
