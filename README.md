@@ -35,7 +35,7 @@ After using it you can realize the real💪🏽 Power of DevOps 🚀 Automation 
 - \[x\] Ubuntu MATE.
 - \[x\] Elementary OS.
 - \[x\] Raspberry Pi OS.
-- \[x\] Windows (WSL must be installed with ubuntu or debian.)
+- \[x\] Windows (WSL must be installed with any of above distro.)
 -  [ ] Mac (Implementation is pending)
 
 ## 📥 Installation
