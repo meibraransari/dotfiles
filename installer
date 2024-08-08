@@ -119,4 +119,4 @@ cd "$current_dir" &> /dev/null
 
 # Source ~/.bash_profile to apply changes
 source ~/.bash_profile >/dev/null 2>&1
-exec bash
+exec tmux
