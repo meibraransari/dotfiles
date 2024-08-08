@@ -16,6 +16,7 @@ cat <<'EOF'
 	https://tmuxcheatsheet.com/
 
     # Tmux Keybindings and Shortcuts
+    Ctrl+b ? - get help
 	Ctrl-b + d – detach from the current session.
 	Ctrl-b + % – split one window into top and bottom panes.
 	Ctrl-b + “ – divide a window into two panes vertically.
@@ -49,6 +50,18 @@ cat <<'EOF'
 	sudo touch /etc/tmux.conf
 	# User level config
 	sudo touch ~/.tmux.conf
+
+	# Load config file
+	tmux source-file ~/.tmux.conf
+
+	# Install Plugins
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	Add Plugins to your .tmux.conf:
+	# List of plugins
+	set -g @plugin 'tmux-plugins/tpm'
+	set -g @plugin 'tmux-plugins/tmux-sensible'
+	# Initialize tmux plugin manager (tpm)
+	run '~/.tmux/plugins/tpm/tpm'
 
 	# Change prefix from 'Ctrl+B' to 'Ctrl+A'
 	unbind C-b
