@@ -29,59 +29,28 @@ ask_yes_no() {
     [Yy]*) return 0 ;;
     [Nn]*) return 1 ;;
     "") return 0 ;; # Default to yes if Enter is pressed
-    *) echo "Please answer yes or no." ;;
+    *) echo "Do you want to install Dotfiles? Please answer yes or no." ;;
     esac
   done
 }
+ask_yes_no
 
-function install_git {
-    if ! command -v git &> /dev/null
-    then
-        echo "Git is not installed. Installing..."
-        sudo apt-get update -y #>/dev/null 2>&1
-        sudo apt-get install git -y #>/dev/null 2>&1
-        echo "Git installed successfully."
-    else
-        echo "Git is already installed."
-    fi
+# Function to add dependency if missing
+install_if_missing() {
+if ! command -v "$1" >/dev/null; then
+  sudo apt-get -y install $1
+else
+  echo_task "$1 is already installed"
+fi
 }
-install_git
+# Check and add dependencies
+install_if_missing grc
+install_if_missing git
+install_if_missing wget
+install_if_missing curl
+install_if_missing jq
+install_if_missing tmux
 
-# Install GRC
-function install_grc {
-    #!/bin/bash
-    # Check if grc is installed
-    if ! command -v grc &> /dev/null
-    then
-        #clear >$(tty)
-        echo "Grc is not installed. Installing..."
-        sudo apt-get update -y #>/dev/null 2>&1
-        sudo apt-get install grc -y #>/dev/null 2>&1
-        sudo sed -i 's/GRC_ALIASES=false/GRC_ALIASES=true/g' /etc/default/grc #>/dev/null 2>&1
-        [ -f /etc/default/grc ] && . /etc/default/grc
-        [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
-        echo "grc installed successfully."
-    else
-        #clear >$(tty)
-        echo "Grc is already installed."
-    fi
-}
-install_grc
-
-function install_jq {
-    if ! command -v jq &> /dev/null
-    then
-        #clear >$(tty)
-        echo "JQ is not installed. Installing..."
-        sudo apt-get update -y #>/dev/null 2>&1
-        sudo apt-get install jq -y #>/dev/null 2>&1
-        echo "jq installed successfully."
-    else
-        #clear >$(tty)
-        echo "JQ is already installed."
-    fi
-}
-install_jq
 
 function install_dotfiles {
 # Set current dir
@@ -118,6 +87,10 @@ fi
 if ! grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile; then
     echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
 fi
+
+
+# Add tmux in ~/.bashrc
+grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.bashrc || echo 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' >> ~/.bashrc
 
 # Source ~/.bash_profile to apply changes
 source ~/.bash_profile >/dev/null 2>&1
