@@ -24,7 +24,7 @@ echo '
 # Function to ask yes/no questions
 ask_yes_no() {
   while true; do
-    read -p "$1 (yes/no) [default: yes]: " yn
+    read -p "$1 Do you want to install Dotfiles? Please answer(yes/no) | [default: yes]: " yn
     case $yn in
     [Yy]*) return 0 ;;
     [Nn]*) return 1 ;;
@@ -37,11 +37,12 @@ ask_yes_no
 
 # Function to add dependency if missing
 install_if_missing() {
-if ! command -v "$1" >/dev/null; then
-  sudo apt-get -y install $1
-else
-  echo_task "$1 is already installed"
-fi
+    if ! command -v "$1" >/dev/null; then
+        echo "Installing $1..."
+        sudo apt-get -y install "$1"
+    else
+        echo "$1 is already installed"
+    fi
 }
 # Check and add dependencies
 install_if_missing grc
