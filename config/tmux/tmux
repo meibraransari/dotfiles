@@ -7,3 +7,70 @@
 
 
 # grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.bashrc || echo 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' >> ~/.bashrc
+
+
+help_tmux() {
+# Use a here document to print all lines
+cat <<EOF
+	# ============================ TMUX Help ============================ #
+
+	# Why Use Tmux
+	In a traditional Linux Terminal, users can only work on one task per session and can’t continue their progress after disconnecting. Tmux helps resolve this issue by providing these benefits:
+		- Task and session management. System administrators can create multiple sessions to group tasks. They can also link windows, replicating one process on another for consistency.
+		- Multitasking. Users can detach from a session and reconnect to where they left off. It allows for efficient multitasking since they can work on multiple tasks seamlessly.
+		- Remote work. The tmux server preserves every running process, even when the user disconnects. It lets you reliably work on a remote system like a VPS without worrying about the SSH connection
+		- Long-running processes. Processes in tmux will remain active until the user terminates it. This feature is helpful for tasks like logging events or deploying an application.
+
+    # Official Website
+    https://man.openbsd.org/tmux
+
+    # CheatSheet
+	https://tmuxcheatsheet.com/
+
+    # Tmux Keybindings and Shortcuts
+	Ctrl-b + d – detach from the current session.
+	Ctrl-b + % – split one window into top and bottom panes.
+	Ctrl-b + “ – divide a window into two panes vertically.
+	Ctrl-b + arrow – move to a different pane in a direction.
+	Ctrl-b + x – close the current pane.
+	Ctrl-b + c – create a new window.
+	Ctrl-b + n – move to the next window based on the number.
+	Ctrl-b + p – return to the previous window.
+	Ctrl-b + ID number – jump to a specific window using the ID number.
+	Ctrl-b + : – open the command line mode.
+	Ctrl-b + ? – print all shortcuts.
+	Ctrl-b + w – list all the windows in the current session.
+
+	# Working with Session
+	tmux 
+	tmux new
+	tmux new-session
+	tmux new-session -s [name]
+	tmux attach-session -t [session-name]
+	tmux attach-session -t 0
+	tmux list-sessions
+	tmux ls
+	tmux switch -t [session-name-or-id]
+	tmux kill-session -t [session-name-or-id]
+
+	# Renaming and Organizing Windows
+	rename-window window-name
+
+	# Customizing tmux
+	# Global config
+	sudo touch /etc/tmux.conf
+	# User level config
+	sudo touch ~/.tmux.conf
+
+	# Change prefix from 'Ctrl+B' to 'Ctrl+A'
+	unbind C-b
+	set-option -g prefix C-a
+	bind-key C-a send-prefix
+
+	# Start counting pane and window number at 1
+	set -g base-index 1
+	setw -g pane-base-index 1
+
+
+EOF
+}

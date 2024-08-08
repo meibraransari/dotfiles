@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-07T22:22:48+05:30
+Updated: 2024-08-08T08:06:38+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -25,6 +25,16 @@ After using it you can realize the real💪🏽 Power of DevOps 🚀 Automation 
 
 - \[x\] Ubuntu.
 - \[x\] Debian.
+- \[x\] Deepin.
+- \[x\] Lubuntu.
+- \[x\] Xubuntu.
+- \[x\] Pop!_OS.
+- \[x\] Zorin OS.
+- \[x\] Linux Mint.
+- \[x\] Kali Linux.
+- \[x\] Ubuntu MATE.
+- \[x\] Elementary OS.
+- \[x\] Raspberry Pi OS.
 - \[x\] Windows (WSL must be installed with ubuntu or debian.)
 -  [ ] Mac (Implementation is pending)
 
@@ -248,7 +258,7 @@ vault='ansible-vault edit vars/aws_vault.yml'
 And many more... to see the all commands and its usage, use "help_ansible" command.
 ```
 
-### ⚡️ Power of DevOps 💪🏽Tools...
+### ⚡️ Power of DevOps 💪🏽Tools
 
 - ✔ [Docker](https://github.com/meibraransari/dotfiles/blob/main/docker/docker)
 - ✔ [Kubernetes](https://github.com/meibraransari/dotfiles/blob/main/kubernetes/kubernetes)
