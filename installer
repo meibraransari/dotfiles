@@ -96,10 +96,10 @@ grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.ba
 # Source ~/.bash_profile to apply changes
 source ~/.bash_profile >/dev/null 2>&1
 
-# Check Deployment status
-if [ $? -eq 0 ]
-then
-    #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
+# # Check Deployment status
+# if [ $? -eq 0 ]
+# then
+#     #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
     echo -e " ${Blue}${BLINK}${BOLD}   Installation done successfully...${NOCOLOR}"
 echo ""
 echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
@@ -108,11 +108,11 @@ echo ""
 echo ""
 echo ""
 echo ""
-echo ""    
-else
-    echo "Installation Failed.. Please contact to Ibrar Ansari"
-    exit 1
-fi
+echo "Logout and Re-login toTterminal to See Effect..."    
+# else
+#     echo "Installation Failed.. Please contact to Ibrar Ansari"
+#     exit 1
+# fi
 
 # Change directory
 cd "$current_dir" &> /dev/null
