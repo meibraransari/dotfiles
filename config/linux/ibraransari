@@ -68,7 +68,26 @@ function update_dotfiles() {
 alias dotfiles='cd ~/bin/dotfiles'
 
 # Uninstall dot files
-alias uninstall_dotfiles='current_dir=$(pwd); clear && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && exec bash && cd "$current_dir" && source ~/.bash_profile && exec bash'
+#alias uninstall_dotfiles='current_dir=$(pwd); clear && rm -rf ~/bin && sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc && sed -i '/command -v tmux >\/dev\/null 2>&1 && \[ -z "\$TMUX" \] && exec tmux/d' ~/.bashrc && exec bash && cd "$current_dir" && source ~/.bash_profile && exec bash'
+
+# Function to uninstall dot files
+uninstall_dotfiles() {
+    current_dir=$(pwd)
+    clear
+    # Remove the ~/bin directory
+    rm -rf ~/bin
+    # Remove specific lines from .bashrc
+    sed -i '/\. ~\/bin\/dotfiles\/bashrc/d' ~/.bashrc
+    sed -i '/command -v tmux >\/dev\/null 2>&1 && \[ -z "\$TMUX" \] && exec tmux/d' ~/.bashrc
+    # Reload bash configuration
+    exec bash
+    # Change back to the original directory
+    cd "$current_dir" || return
+    source ~/.bash_profile
+    exec bash
+}
+
+
 
 unalias docs &> /dev/null # unalias any alias
 alias reload='source ~/.bash_profile && source ~/.bashrc'
