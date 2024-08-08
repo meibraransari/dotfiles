@@ -1,7 +1,6 @@
 
 help_tmux() {
-# Use a here document to print all lines
-cat <<EOF
+cat <<'EOF'
 	# ============================ TMUX Help ============================ #
 
 	# Why Use Tmux
@@ -60,7 +59,5 @@ cat <<EOF
 	# Start counting pane and window number at 1
 	set -g base-index 1
 	setw -g pane-base-index 1
-
-
 EOF
 }
