@@ -77,20 +77,17 @@ fi
 install_dotfiles
 
 # Clean files
-sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bash_profile
+sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc
 
 # Check if the line '. ~/bin/dotfiles/bashrc' exists in ~/.bashrc, if not, append it
-if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bash_profile; then
-    echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bash_profile
+if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc; then
+    echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
 fi
 
 # Check if the line '[ -f ~/.bashrc ] && source ~/.bashrc' exists in ~/.bash_profile, if not, append it
-#if ! grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile; then
-#    echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
-#fi
-
-# Add tmux in ~/.bash_profile
-grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.bash_profile || echo 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' >> ~/.bash_profile
+if ! grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile; then
+    echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
+fi
 
 # Source ~/.bash_profile to apply changes
 source ~/.bash_profile >/dev/null 2>&1
@@ -101,16 +98,16 @@ then
     #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
     echo -e " ${Blue}${BLINK}${BOLD}   Installation done successfully...${NOCOLOR}"
 echo ""
-echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
+echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-      ${NOCOLOR}"
 echo ""
 echo ""
 echo ""
 echo ""
 echo ""
 echo ""    
-#else
-#    echo "Installation Failed.. Please contact to Ibrar Ansari"
-#    exit 1
+else
+    echo "Installation Failed.. Please contact to Ibrar Ansari"
+    exit 1
 fi
 
 # Change directory
