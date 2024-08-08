@@ -94,7 +94,7 @@ fi
 grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.bashrc || echo 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' >> ~/.bashrc
 
 # Source ~/.bash_profile to apply changes
-source ~/.bash_profile >/dev/null 2>&1
+# source ~/.bash_profile >/dev/null 2>&1
 
 # # Check Deployment status
 # if [ $? -eq 0 ]
