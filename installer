@@ -89,6 +89,10 @@ if ! grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile; then
     echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
 fi
 
+
+# Add tmux in ~/.bashrc
+grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.bashrc || echo 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' >> ~/.bashrc
+
 # Source ~/.bash_profile to apply changes
 source ~/.bash_profile >/dev/null 2>&1
 
@@ -98,7 +102,7 @@ then
     #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
     echo -e " ${Blue}${BLINK}${BOLD}   Installation done successfully...${NOCOLOR}"
 echo ""
-echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-      ${NOCOLOR}"
+echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
 echo ""
 echo ""
 echo ""
@@ -116,4 +120,3 @@ cd "$current_dir" &> /dev/null
 # Source ~/.bash_profile to apply changes
 source ~/.bash_profile >/dev/null 2>&1
 exec bash
-
