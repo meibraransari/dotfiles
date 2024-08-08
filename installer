@@ -108,9 +108,9 @@ echo ""
 echo ""
 echo ""
 echo ""    
-else
-    echo "Installation Failed.. Please contact to Ibrar Ansari"
-    exit 1
+#else
+#    echo "Installation Failed.. Please contact to Ibrar Ansari"
+#    exit 1
 fi
 
 # Change directory
