@@ -25,3 +25,4 @@
 . ~/bin/dotfiles/config/ssl/ssl
 . ~/bin/dotfiles/config/ssh/ssh
 . ~/bin/dotfiles/config/jenkins/jenkins
+. ~/bin/dotfiles/config/tmux/tmux
