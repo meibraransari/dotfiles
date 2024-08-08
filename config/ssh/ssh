@@ -44,7 +44,7 @@ EOF
 }
 
 help_profile() {
-
+cat <<'EOF'
 # Bashrc vs bash_profile
 
 1. ~/.bashrc
@@ -56,4 +56,5 @@ help_profile() {
 
     Purpose: This file is executed for login shells. It runs when you log into the system via a terminal or console. It is usually used to set up the environment variables that should be available for the duration of the user session.
     Common Use: You might source ~/.bashrc from ~/.bash_profile to ensure that the configurations in ~/.bashrc are also available in login shells.
+EOF
 }
