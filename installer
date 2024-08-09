@@ -35,6 +35,14 @@ ask_yes_no() {
 }
 ask_yes_no
 
+########## ---------- You must not run this as root ---------- ##########
+
+if [ "$(id -u)" = 0 ]; then
+    echo "This script MUST NOT be run as root user."
+    exit 1
+fi
+
+
 # Function to add dependency if missing
 install_if_missing() {
     if ! command -v "$1" >/dev/null; then
