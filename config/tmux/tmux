@@ -16,7 +16,7 @@ cat <<'EOF'
 	https://tmuxcheatsheet.com/
 
     # Tmux Keybindings and Shortcuts
-    Ctrl+b ? - get help
+	Ctrl-b + ? – print all shortcuts.
 	Ctrl-b + d – detach from the current session.
 	Ctrl-b + % – split one window into top and bottom panes.
 	Ctrl-b + “ – divide a window into two panes vertically.
@@ -27,7 +27,6 @@ cat <<'EOF'
 	Ctrl-b + p – return to the previous window.
 	Ctrl-b + ID number – jump to a specific window using the ID number.
 	Ctrl-b + : – open the command line mode.
-	Ctrl-b + ? – print all shortcuts.
 	Ctrl-b + w – list all the windows in the current session.
 
 	# Working with Session
