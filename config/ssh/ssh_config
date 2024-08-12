@@ -1,0 +1,73 @@
+# Azure account
+Host ssh.dev.azure.com
+	User alijan.adeli@consid.se
+	IdentityFile ~/.ssh/id_rsa_devops
+	UseKeychain yes
+	IdentitiesOnly yes
+	AddKeysToAgent yes
+
+# Github account
+Host github.com
+	User H4ckint0sh
+	IdentityFile ~/.ssh/id_ed25519_github
+	UseKeychain yes
+	IdentitiesOnly yes
+	AddKeysToAgent yes
+
+Host gala_1
+  Hostname 10.0.10.101
+  Port 22
+  User gala-node-1
+
+Host gala_2
+  Hostname 10.0.10.102
+  Port 22
+  User gala-node-2
+
+Host gala_3
+  Hostname 10.0.10.103
+  Port 22
+  User gala-node-3
+
+Host gala_4
+  Hostname 10.0.10.104
+  Port 22
+  User gala-node-4
+
+Host gala_5
+  Hostname 10.0.10.105
+  Port 22
+  User gala-node-5
+
+Host gala_6
+  Hostname 10.0.10.106
+  Port 22
+  User gala-node-6
+
+Host gala_7
+  Hostname 10.0.10.107
+  Port 22
+  User gala-node-7
+
+Host gala_8
+  Hostname 10.0.10.108
+  Port 22
+  User gala-node-8
+
+Host pi_1
+  Hostname 10.0.0.254
+  Port 22
+  User pi-blocker
+
+Host pi_2
+  Hostname 10.0.0.253
+  Port 22
+  User pi-blocker-2
+
+Host syslog
+  Hostname 24.199.107.69
+  Port 22
+  User root
+
+Host *
+  IdentityAgent ~/.1password/agent.sock
