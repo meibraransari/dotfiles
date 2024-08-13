@@ -5,6 +5,8 @@ export IROOT=/ansari
 export IHOME=/home/iansari
 alias ia="cd /d/__Github/dotfiles/"
 
+back="$(date '+%d-%m-%Y_%H-%M-%S')"
+
 # Case-insensitive globbing (used in pathname expansion)
 #shopt -s nocaseglob
 
