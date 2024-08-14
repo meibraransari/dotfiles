@@ -3,7 +3,7 @@
 ### Proxmox ####
 ###################
 
-lxc () {
+help_lxc () {
     echo lxc-ls
     echo lxc-ls -f
     echo lxc-attach
