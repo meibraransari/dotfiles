@@ -5,7 +5,12 @@ export IROOT=/ansari
 export IHOME=/home/iansari
 alias ia="cd /d/__Github/dotfiles/"
 
-back="$(date '+%d-%m-%Y_%H-%M-%S')"
+# back="$(date '+%d-%m-%Y_%H-%M-%S')"
+
+get_current_time() {
+  date '+%d-%m-%Y_%H-%M-%S'
+}
+back=$(get_current_time)
 
 # Case-insensitive globbing (used in pathname expansion)
 #shopt -s nocaseglob
