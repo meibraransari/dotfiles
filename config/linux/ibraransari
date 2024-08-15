@@ -13,7 +13,7 @@ get_current_time() {
 
 rename_with_timestamp() {
   local file_or_dir="$1"
-  local timestamp=$(date '+%Y,%m,-%d-_%H-%M-%S')
+  local timestamp=$(date '+%d-%m-%Y_%H-%M-%S')
   mv "$file_or_dir" "${file_or_dir}_$timestamp"
 }
 
