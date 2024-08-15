@@ -10,7 +10,12 @@ alias ia="cd /d/__Github/dotfiles/"
 get_current_time() {
   date '+%d-%m-%Y_%H-%M-%S'
 }
-back=$(get_current_time)
+
+rename_with_timestamp() {
+  local file_or_dir="$1"
+  local timestamp=$(date '+%Y,%m,-%d-_%H-%M-%S')
+  mv "$file_or_dir" "${file_or_dir}_$timestamp"
+}
 
 # Case-insensitive globbing (used in pathname expansion)
 #shopt -s nocaseglob
