@@ -59,7 +59,7 @@ install_if_missing wget
 install_if_missing curl
 install_if_missing jq
 install_if_missing tmux
-
+install_if_missing net-tools
 
 function install_dotfiles {
 # Set current dir
