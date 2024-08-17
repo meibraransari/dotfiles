@@ -108,7 +108,7 @@ grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.ba
 cp -a ~/bin/dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
 
 # Copy Vim Config file
-cp -a ~/bin/dotfiles/config/vim/.vimrc$HOME/.vimrc
+cp -a ~/bin/dotfiles/config/vim/.vimrc $HOME/.vimrc
 
 # # Check Deployment status
 # if [ $? -eq 0 ]
