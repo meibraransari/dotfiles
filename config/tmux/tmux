@@ -1,6 +1,3 @@
-# Copy Config file
-cp -a ~/bin/dotfiles/config/tmux/.tmux.conf ~/.tmux.conf
-
 help_tmux() {
 cat <<'EOF'
 	# ============================ TMUX Help ============================ #

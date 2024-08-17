@@ -1,4 +1,3 @@
-tee "$HOME/.vimrc" > /dev/null 2>&1 <<EOF
 "=======================================
 "     Vim Configuration
 "=======================================
@@ -109,6 +108,3 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
-
-
-EOF
