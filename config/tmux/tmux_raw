@@ -157,3 +157,13 @@ set -g status-bg  black
 # https://github.com/felixscherz/.dotfiles/blob/main/tmux/.tmux.conf
 # https://github.com/joey-bednar/dotfiles/blob/main/.tmux.conf
 # https://www.learnlinux.tv/learn-tmux-part-5-how-to-customize-tmux-and-make-it-your-own/
+
+
+
+set-option -g default-shell /usr/bin/zsh
+
+tmux_conf_dir="~/.config/tmux/"
+
+source "$tmux_conf_dir/opts.conf"
+source "$tmux_conf_dir/ui.conf"
+source "$tmux_conf_dir/keybind.conf"
