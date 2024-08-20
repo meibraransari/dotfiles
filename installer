@@ -117,30 +117,8 @@ cp -a ~/bin/dotfiles/config/vim/vimrc $HOME/.vimrc
 # Copy Vim Config file
 cp -a ~/bin/dotfiles/config/zsh/.fzf.zsh $HOME/.fzf.zsh
 
-# # Check Deployment status
-# if [ $? -eq 0 ]
-# then
-#     #echo -e " ${GREEN}${BOLD}#=========================================================#${NOCOLOR}"
-#     echo -e " ${Blue}${BLINK}${BOLD}   Installation done successfully...${NOCOLOR}"
-# echo ""
-# echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
-# echo ""
-# echo ""
-# echo ""
-# echo ""
-# echo ""
-# echo "Logout and Re-login to Terminal again to See The Effects..."    
-# else
-#     echo "Installation Failed.. Please contact to Ibrar Ansari"
-#     exit 1
-# fi
-
 # Change directory
 cd "$current_dir" &> /dev/null
-
-# Source ~/.bash_profile to apply changes
-#source ~/.bash_profile >/dev/null 2>&1
-#exec bash
 
 # Install Oh My Zsh non-interactively
 echo "Installing Oh My Zsh..."
