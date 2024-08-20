@@ -114,6 +114,9 @@ cp -a ~/bin/dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
 # Copy Vim Config file
 cp -a ~/bin/dotfiles/config/vim/vimrc $HOME/.vimrc
 
+# Copy Vim Config file
+cp -a ~/bin/dotfiles/config/zsh/.fzf.zsh $HOME/.fzf.zsh
+
 # # Check Deployment status
 # if [ $? -eq 0 ]
 # then
@@ -150,6 +153,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autocomplete
 git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 
 # Enable plugins and change theme in ~/.zshrc
 echo "Configuring zsh..."
