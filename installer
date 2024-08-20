@@ -132,8 +132,8 @@ echo "Logout and Re-login to Terminal again to See The Effects..."
 cd "$current_dir" &> /dev/null
 
 # Source ~/.bash_profile to apply changes
-source ~/.bash_profile >/dev/null 2>&1
-exec bash
+#source ~/.bash_profile >/dev/null 2>&1
+#exec bash
 
 # Install zsh
-# bash ./config/zsh/zsh
+bash ./config/zsh/zsh
