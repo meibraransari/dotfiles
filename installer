@@ -59,6 +59,7 @@ install_if_missing() {
 install_if_missing grc
 install_if_missing git
 install_if_missing zsh
+install_if_missing fzf
 install_if_missing wget
 install_if_missing curl
 install_if_missing jq
