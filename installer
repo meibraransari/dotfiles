@@ -168,7 +168,12 @@ echo "Changing default shell to zsh..."
 sudo usermod --shell $(which zsh) $USER
 
 # Inform user to switch to zsh
+echo -e " ${Blue}${BLINK}${BOLD}   Installation done successfully...${NOCOLOR}"
+echo ""
+echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
 echo "To complete the setup, you need to log out and log back in, or restart your terminal."
-
-echo "Installation complete."
-
