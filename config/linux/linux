@@ -7,7 +7,6 @@ unset GREP_OPTIONS
 alias c='clear'
 alias h=" history"
 alias shutdown="sudo shutdown -h now"
-alias restart="sudo init 6"
 alias home='clear && cd ~ && pwd'
 alias downloads='clear && cd ~/Downloads && pwd'  
 alias topcpu='sudo ps -eo pcpu,args --sort=-pcpu | head -n 50 | awk '"'"'{printf("%13.2f%%\t", $1); print $2}'"'"''
@@ -40,7 +39,6 @@ alias o='open'
 alias html='cd /var/www/html'
 alias ae='cd /etc/apache2/sites-enabled/  && ls -alsh'
 alias ne='cd /etc/nginx/sites-enabled/ && ls -alsh'
-alias trash='safe_rm'
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
