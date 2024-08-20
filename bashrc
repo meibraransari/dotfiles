@@ -1,4 +1,3 @@
-. ~/bin/dotfiles/config/vim/vimrc
 . ~/bin/dotfiles/config/docker/docker
 . ~/bin/dotfiles/config/docker/docker_compose
 . ~/bin/dotfiles/config/docker/docker_install
