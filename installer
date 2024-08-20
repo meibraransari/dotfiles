@@ -42,6 +42,9 @@ if [ "$(id -u)" = 0 ]; then
     exit 1
 fi
 
+# Update package lists
+echo "Updating package lists..."
+sudo apt-get update -y
 
 # Function to add dependency if missing
 install_if_missing() {
@@ -134,10 +137,6 @@ cd "$current_dir" &> /dev/null
 # Source ~/.bash_profile to apply changes
 #source ~/.bash_profile >/dev/null 2>&1
 #exec bash
-
-# Update package lists
-echo "Updating package lists..."
-sudo apt-get update -y
 
 # Install zsh and Git if not already installed
 echo "Installing zsh and git..."
