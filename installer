@@ -101,7 +101,6 @@ if ! grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile; then
     echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
 fi
 
-
 # Add tmux in ~/.bashrc
 grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.bashrc || echo 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' >> ~/.bashrc
 
