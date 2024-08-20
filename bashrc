@@ -5,7 +5,6 @@
 . ~/bin/dotfiles/config/git/git
 . ~/bin/dotfiles/config/linux/ibraransari
 . ~/bin/dotfiles/config/linux/linux
-. ~/bin/dotfiles/config/linux/colours
 . ~/bin/dotfiles/config/linux/env
 . ~/bin/dotfiles/config/linux/firewall
 . ~/bin/dotfiles/config/linux/install
