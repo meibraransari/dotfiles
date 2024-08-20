@@ -15,22 +15,19 @@ sudo apt-get install -y zsh git
 echo "Installing Oh My Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-# Install zsh-autosuggestions plugin
-echo "Installing zsh-autosuggestions..."
+# Install zsh-autosuggestions and zsh-syntax-highlighting plugins
+echo "Installing zsh plugins..."
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
 
-# Enable zsh-autosuggestions plugin
-echo "Configuring zsh-autosuggestions..."
+# Enable plugins and change theme in ~/.zshrc
+echo "Configuring zsh..."
 sed -i 's/^plugins=(.*)/plugins=(git cp colored-man-pages colorize zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
-
-# Change Theme
 sed -i 's/^ZSH_THEME="[^"]*"/ZSH_THEME="agnoster"/' ~/.zshrc
 
-# Set Dotfiles
+# Set Dotfiles (if applicable)
 echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.zshrc
-source ~/.zshrc
 
 # Change default shell to zsh
 echo "Changing default shell to zsh..."
@@ -40,18 +37,3 @@ sudo usermod --shell $(which zsh) $USER
 echo "To complete the setup, you need to log out and log back in, or restart your terminal."
 
 echo "Installation complete."
-
-
-
-
-### Useful Links and Sources
-### This article was made with the help of TheLedger.
-# Oh-My-Zsh: http://ohmyz.sh/
-# Plugins: https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
-# Themes: https://github.com/robbyrussell/oh-my-zsh/tree/master/themes/
-# Git plugin with all aliases: https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git
-# Customizing your shell prompt: http://www.nparikh.org/unix/prompt.php#zsh
-# ArchWiki about Zsh: https://wiki.archlinux.org/index.php/zsh#Autostart_X_at_login
-# Zsh syntax highlighting plugin: https://github.com/zsh-users/zsh-syntax-highlighting
-# Zsh autosuggestions plugin: https://github.com/zsh-users/zsh-autosuggestions
-# RobbyRussell Wiki about customization of Zsh: https://github.com/robbyrussell/oh-my-zsh/wiki/Customization
