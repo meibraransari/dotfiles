@@ -131,11 +131,12 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM}/plu
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autocomplete
 git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
 git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 sudo bash ~/.fzf/install --all
 
 # Enable plugins and change theme in ~/.zshrc
 echo "Configuring zsh..."
-sed -i 's/^plugins=(.*)/plugins=(git cp colored-man-pages colorize zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete fzf-zsh-plugin)/' ~/.zshrc
+sed -i 's/^plugins=(.*)/plugins=(git cp colored-man-pages colorize zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete fzf-zsh-plugin fzf-tab)/' ~/.zshrc
 sed -i 's/^ZSH_THEME="[^"]*"/ZSH_THEME="agnoster"/' ~/.zshrc
 
 # Set Dotfiles (if applicable)
