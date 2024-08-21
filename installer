@@ -155,3 +155,10 @@ echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
 echo ""
 echo ""
 echo -e " ${Blue}${BLINK}${BOLD}   Installation done, To complete the setup, you need to log out and log back in, or restart your terminal...${NOCOLOR}"
+
+ask_for_confirmation "Do you want to restart terminal?"
+printf "\n"
+
+if answer_is_yes; then
+    exit 0
+fi
