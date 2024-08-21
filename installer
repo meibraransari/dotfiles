@@ -115,7 +115,7 @@ cp -a ~/bin/dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
 cp -a ~/bin/dotfiles/config/vim/vimrc $HOME/.vimrc
 
 # Copy Vim Config file
-# cp -a ~/bin/dotfiles/config/zsh/.fzf.zsh $HOME/.fzf.zsh
+cp -a ~/bin/dotfiles/config/zsh/.fzf.zsh $HOME/.fzf.zsh
 
 # Change directory
 cd "$current_dir" &> /dev/null
