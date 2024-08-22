@@ -19,140 +19,226 @@ echo '
 | | | |/ _ \| __| |_| | |/ _ \/ __|
 | |_| | (_) | |_|  _| | |  __/\__ \
 |____/ \___/ \__|_| |_|_|\___||___/
+
+You must be ready with user password, it will ask during installation...
 '
+
+########## ---------- You must not run this as root ---------- ##########
+
+# Check OS
+check_os() {
+  if ! command -v apt >/dev/null; then
+      echo "[x] Error: OS is not supported"
+      exit 1
+  fi
+}
+
+# Must not be root user
+check_user() {
+  if [ "$(id -u)" = 0 ]; then
+      echo "[x] This script MUST NOT be run as root user."
+      exit 1
+  fi
+}
+
+# Add user to sudoers
+add_user_in_sudors() {
+  local user=$(whoami)
+  if ! sudo grep -q "^${user} " /etc/sudoers; then
+    echo "${user} ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+    echo "User ${user} has been added to sudoers."
+  else
+    echo "User ${user} is already in the sudoers file."
+  fi
+}
 
 # Function to ask yes/no questions
 ask_yes_no() {
   while true; do
-    read -p "$1 Do you want to install Dotfiles? Please answer(yes/no) | [default: yes]: " yn
+    read -p "$1 [?]Do you want to install Dotfiles? Please answer(yes/no) | [default: yes]: " yn
     case $yn in
     [Yy]*) return 0 ;;
     [Nn]*) return 1 ;;
     "") return 0 ;; # Default to yes if Enter is pressed
-    *) echo "Do you want to install Dotfiles? Please answer yes or no." ;;
+    *) echo "[?] Do you want to install Dotfiles? Please answer yes or no." ;;
     esac
   done
 }
-ask_yes_no
 
-########## ---------- You must not run this as root ---------- ##########
-
-if [ "$(id -u)" = 0 ]; then
-    echo "This script MUST NOT be run as root user."
-    exit 1
-fi
-
-# Update package lists
-echo "Updating package lists..."
-sudo apt-get update -y
-
-# Function to add dependency if missing
-install_if_missing() {
-    if ! command -v "$1" >/dev/null; then
-        echo "Installing $1..."
-        sudo apt-get -y install "$1"
-    else
-        echo "$1 is already installed"
-    fi
+# Backup function
+backup() {
+  local file_or_dir="$1"
+  local timestamp=$(date '+%d-%m-%Y_%H-%M-%S')
+  mv "$file_or_dir" "${file_or_dir}_$timestamp"
 }
-# Check and add dependencies
-install_if_missing grc
-install_if_missing git
-install_if_missing zsh
-install_if_missing wget
-install_if_missing curl
-install_if_missing jq
-install_if_missing tmux
-install_if_missing net-tools
 
+# Check dotfiles
+if_exist_dotfiles() {
+  # Check if $HOME/bin/ directory exists
+  if [ -d "$HOME/bin" ]; then
+    while true; do
+      # Prompt for confirmation
+      echo ""
+      read -p "[-]Dotfiles already exist. Do you want to backup these files and install new ones? (y/n) " choice
+      case "$choice" in
+        y|Y|yes|Yes|YES)
+          backup "$HOME/bin" 2>/dev/null
+          backup "$HOME/.oh-my-zsh" 2>/dev/null
+          backup "$HOME/.tmux.conf" 2>/dev/null
+          backup "$HOME/.vimrc" 2>/dev/null
+          backup "$HOME/.fzf.zsh" 2>/dev/null
+          backup "$HOME/.zshrc" 2>/dev/null
+          backup "$HOME/.fzf" 2>/dev/null
+          backup "$HOME/.config/starship.toml" 2>/dev/null
+          echo "[✓] Backup completed."
+          break
+          ;;
+        n|N|no|No|NO)
+          echo "[x]Backup process canceled."
+          break
+          ;;
+        *)
+          echo "[x] Invalid input. Please enter 'y' for yes or 'n' for no."
+          ;;
+      esac
+    done
+  fi
+}
+# Install Dotfiles
 function install_dotfiles {
 # Set current dir
 current_dir=$(pwd)
 # Check if the directory is empty (no files or directories inside)
 dotfiles_dir="$HOME/bin/dotfiles"
-# Check if the directory exists
-if [ ! -d "$dotfiles_dir" ]; then
-    # Directory does not exist, create it and clone the repository
-    mkdir -p "$dotfiles_dir"
-    git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir" &> /dev/null
-else
-    echo "Dotfiles is already installed."
-    echo ""
-    echo "Skipping installation and updating to the latest version."
-    echo ""
-    # Update dot files
-    #cd ~/bin/dotfiles && git pull && cd "$current_dir" && source ~/.bash_profile
-    cd ~/bin/dotfiles && git pull && cd "$current_dir" > /dev/null && source ~/.bash_profile
-    exit 0
-fi
+  # Check if the directory exists
+  if [ ! -d "$dotfiles_dir" ]; then
+      # Directory does not exist, create it and clone the repository
+      # Update package lists
+      echo "[+] Updating package lists..."
+      sudo apt-get update -y
+      # Function to add dependency if missing
+      install_if_missing() {
+          if ! command -v "$1" >/dev/null; then
+              echo "[+] Installing $1..."
+              sudo apt-get -y install "$1"
+          else
+              echo "$1 [-] is already installed"
+          fi
+      }
+      # Check and add dependencies
+      install_if_missing grc
+      install_if_missing git
+      install_if_missing zsh
+      install_if_missing wget
+      install_if_missing curl
+      install_if_missing jq
+      install_if_missing tmux
+      install_if_missing net-tools
+      # Creare Dotfiles directory
+      mkdir -p "$dotfiles_dir"
+      git clone https://github.com/meibraransari/dotfiles.git "$dotfiles_dir" &> /dev/null
+  else
+      echo "[-] Dotfiles is already installed."
+      echo ""
+      echo "[-] Skipping installation and updating to the latest version."
+      echo ""
+      # Update dot files
+      cd ~/bin/dotfiles && git pull && cd "$current_dir" > /dev/null
+      exit 0
+  fi
 }
-install_dotfiles
 
-# Clean files
-sed -i "/\. ~\/bin\/dotfiles\/bashrc/d" ~/.bashrc
+# Copy config file
+copy_config() {
+  # Copy Config file
+  cp -a ~/bin/dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
+  cp -a ~/bin/dotfiles/config/vim/vimrc $HOME/.vimrc
+  cp -a ~/bin/dotfiles/config/zsh/.fzf.zsh $HOME/.fzf.zsh
+  cp -a ~/bin/dotfiles/config/starship/starship.toml $HOME/.config/starship.toml
+  cd "$current_dir" &> /dev/null
+}
 
-# Check if the line '. ~/bin/dotfiles/bashrc' exists in ~/.bashrc, if not, append it
-if ! grep -qxF '. ~/bin/dotfiles/bashrc' ~/.bashrc; then
-    echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.bashrc
-fi
+# Install fonts
+install_nerd_fonts() {
+  echo "[+] Downloading fonts...."
+  wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/DejaVuSansMono.zip
+  echo "[+] Download Done"
+  echo "[+] Unzipping fonts"
+  unzip -o DejaVuSansMono.zip -d ~/.fonts
+  echo "[+] Setting up fonts"
+  fc-cache -fv
+  rm -rf DejaVuSansMono.zip
+  echo "[+] ✓ Done!"
+}
 
-# Check if the line '[ -f ~/.bashrc ] && source ~/.bashrc' exists in ~/.bash_profile, if not, append it
-if ! grep -qxF '[ -f ~/.bashrc ] && source ~/.bashrc' ~/.bash_profile; then
-    echo '[ -f ~/.bashrc ] && source ~/.bashrc' >> ~/.bash_profile
-fi
+# Install ZSH
+install_zsh() {
+  # Install Oh My Zsh non-interactively
+  echo "Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
-# Add tmux in ~/.bashrc
-grep -qxF 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' ~/.bashrc || echo 'command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && exec tmux' >> ~/.bashrc
+  # Install zsh-autosuggestions and zsh-syntax-highlighting plugins
+  echo "[+] Installing zsh plugins..."
+  ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
+  git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autocomplete
+  git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
+  git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
+  git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+  git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+  sudo bash ~/.fzf/install --all
 
-# Source ~/.bash_profile to apply changes
-# source ~/.bash_profile >/dev/null 2>&1
+  # Enable plugins and change theme in ~/.zshrc
+  echo "Configuring zsh..."
+  sed -i 's/^plugins=(.*)/plugins=(git cp colored-man-pages colorize zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete fzf-zsh-plugin fzf-tab ohmyzsh-full-autoupdate)/' ~/.zshrc
+  sed -i 's/^ZSH_THEME="[^"]*"/ZSH_THEME="agnoster"/' ~/.zshrc
 
-# Copy Tmux Config file
-cp -a ~/bin/dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
+  # Set Dotfiles (if applicable)
+  echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.zshrc
 
-# Copy Vim Config file
-cp -a ~/bin/dotfiles/config/vim/vimrc $HOME/.vimrc
+  # Change default shell to zsh
+  echo "[+] Changing default shell to zsh..."
+  sudo usermod --shell $(which zsh) $USER
+}
 
-# Copy Vim Config file
-cp -a ~/bin/dotfiles/config/zsh/.fzf.zsh $HOME/.fzf.zsh
+# Install starship
+install_starship() {
+  echo "[+] Installing starship...."
+  curl -O https://starship.rs/install.sh 
+  chmod +x install.sh 
+  ./install.sh -y 
+  echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+  rm -rf install.sh
+  echo "[+] ✓ Installation done"
+}
 
-# Change directory
-cd "$current_dir" &> /dev/null
+# print MSG
+print_msg() {
+  # Inform user to switch to zsh
+  clear
+  echo ""
+  echo ""
+  echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
+  echo ""
+  echo ""
+  echo -e " ${Blue}${BLINK}${BOLD}   ✓ Installation done, To complete the setup, you need to log out and log back in, or restart your terminal... If you are using it on server then install nerd font to your SSH client to see effect... ${NOCOLOR}"
+}
 
-# Install Oh My Zsh non-interactively
-echo "Installing Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+# main function
+main() {
+  check_os
+  check_user
+  add_user_in_sudors
+  ask_yes_no
+  if_exist_dotfiles
+  install_dotfiles
+  copy_config
+  install_nerd_fonts
+  install_zsh
+  install_starship
+  print_msg
+}
 
-# Install zsh-autosuggestions and zsh-syntax-highlighting plugins
-echo "Installing zsh plugins..."
-ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autocomplete
-git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
-git clone https://github.com/Pilaton/OhMyZsh-full-autoupdate.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/ohmyzsh-full-autoupdate
-git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
-sudo bash ~/.fzf/install --all
-
-# Enable plugins and change theme in ~/.zshrc
-echo "Configuring zsh..."
-sed -i 's/^plugins=(.*)/plugins=(git cp colored-man-pages colorize zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete fzf-zsh-plugin fzf-tab ohmyzsh-full-autoupdate)/' ~/.zshrc
-sed -i 's/^ZSH_THEME="[^"]*"/ZSH_THEME="agnoster"/' ~/.zshrc
-
-# Set Dotfiles (if applicable)
-echo '. ~/bin/dotfiles/bashrc 2>/dev/null' >> ~/.zshrc
-
-# Change default shell to zsh
-echo "Changing default shell to zsh..."
-sudo usermod --shell $(which zsh) $USER
-
-# Inform user to switch to zsh
-clear
-echo ""
-echo ""
-echo -e " ${GREEN}${BOLD}-:Thanks for using Dotfiles:-		${NOCOLOR}"
-echo ""
-echo ""
-echo -e " ${Blue}${BLINK}${BOLD}   Installation done, To complete the setup, you need to log out and log back in, or restart your terminal...${NOCOLOR}"
-
+# Execute function
+main
