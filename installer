@@ -154,6 +154,7 @@ copy_config() {
   cp -a ~/bin/dotfiles/config/tmux/.tmux.conf $HOME/.tmux.conf
   cp -a ~/bin/dotfiles/config/vim/vimrc $HOME/.vimrc
   cp -a ~/bin/dotfiles/config/zsh/.fzf.zsh $HOME/.fzf.zsh
+  mkdir -p $HOME/.config/
   cp -a ~/bin/dotfiles/config/starship/starship.toml $HOME/.config/starship.toml
   cd "$current_dir" &> /dev/null
 }
