@@ -57,30 +57,11 @@ bash <(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/ins
 
 You can safely install additional software and make any changes to the file system. Once you exit container the image is deleted.
 
-<details>
-<summary>Using Ubuntu latest image:</summary>
-
-```bash
-docker run -e TERM -e COLORTERM -w /root -it --rm ubuntu sh -uec '
-  apt-get update
-  apt-get install -y curl git build-essential sudo
-  su -c bash -c "$(curl -s https://raw.githubusercontent.com/meibraransari/dotfiles/main/installer)"
-  su -c exec bash'
-```
-
-</details>
-
-<details>
-<summary>Or using Ubuntu Preinstalled:</summary>
-
 ```bash
 docker pull ibraransaridocker/dotfiles
 docker run -itd --name=c-dotfiles ibraransaridocker/dotfiles /bin/bash
 docker exec -it c-dotfiles /bin/bash
 ```
-</details>
-
-
 
 ## 🔄 Update to latest release.
 
@@ -108,6 +89,11 @@ help_<Press Tab to select app to install>
 ## 📝A Nice System Info 😊
 ```
 system_info
+```
+
+## 🗑️Trash
+```
+trash <Files_or_folder>
 ```
 
 ## 🚀 DevOps Tools Installer Included
