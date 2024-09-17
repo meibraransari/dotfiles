@@ -1,3 +1,18 @@
+# nano ~/.ssh/config
+# man ssh_config
+# tldr ssh_config
+# Configuration for all servers in a specific domain
+Host *
+   ServerAliveInterval 600
+   TCPKeepAlive yes
+   IPQoS=throughput
+
+# Gitlab account
+Host gitlab
+    HostName 192.168.192.203
+	User user
+	Port 22
+
 # Azure account
 Host ssh.dev.azure.com
 	User alijan.adeli@consid.se
@@ -23,11 +38,6 @@ Host gala_2
   Hostname 10.0.10.102
   Port 22
   User gala-node-2
-
-Host *
-  IdentityAgent ~/.1password/agent.sock
-
-AddKeysToAgent yes
 
 Host github.com
     IdentityFile ~/.ssh/github_ed25519
