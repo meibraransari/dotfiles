@@ -1,6 +1,6 @@
 ---
 Created: 2024-08-03T07:07:27+05:30
-Updated: 2024-08-08T08:06:38+05:30
+Updated: 2025-02-10T20:26:18+05:30
 Maintainer: Ibrar Ansari
 ---
 <div align="center">
@@ -261,6 +261,9 @@ And many more... to see the all commands and its usage, use "help_ansible" comma
 > 📢📢📢 I am continuously updating this repository so feel free to fork this repository for future updates!
 ---
 
+## 🤝 Contributing
+
+Ensure commits use conventional commits.
 ### 💼 Connect with me 👇👇 😊
 
 - 🔥 [**Youtube**](https://www.youtube.com/@DevOpsinAction?sub_confirmation=1)
