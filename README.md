@@ -247,16 +247,16 @@ And many more... to see the all commands and its usage, use "help_ansible" comma
 
 ### ⚡️ Power of DevOps 💪🏽Tools
 
-- ✔ [Docker](https://github.com/meibraransari/dotfiles/blob/main/docker/docker)
-- ✔ [Kubernetes](https://github.com/meibraransari/dotfiles/blob/main/kubernetes/kubernetes)
-- ✔ [Ansible](https://github.com/meibraransari/dotfiles/blob/main/ansible/ansible)
-- ✔ [Terraform](https://github.com/meibraransari/dotfiles/blob/main/terraform/terraform)
-- ✔ [Proxmox-LXC](https://github.com/meibraransari/dotfiles/blob/main/proxmox/proxmox)
-- ✔ [Vim](https://github.com/meibraransari/dotfiles/blob/main/vim/vimrc)
-- ✔ [Git](https://github.com/meibraransari/dotfiles/blob/main/git/git)
-- ✔ [Linux](https://github.com/meibraransari/dotfiles/tree/main/linux/linux)
+- ✔ [Docker](https://github.com/meibraransari/dotfiles/blob/main/config/docker/docker)
+- ✔ [Kubernetes](https://github.com/meibraransari/dotfiles/blob/main/config/kubernetes/kubernetes)
+- ✔ [Ansible](https://github.com/meibraransari/dotfiles/blob/main/config/ansible/ansible)
+- ✔ [Terraform](https://github.com/meibraransari/dotfiles/blob/main/config/terraform/terraform)
+- ✔ [Proxmox-LXC](https://github.com/meibraransari/dotfiles/blob/main/config/proxmox/proxmox)
+- ✔ [Vim](https://github.com/meibraransari/dotfiles/blob/main/config/vim/vimrc)
+- ✔ [Git](https://github.com/meibraransari/dotfiles/blob/main/config/git/git)
+- ✔ [Linux](https://github.com/meibraransari/dotfiles/tree/main/config/linux/linux)
 - ✔ [Bash-Completion](https://packages.debian.org/bookworm/bash-completion/)
-- ✔ [GRC](https://github.com/meibraransari/dotfiles/blob/main/grc/grc)
+- ✔ [GRC](https://github.com/meibraransari/dotfiles/blob/main/config/grc/grc)
 
 ---
 > 📢📢📢 I am continuously updating this repository so feel free to fork this repository for future updates!
