@@ -29,6 +29,7 @@ dhp() {
   echo "durn = docker update --restart=no <Container>"
   echo "dura = docker update --restart=always <Container>"
   echo "dcr = docker inspect restart policy"
+  echo "dclean = Clean all running + stopped containers"
 }
 
 alias dps="docker ps -a"
@@ -59,6 +60,7 @@ alias ddi='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias durn="docker update --restart=no $1"
 alias dura="docker update --restart=always $1"
 alias dcr="docker ps -aq | xargs docker inspect --format '{{.Name}} Restart: {{ .HostConfig.RestartPolicy.Name }}'"
+alias dclean='docker rm -f $(docker ps -aq)'
 
 dec() {
   docker exec -it "$@" bash
