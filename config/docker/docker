@@ -29,7 +29,10 @@ dhp() {
   echo "durn = docker update --restart=no <Container>"
   echo "dura = docker update --restart=always <Container>"
   echo "dcr = docker inspect restart policy"
-  echo "dclean = Clean all running + stopped containers"
+  echo "dclean = Clean all running + stopped containers forcefully"
+  echo "diclean = Delete all images forcefully"
+  echo "dvclean = Delete all volumes forcefully"
+  echo "dclean_all = Clean all docker (containers, images, volumes and networks"
 }
 
 alias dps="docker ps -a"
@@ -61,6 +64,31 @@ alias durn="docker update --restart=no $1"
 alias dura="docker update --restart=always $1"
 alias dcr="docker ps -aq | xargs docker inspect --format '{{.Name}} Restart: {{ .HostConfig.RestartPolicy.Name }}'"
 alias dclean='docker rm -f $(docker ps -aq)'
+alias diclean='docker rmi -f $(docker images -q)'
+alias dvclean='docker volume rm -f $(docker volume ls -q)'
+
+dclean_all() {
+  echo "Stopping all containers..."
+  docker stop $(docker ps -aq) 2>/dev/null
+
+  echo "Removing all containers..."
+  docker rm -f $(docker ps -aq) 2>/dev/null
+
+  echo "Removing all images..."
+  docker rmi -f $(docker images -q) 2>/dev/null
+
+  echo "Removing all volumes..."
+  docker volume rm -f $(docker volume ls -q) 2>/dev/null
+
+  echo "Removing all networks (except default ones)..."
+  docker network rm $(docker network ls | grep -vE 'bridge|host|none' | awk '{print $1}') 2>/dev/null
+
+  echo "Pruning builder cache..."
+  docker builder prune -af
+
+  echo "Docker system fully cleaned."
+}
+
 
 dec() {
   docker exec -it "$@" bash
