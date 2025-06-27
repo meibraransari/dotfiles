@@ -17,3 +17,40 @@ alias dcdv='docker-compose down -v'
 alias dcl='docker-compose logs'
 alias dcc='docker-compose config'
 alias dcb='docker-compose build'
+
+
+dup() {
+    # Build the profile arguments if any are passed
+    profile_args=()
+    for profile in "$@"; do
+        profile_args+=("--profile=$profile")
+    done
+
+    # Check if the new 'docker compose' command exists
+    if docker compose version > /dev/null 2>&1; then
+        docker compose "${profile_args[@]}" up -d
+    elif docker-compose version > /dev/null 2>&1; then
+        docker-compose "${profile_args[@]}" up -d
+    else
+        echo "Error: Docker Compose not found!"
+        return 1
+    fi
+}
+
+
+ddown() {
+    # Build the profile arguments if any are passed
+    profile_args=()
+    for profile in "$@"; do
+        profile_args+=("--profile=$profile")
+    done
+
+    if docker compose version > /dev/null 2>&1; then
+        docker compose "${profile_args[@]}" down
+    elif docker-compose version > /dev/null 2>&1; then
+        docker-compose "${profile_args[@]}" down
+    else
+        echo "Error: Docker Compose not found!"
+        return 1
+    fi
+}
