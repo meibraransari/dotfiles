@@ -33,6 +33,10 @@ dhp() {
   echo "diclean = Delete all images forcefully"
   echo "dvclean = Delete all volumes forcefully"
   echo "dclean_all = Clean all docker (containers, images, volumes and networks"
+  echo "docker_clean_dangling_builder  = docker_clean_dangling_builder"
+  echo "docker_copy = docker_copy"
+  echo "docker_advantages = docker_advantages"
+  echo "pull_demo_images = pull_demo_images" 
 }
 
 alias dps="docker ps -a"
@@ -129,3 +133,20 @@ docker_clean_dangling_builder() {
 
 
 
+pull_demo_images() {
+  local images=(
+    "ibraransaridocker/network-debug-tools:latest"
+    "ibraransaridocker/whoami:latest"
+    "ibraransaridocker/coming-soon:latest"
+    "ibraransaridocker/under-maintenance:latest"
+    "ibraransaridocker/nginx-demo:latest"
+    "ibraransaridocker/dotfiles:latest"
+  )
+
+  for image in "${images[@]}"; do
+    echo "Pulling $image..."
+    docker pull "$image"
+  done
+
+  echo "All images pulled successfully."
+}
