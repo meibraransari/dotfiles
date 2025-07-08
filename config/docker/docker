@@ -158,11 +158,13 @@ pull_demo_images() {
 
 volume_export_import() {
   BUSYBOX_IMAGE=${BUSYBOX_IMAGE:-busybox}
+
   restart_script() {
     echo
-    read -n1 -r -p "Press any key to restart the script..." key
+    echo "Press any key to restart the script..."
+    read -rsn1
     echo
-    exec "$0" "$@"
+    exec "$0"
   }
 
   check_busybox() {
@@ -176,12 +178,12 @@ volume_export_import() {
     export)
       VOLUME_NAME="$2"
       OUTPUT_FILE="${3:-$VOLUME_NAME.tar.gz}"
-      
+
       if [ -z "$VOLUME_NAME" ]; then
         echo >&2 "error: volume name is required"
         restart_script
       fi
-      
+
       check_busybox
       docker run --rm -v "$VOLUME_NAME":/_data:ro "$BUSYBOX_IMAGE" tar czf - -C / _data > "$OUTPUT_FILE"
       echo "Volume '$VOLUME_NAME' exported to '$OUTPUT_FILE'"
@@ -190,7 +192,7 @@ volume_export_import() {
     import)
       VOLUME_NAME="$2"
       INPUT_FILE="$3"
-      
+
       if [ -z "$VOLUME_NAME" ] || [ -z "$INPUT_FILE" ]; then
         echo >&2 "error: volume name and input file are required"
         restart_script
@@ -208,4 +210,7 @@ volume_export_import() {
       restart_script
       ;;
   esac
+
 }
+
+
