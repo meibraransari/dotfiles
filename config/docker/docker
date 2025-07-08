@@ -157,50 +157,55 @@ pull_demo_images() {
 
 
 volume_export_import() {
+  BUSYBOX_IMAGE=${BUSYBOX_IMAGE:-busybox}
+  restart_script() {
+    echo
+    read -n1 -r -p "Press any key to restart the script..." key
+    echo
+    exec "$0" "$@"
+  }
 
-BUSYBOX_IMAGE=${BUSYBOX_IMAGE:-busybox}
-check_busybox() {
-  if ! docker image inspect "$BUSYBOX_IMAGE" >/dev/null 2>&1; then
-    echo >&2 "error: $BUSYBOX_IMAGE image not found. Downloading it."
-    docker pull $BUSYBOX_IMAGE
-  fi
-}
-
-case "$1" in
-  export)
-    VOLUME_NAME="$2"
-    OUTPUT_FILE="${3:-$VOLUME_NAME.tar.gz}"
-    
-    if [ -z "$VOLUME_NAME" ]; then
-      echo >&2 "error: volume name is required"
-      exit 1
+  check_busybox() {
+    if ! docker image inspect "$BUSYBOX_IMAGE" >/dev/null 2>&1; then
+      echo >&2 "error: $BUSYBOX_IMAGE image not found. Downloading it."
+      docker pull "$BUSYBOX_IMAGE"
     fi
-    
-    check_busybox
-    docker run --rm -v "$VOLUME_NAME":/_data:ro "$BUSYBOX_IMAGE" tar czf - -C / _data > "$OUTPUT_FILE"
-    echo "Volume '$VOLUME_NAME' exported to '$OUTPUT_FILE'"
-    ;;
-    
-  import)
-    VOLUME_NAME="$2"
-    INPUT_FILE="$3"
-    
-    if [ -z "$VOLUME_NAME" ] || [ -z "$INPUT_FILE" ]; then
-      echo >&2 "error: volume name and input file are required"
-      exit 1
-    fi
+  }
 
-    check_busybox
-    docker volume create "$VOLUME_NAME" >/dev/null
-    docker run --rm -i -v "$VOLUME_NAME":/_data:rw "$BUSYBOX_IMAGE" tar xzf - -C / < "$INPUT_FILE"
-    echo "Imported '$INPUT_FILE' into volume '$VOLUME_NAME'"
-    ;;
-    
-  *)
-    echo >&2 "usage: $0 export <volume-name> [output.tar.gz]"
-    echo >&2 "       $0 import <volume-name> [output.tar.gz]"
-    exit 1
-    ;;
-esac
+  case "$1" in
+    export)
+      VOLUME_NAME="$2"
+      OUTPUT_FILE="${3:-$VOLUME_NAME.tar.gz}"
+      
+      if [ -z "$VOLUME_NAME" ]; then
+        echo >&2 "error: volume name is required"
+        restart_script
+      fi
+      
+      check_busybox
+      docker run --rm -v "$VOLUME_NAME":/_data:ro "$BUSYBOX_IMAGE" tar czf - -C / _data > "$OUTPUT_FILE"
+      echo "Volume '$VOLUME_NAME' exported to '$OUTPUT_FILE'"
+      ;;
 
+    import)
+      VOLUME_NAME="$2"
+      INPUT_FILE="$3"
+      
+      if [ -z "$VOLUME_NAME" ] || [ -z "$INPUT_FILE" ]; then
+        echo >&2 "error: volume name and input file are required"
+        restart_script
+      fi
+
+      check_busybox
+      docker volume create "$VOLUME_NAME" >/dev/null
+      docker run --rm -i -v "$VOLUME_NAME":/_data:rw "$BUSYBOX_IMAGE" tar xzf - -C / < "$INPUT_FILE"
+      echo "Imported '$INPUT_FILE' into volume '$VOLUME_NAME'"
+      ;;
+
+    *)
+      echo >&2 "usage: $0 export <volume-name> [output.tar.gz]"
+      echo >&2 "       $0 import <volume-name> <input.tar.gz>"
+      restart_script
+      ;;
+  esac
 }
