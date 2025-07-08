@@ -1,23 +1,46 @@
 ###################
 # Docker Compose  #
 ###################
-alias dcv='docker-compose version'
-alias dcp='docker-compose pull'
-alias dci='docker-compose images'
-alias dcud='docker-compose up -d'
-alias dcudb='docker-compose up -d --build'
-alias dcps='docker-compose ps'
-alias dcls='docker-compose ps'
-alias dcsp='docker-compose stop'
-alias dcd='docker-compose down'
-alias dcst='docker-compose start'
-alias dcpu='docker-compose pause'
-alias dcu='docker-compose unpause'
-alias dcdv='docker-compose down -v'
-alias dcl='docker-compose logs'
-alias dcc='docker-compose config'
-alias dcb='docker-compose build'
 
+dchp() {
+  echo "dcv   = check docker compose version"
+  echo "dcp   = pull latest images as defined in the compose file"
+  echo "dci   = list images used by services in the compose file"
+  echo "dcud  = start containers in detached mode"
+  echo "dcudb = build images and start containers in detached mode"
+  echo "dcps  = list running containers managed by docker compose"
+  echo "dcls  = same as dcps, shows container status"
+  echo "dcsp  = stop all running containers"
+  echo "dcd   = stop and remove containers, networks, etc."
+  echo "dcst  = start services that were previously stopped"
+  echo "dcpu  = pause all running containers"
+  echo "dcu   = unpause all paused containers"
+  echo "dcdv  = take down containers and also remove named volumes"
+  echo "dcl   = show logs from all containers"
+  echo "dcc   = validate and view the effective docker compose configuration"
+  echo "dcb   = build or rebuild services"
+  echo "dup   = start services using profiles (e.g. dup web db)"
+  echo "ddown = stop services using profiles (e.g. ddown web db)"
+  echo "find_docker_compose_path <container_name> = find the path to the compose file that started a specific container"
+}
+
+
+alias dcv='docker compose version'
+alias dcp='docker compose pull'
+alias dci='docker compose images'
+alias dcud='docker compose up -d'
+alias dcudb='docker compose up -d --build'
+alias dcps='docker compose ps'
+alias dcls='docker compose ps'
+alias dcsp='docker compose stop'
+alias dcd='docker compose down'
+alias dcst='docker compose start'
+alias dcpu='docker compose pause'
+alias dcu='docker compose unpause'
+alias dcdv='docker compose down -v'
+alias dcl='docker compose logs'
+alias dcc='docker compose config'
+alias dcb='docker compose build'
 
 dup() {
     # Build the profile arguments if any are passed
@@ -51,6 +74,34 @@ ddown() {
         docker-compose "${profile_args[@]}" down
     else
         echo "Error: Docker Compose not found!"
+        return 1
+    fi
+}
+
+
+find_docker_compose_path() {
+    container_name="$1"
+
+    if [ -z "$container_name" ]; then
+        echo "Usage: find_docker_compose_path <container_name>"
+        return 1
+    fi
+
+    # Get the working directory label from the container
+    working_dir=$(docker inspect --format '{{ index .Config.Labels "com.docker.compose.project.working_dir" }}' "$container_name" 2>/dev/null)
+
+    if [ -z "$working_dir" ]; then
+        echo "Could not find compose project working directory for container: $container_name"
+        return 1
+    fi
+
+    # Look for docker-compose.yml or compose.yaml in the working directory
+    if [ -f "$working_dir/docker-compose.yml" ]; then
+        echo "$working_dir/docker-compose.yml"
+    elif [ -f "$working_dir/compose.yaml" ]; then
+        echo "$working_dir/compose.yaml"
+    else
+        echo "Compose file not found in: $working_dir"
         return 1
     fi
 }
