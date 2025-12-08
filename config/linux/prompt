@@ -15,4 +15,5 @@ set_bash_prompt(){
 #  PS1+="${COL_USER_HOST}${COL_CURRENT_PATH}\w${RESET} "
 }
 ## Done, now just set the PS1 prompt :)
-PROMPT_COMMAND=set_bash_prompt
+#PROMPT_COMMAND=set_bash_prompt
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }set_bash_prompt"
