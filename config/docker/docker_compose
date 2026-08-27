@@ -44,6 +44,11 @@ alias dcc='docker compose config'
 alias dcb='docker compose build'
 
 dcfc() {
+    if [ -z "${1:-}" ]; then
+        echo "Usage: dcfc <container>"
+        return 1
+    fi
+
     docker inspect "$1" --format '{{json .Config.Labels}}' | jq
 }
 
