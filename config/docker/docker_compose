@@ -18,6 +18,7 @@ dchp() {
   echo "dcu   = unpause all paused containers"
   echo "dcdv  = take down containers and also remove named volumes"
   echo "dcl   = show logs from all containers"
+  echo "dclf   = show logs from all containers with following"
   echo "dcc   = validate and view the effective docker compose configuration"
   echo "dcb   = build or rebuild services"
   echo "dup   = start services using profiles (e.g. dup web db)"
@@ -40,6 +41,7 @@ alias dcpu='docker compose pause'
 alias dcu='docker compose unpause'
 alias dcdv='docker compose down -v'
 alias dcl='docker compose logs'
+alias dclf='docker compose logs -f --tail=1'
 alias dcc='docker compose config'
 alias dcb='docker compose build'
 
