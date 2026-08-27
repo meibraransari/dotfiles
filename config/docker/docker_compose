@@ -4,6 +4,7 @@
 
 dchp() {
   echo "dcv   = check docker compose version"
+  echo "dcfc container_name   = find docker compose file of container"
   echo "dcp   = pull latest images as defined in the compose file"
   echo "dci   = list images used by services in the compose file"
   echo "dcud  = start containers in detached mode"
@@ -41,6 +42,10 @@ alias dcdv='docker compose down -v'
 alias dcl='docker compose logs'
 alias dcc='docker compose config'
 alias dcb='docker compose build'
+
+dcfc() {
+    docker inspect "$1" --format '{{json .Config.Labels}}'
+}
 
 dup() {
     # Build the profile arguments if any are passed
