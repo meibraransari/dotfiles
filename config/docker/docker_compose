@@ -44,7 +44,7 @@ alias dcc='docker compose config'
 alias dcb='docker compose build'
 
 dcfc() {
-    docker inspect "$1" --format '{{json .Config.Labels}}'
+    docker inspect "$1" --format '{{json .Config.Labels}}' | jq
 }
 
 dup() {
