@@ -106,14 +106,21 @@ decx() {
 }
 
 dpsc() {
-    printf "%-14s %-16s %-25s %-45s %-45s\n" \
-        "CONTAINER ID" "CREATED" "STATUS" "IMAGE" "NAMES"
+    # Column headers
+    h_id="CONTAINER ID"
+    h_name="NAMES"
+    h_image="IMAGE"
+    h_path="COMPOSE PROJECT PATH"
 
-    printf "%-60s %s\n" "" "COMPOSE PROJECT PATH"
-    printf '%*s\n' 160 '' | tr ' ' '-'
+    # Minimum column widths
+    w_id=14
+    w_name=20
+    w_image=45
+    w_path=25
 
-    docker ps --format '{{.ID}}|{{.CreatedAt}}|{{.Status}}|{{.Image}}|{{.Names}}' |
-    while IFS='|' read -r id created status image name; do
+    # Collect container information
+    data=$(docker ps --format '{{.ID}}|{{.Names}}|{{.Image}}' |
+    while IFS='|' read -r id name image; do
 
         compose_path=$(docker inspect \
             --format '{{index .Config.Labels "com.docker.compose.project.working_dir"}}' \
@@ -121,9 +128,44 @@ dpsc() {
 
         [ -z "$compose_path" ] && compose_path="-"
 
-        printf "%-14s %-16s %-25s %-45s %-45s %s\n" \
-            "$id" "$created" "$status" "$image" "$name" "$compose_path"
-    done
+        printf '%s|%s|%s|%s\n' \
+            "$id" "$name" "$image" "$compose_path"
+
+    done)
+
+    # Calculate dynamic column widths
+    while IFS='|' read -r id name image path; do
+
+        [ "${#id}" -gt "$w_id" ] && w_id=${#id}
+        [ "${#name}" -gt "$w_name" ] && w_name=${#name}
+        [ "${#image}" -gt "$w_image" ] && w_image=${#image}
+        [ "${#path}" -gt "$w_path" ] && w_path=${#path}
+
+    done <<EOF
+$data
+EOF
+
+    # Header
+    printf "%-${w_id}s  %-${w_name}s  %-${w_image}s  %s\n" \
+        "$h_id" "$h_name" "$h_image" "$h_path"
+
+    # Separator
+    separator=$(
+        printf '%*s' \
+            "$((w_id + w_name + w_image + w_path + 6))" ''
+    )
+
+    printf '%s\n' "$separator" | tr ' ' '-'
+
+    # Data
+    while IFS='|' read -r id name image path; do
+
+        printf "%-${w_id}s  %-${w_name}s  %-${w_image}s  %s\n" \
+            "$id" "$name" "$image" "$path"
+
+    done <<EOF
+$data
+EOF
 }
 
 docker_advantages() {
