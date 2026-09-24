@@ -8,6 +8,7 @@ dhp() {
   echo "dps = docker ps -a"
   echo "dpsi = list running containers with image"
   echo "dpsia = list all containers with image"
+  echo "dpsc = list all containers with image"
   echo "dpi = Formatted by Ibrar"
   echo "dpp = Formatted ports"
   echo "dsp = docker stop"
@@ -102,6 +103,27 @@ dec() {
 
 decx() {
   docker exec -it "$@" sh
+}
+
+dpsc() {
+    printf "%-14s %-16s %-25s %-45s %-45s\n" \
+        "CONTAINER ID" "CREATED" "STATUS" "IMAGE" "NAMES"
+
+    printf "%-60s %s\n" "" "COMPOSE PROJECT PATH"
+    printf '%*s\n' 160 '' | tr ' ' '-'
+
+    docker ps --format '{{.ID}}|{{.CreatedAt}}|{{.Status}}|{{.Image}}|{{.Names}}' |
+    while IFS='|' read -r id created status image name; do
+
+        compose_path=$(docker inspect \
+            --format '{{index .Config.Labels "com.docker.compose.project.working_dir"}}' \
+            "$id" 2>/dev/null)
+
+        [ -z "$compose_path" ] && compose_path="-"
+
+        printf "%-14s %-16s %-25s %-45s %-45s %s\n" \
+            "$id" "$created" "$status" "$image" "$name" "$compose_path"
+    done
 }
 
 docker_advantages() {
