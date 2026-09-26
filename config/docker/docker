@@ -7,7 +7,7 @@ dhp() {
   echo "disu = docker images usage"
   echo "drn = docker run -itd 2=name 2=image"
   echo "dps = docker ps -a"
-  echo "dpsi = list running containers with image"
+  echo "dpsu = list running containers with image"
   echo "dpsia = list all containers with image"
   echo "dpsc = list all containers with image"
   echo "dpi = Formatted by Ibrar"
