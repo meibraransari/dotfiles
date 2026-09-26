@@ -4,6 +4,7 @@
 dhp() {
   echo "dpl = docker pull"
   echo "dis = docker images"
+  echo "disu = docker images usage"
   echo "drn = docker run -itd 2=name 2=image"
   echo "dps = docker ps -a"
   echo "dpsi = list running containers with image"
@@ -104,6 +105,68 @@ dec() {
 decx() {
   docker exec -it "$@" sh
 }
+
+disu() {
+    local data
+    local image_width
+    local status_width
+    local container_width
+    local size_width
+
+    data=$(
+        docker image ls --format '{{.Repository}}:{{.Tag}}\t{{.Size}}' |
+        while IFS=$'\t' read -r image size; do
+            containers=$(docker ps -a --filter "ancestor=$image" --format '{{.Names}}' | paste -sd ',' -)
+
+            if [ -n "$containers" ]; then
+                printf "%s\tUSED\t%s\t%s\n" "$image" "$containers" "$size"
+            else
+                printf "%s\tUNUSED\t-\t%s\n" "$image" "$size"
+            fi
+        done |
+        sort -t $'\t' -k2,2 -k1,1
+    )
+
+    # Calculate maximum column widths
+    image_width=$(printf "%s\n" "$data" | awk -F '\t' '
+        { if (length($1) > max) max=length($1) }
+        END { print (max > 5 ? max : 5) }
+    ')
+
+    status_width=$(printf "%s\n" "$data" | awk -F '\t' '
+        { if (length($2) > max) max=length($2) }
+        END { print (max > 6 ? max : 6) }
+    ')
+
+    container_width=$(printf "%s\n" "$data" | awk -F '\t' '
+        { if (length($3) > max) max=length($3) }
+        END { print (max > 9 ? max : 9) }
+    ')
+
+    size_width=$(printf "%s\n" "$data" | awk -F '\t' '
+        { if (length($4) > max) max=length($4) }
+        END { print (max > 4 ? max : 4) }
+    ')
+
+    # Header
+    printf "%-${image_width}s  %-${status_width}s  %-${container_width}s  %-${size_width}s\n" \
+        "IMAGE" "STATUS" "CONTAINER" "SIZE"
+
+    # Separator
+    printf "%-${image_width}s  %-${status_width}s  %-${container_width}s  %-${size_width}s\n" \
+        "$(printf '%*s' "$image_width" '' | tr ' ' '-')" \
+        "$(printf '%*s' "$status_width" '' | tr ' ' '-')" \
+        "$(printf '%*s' "$container_width" '' | tr ' ' '-')" \
+        "$(printf '%*s' "$size_width" '' | tr ' ' '-')"
+
+    # Data
+    printf "%s\n" "$data" |
+    while IFS=$'\t' read -r image status containers size; do
+        printf "%-${image_width}s  %-${status_width}s  %-${container_width}s  %-${size_width}s\n" \
+            "$image" "$status" "$containers" "$size"
+    done
+}
+
 
 dpsc() {
     # Column headers
