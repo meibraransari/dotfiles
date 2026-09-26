@@ -48,7 +48,6 @@ alias dpe='clear && docker ps -a -f "status=exited"'
 alias dpi='clear  && echo -e "List of running containers" && docker ps --format "table {{.ID}}\t{{.RunningFor}}\t{{.Status}}\t{{.Image}}\t{{.Names}}"'
 alias dpp='clear  && docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
 alias dpia='clear  && docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}\t{{.Image}}\t{{.Command}}\{{.RunningFor}}\{{.Status}}"'
-alias dpsi='clear  && docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}"'
 alias dpsia='clear  && docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}"'
 alias dpl="docker pull $1"
 alias dis="docker images"
